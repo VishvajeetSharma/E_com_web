@@ -15,72 +15,72 @@ import { motion, AnimatePresence } from "framer-motion";
 const items = [
   {
     id: 1,
-    title: "Abstract Flow",
-    category: "Web Design",
+    title: "Look 01",
+    category: "Editorial",
     image:
       "https://images.unsplash.com/photo-1730727384555-35318cb80600?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTB8fGZhc2hpb24lMjBjbG90aGVzfGVufDB8fDB8fHww",
     size: "tall",
   },
   {
     id: 2,
-    title: "Cyberpunk City",
-    category: "3D Art",
+    title: "Look 02",
+    category: "Campaign",
     image: "https://images.pexels.com/photos/3784391/pexels-photo-3784391.jpeg",
     size: "small",
   },
   {
     id: 3,
-    title: "Modern Minimal",
+    title: "Look 03",
     category: "Branding",
     image: "https://images.pexels.com/photos/3183150/pexels-photo-3183150.jpeg",
     size: "wide",
   },
   {
     id: 4,
-    title: "Oceanic Patterns",
-    category: "UI/UX",
+    title: "Look 04",
+    category: "Lookbook",
     image: "https://images.pexels.com/photos/1181244/pexels-photo-1181244.jpeg",
     size: "small",
   },
   {
     id: 5,
-    title: "Global Network",
-    category: "Analytics",
+    title: "Look 05",
+    category: "Runway",
     image: "https://images.pexels.com/photos/590022/pexels-photo-590022.jpeg",
     size: "tall",
   },
   {
     id: 6,
-    title: "Future Office",
-    category: "Architecture",
+    title: "Look 06",
+    category: "Spaces",
     image: "https://images.pexels.com/photos/3182812/pexels-photo-3182812.jpeg",
     size: "small",
   },
   {
     id: 7,
-    title: "Tech Stack",
-    category: "Development",
+    title: "Look 07",
+    category: "Craft",
     image: "https://images.pexels.com/photos/574071/pexels-photo-574071.jpeg",
     size: "wide",
   },
   {
     id: 8,
-    title: "Creative Workspace",
-    category: "Interior",
+    title: "Look 08",
+    category: "Interiors",
     image: "https://images.pexels.com/photos/196644/pexels-photo-196644.jpeg",
     size: "tall",
   },
   {
-    id: 7,
-    title: "Tech Stack",
-    category: "Development",
+    id: 9,
+    title: "Look 09",
+    category: "Craft",
     image: "https://images.pexels.com/photos/574071/pexels-photo-574071.jpeg",
     size: "wide",
   },
   {
-    id: 6,
-    title: "Future Office",
-    category: "Architecture",
+    id: 10,
+    title: "Look 10",
+    category: "Spaces",
     image: "https://images.pexels.com/photos/3182812/pexels-photo-3182812.jpeg",
     size: "small",
   },
@@ -88,11 +88,11 @@ const items = [
 
 const categories = [
   "All",
-  "Web Design",
-  "3D Art",
+  "Editorial",
+  "Campaign",
   "Branding",
-  "UI/UX",
-  "Analytics",
+  "Lookbook",
+  "Runway",
 ];
 
 const Gallery = () => {
@@ -104,14 +104,14 @@ const Gallery = () => {
       : items.filter((i) => i.category === activeCategory);
 
   return (
-    <section className="w-full py-24 bg-gradient-to-r from-black via-[#063B4A] to-black ">
+    <section className="w-full py-24 bg-gradient-to-r from-[#151522] via-[#4A101C] to-[#151522] ">
       <div className="max-w-7xl mx-auto px-6">
         {/* Header Section */}
         <div className="flex flex-col md:flex-row items-end justify-between gap-8 mb-16">
           <div className="space-y-4 max-w-xl">
-            <h2 className="text-4xl md:text-5xl font-black tracking-tight text-amber-500 leading-tight">
+            <h2 className="text-4xl md:text-5xl font-black tracking-tight text-[#FAF7F2] leading-tight">
               A Selection of Our{" "}
-              <span className="text-primary italic">Finest</span> Digital
+              <span className="text-[#C6A46A] italic">Finest</span>{" "}
               Creations
             </h2>
           </div>

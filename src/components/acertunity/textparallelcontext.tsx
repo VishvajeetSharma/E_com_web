@@ -31,7 +31,7 @@ type ExampleContentProps = {
 /* 🔹 MAIN */
 export const TextParallaxContentExample = () => {
   return (
-    <div className="bg-linear-to-r from-black via-[#063B4A] to-black">
+    <div className="bg-linear-to-r from-[#151522] via-[#4A101C] to-[#151522]">
       <TextParallaxContent
         imgUrl="https://i.pinimg.com/1200x/d6/94/1c/d6941cceffd6a56c0230cf05982987f4.jpg"
         subheading="Collaborate"

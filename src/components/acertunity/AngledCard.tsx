@@ -214,7 +214,7 @@ export const AngledSlider = ({
   return (
     <div
       className={cn(
-        "relative w-full overflow-hidden bg-gradient-to-r from-black via-[#063B4A] to-black  py-10 perspective-1000",
+        "relative w-full overflow-hidden bg-gradient-to-r from-[#151522] via-[#4A101C] to-[#151522]  py-10 perspective-1000",
         className,
       )}
       style={{

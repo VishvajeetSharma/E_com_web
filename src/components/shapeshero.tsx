@@ -94,8 +94,8 @@ export default function ShapeHero({
   };
 
   return (
-    <div className="relative flex min-h-screen w-full items-center justify-center overflow-hidden bg-linear-to-r from-black via-[#063B4A] to-black dark:bg-[#030303]">
-      <div className="absolute inset-0 bg-linear-to-br from-indigo-500/2 via-transparent to-rose-500/2 blur-3xl dark:from-indigo-500/5 dark:via-transparent dark:to-rose-500/5" />
+    <div className="relative flex min-h-screen w-full items-center justify-center overflow-hidden bg-linear-to-r from-[#151522] via-[#4A101C] to-[#151522] dark:bg-[#030303]">
+      <div className="absolute inset-0 bg-linear-to-br from-[#C6A46A]/5 via-transparent to-[#812D3A]/10 blur-3xl" />
 
       <div className="absolute inset-0 overflow-hidden">
         {/* Tall rectangle - top left */}
@@ -103,7 +103,7 @@ export default function ShapeHero({
           borderRadius={24}
           className="top-[-10%] left-[-15%]"
           delay={0.3}
-          gradient="from-indigo-500/[0.25] dark:from-indigo-500/[0.35]"
+          gradient="from-[#C6A46A]/[0.25] dark:from-[#C6A46A]/[0.35]"
           height={500}
           rotate={-8}
           width={300}
@@ -114,7 +114,7 @@ export default function ShapeHero({
           borderRadius={20}
           className="right-[-20%] bottom-[-5%]"
           delay={0.5}
-          gradient="from-rose-500/[0.25] dark:from-rose-500/[0.35]"
+          gradient="from-[#812D3A]/[0.45] dark:from-[#812D3A]/[0.55]"
           height={200}
           rotate={15}
           width={600}
@@ -125,7 +125,7 @@ export default function ShapeHero({
           borderRadius={32}
           className="top-[40%] left-[-5%]"
           delay={0.4}
-          gradient="from-violet-500/[0.25] dark:from-violet-500/[0.35]"
+          gradient="from-[#E8D9C9]/[0.18] dark:from-[#E8D9C9]/[0.22]"
           height={300}
           rotate={24}
           width={300}
@@ -136,7 +136,7 @@ export default function ShapeHero({
           borderRadius={12}
           className="top-[5%] right-[10%]"
           delay={0.6}
-          gradient="from-amber-500/[0.25] dark:from-amber-500/[0.35]"
+          gradient="from-[#C6A46A]/[0.3] dark:from-[#C6A46A]/[0.4]"
           height={100}
           rotate={-20}
           width={250}
@@ -168,7 +168,7 @@ export default function ShapeHero({
           borderRadius={10}
           className="top-[15%] left-[40%]"
           delay={0.8}
-          gradient="from-purple-500/[0.25] dark:from-purple-500/[0.35]"
+          gradient="from-[#812D3A]/[0.35] dark:from-[#812D3A]/[0.45]"
           height={80}
           rotate={45}
           width={150}
@@ -195,13 +195,13 @@ export default function ShapeHero({
             variants={fadeUpVariants as any}
           >
             <h1 className="mb-6 font-bold text-4xl tracking-tight sm:text-6xl md:mb-8 md:text-8xl">
-              <span className="bg-linear-to-b from-black to-black/80 bg-clip-text text-transparent dark:from-white dark:to-white/80">
+              <span className="bg-linear-to-b from-[#FAF7F2] to-[#E8D9C9] bg-clip-text text-transparent">
                 {title1}
               </span>
               <br />
               <span
                 className={cn(
-                  "bg-linear-to-r from-indigo-300 via-black/90 to-rose-300 bg-clip-text text-transparent dark:from-indigo-300 dark:via-white/90 dark:to-rose-300",
+                  "bg-linear-to-r from-[#C6A46A] via-[#FAF7F2] to-[#C6A46A] bg-clip-text text-transparent",
                 )}
               >
                 {title2}

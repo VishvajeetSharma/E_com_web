@@ -1,120 +1,72 @@
-import Header from "../../components/Header/Heading";
-import TopHeader from "../../components/TopHeader/TopHeader";
-import ProductCard from "../../components/Card/CardComponent";
-import { Footer } from "../../components/Footer/Footer";
-import gsap from "gsap";
-import FlashSaleSlider from "../../components/DashboardComponent/FlashSale";
-import TrendingSection from "../../components/DashboardComponent/TrendingSection";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
-import { useEffect, useState } from "react";
+import { useEffect, useMemo, useRef } from "react";
 import { useLocation } from "react-router-dom";
-import HeroSection from "../../components/DashboardComponent/HeroSection";
-import { useGSAP } from "@gsap/react";
 import { useSelector } from "react-redux";
-import Slider from "../../components/DashboardComponent/hero";
-import ShimmerCard from "../../components/Card/ShimmerCard";
-if (typeof window !== "undefined") {
-  gsap.registerPlugin(ScrollTrigger);
-}
+import { Footer } from "../../components/Footer/Footer";
+import HomeAnnouncement from "../../components/Home/HomeAnnouncement";
+import HomeNav from "../../components/Home/HomeNav";
+import HeroSection from "../../components/Home/HeroSection";
+import Collections from "../../components/Home/Collections";
+import ProductShelf from "../../components/Home/ProductShelf";
+import BrandStory from "../../components/Home/BrandStory";
+import PromoBanner from "../../components/Home/PromoBanner";
+import { useHomeAnimations } from "../../components/Home/useHomeAnimations";
+import { selectProducts, type HomeRootState } from "../../components/Home/homeData";
+import "../../components/Home/home.css";
 
+/** Homepage (route: /dashboard) — Darling Desire, Royal Burgundy edition. */
 const DashBoard = () => {
+  const root = useRef<HTMLDivElement>(null);
   const location = useLocation();
-  const [loading, setloading] = useState(true);
-  const allProducts = useSelector((state: any) => state.products.products);
-  // for Card Shimmer
-  useEffect(() => {
-    
-    setloading(true);
-    const product = setTimeout(() => {
-      setloading(false);
-    }, 6000);
-    return () => clearTimeout(product);
-  }, []);
-  // for animation
-  useEffect(() => {
-    if (location.hash) {
-      const id = location.hash.replace("#", "");
-      const element = document.getElementById(id);
+  const products = useSelector((s: HomeRootState) => selectProducts(s));
 
-      if (element) {
-        setTimeout(() => {
-          element.scrollIntoView({
-            behavior: "smooth",
-          });
-        }, 100);
-      }
-    }
+  const bestSellers = useMemo(() => products.filter((p) => p.badge === "Bestseller"), [products]);
+  const trending = useMemo(() => products.filter((p) => p.badge === "TRENDING"), [products]);
+
+  useHomeAnimations(root);
+
+  // Preserve existing "/dashboard#section" deep links.
+  useEffect(() => {
+    if (!location.hash) return;
+    const el = document.getElementById(location.hash.slice(1));
+    if (!el) return;
+    const t = setTimeout(() => el.scrollIntoView({ behavior: "smooth" }), 100);
+    return () => clearTimeout(t);
   }, [location.hash]);
 
-  useGSAP(() => {
-    gsap.utils.toArray<HTMLElement>(".animatedText").forEach((el) => {
-      gsap.from(el, {
-        y: 50,
-        opacity: 0,
-        duration: 0.9,
-        ease: "power3.out",
-        scrollTrigger: {
-          trigger: el,
-          start: "top 85%",
-          toggleActions: "play none none reverse",
-        },
-      });
-    });
-  }, []);
-
-  const productData = allProducts.filter((p: any) => p.badge !== "TRENDING");
-
-  const displayProducts = productData.slice(0, 10);
-
-  const trendingProducts = allProducts.filter(
-    (p: any) => p.badge === "TRENDING"
-  );
-
   return (
-    <div className="min-h-screen bg-red-50">
-      <TopHeader />
-      <Header />
-      <HeroSection />
-
-      <FlashSaleSlider />
-
-      {/* Trending */}
-
-      <TrendingSection trendingProducts={trendingProducts} />
-      <Slider />
-      <div className="bg-gray-50 py-8">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="mb-10">
-            <div className="animatedText text-center mb-6">
-              <span className="text-xs uppercase tracking-[0.2em] text-gray-400 font-medium block mb-2">
-                Our Collection
-              </span>
-
-              <h2 className="text-[1.8rem] md:text-4xl font-light text-gray-900">
-                All{" "}
-                <span className="font-semibold bg-linear-to-r from-pink-600 to-purple-600 bg-clip-text text-transparent">
-                  Products
-                </span>
-              </h2>
-            </div>
-          </div>
-
-          <div
-            className="animatedText grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-3"
-            id="allProducts"
-          >
-            {loading
-              ? Array.from({ length: 10 }).map((_, i) => (
-                  <ShimmerCard key={i} />
-                ))
-              : displayProducts.map((product: any) => (
-                  <ProductCard key={product.id} item={product} />
-                ))}
-          </div>
-        </div>
+    <div ref={root} className="dd-home">
+      <HomeAnnouncement />
+      <HomeNav />
+      <main>
+        <HeroSection />
+        <Collections />
+        <ProductShelf
+          id="bestsellers"
+          className="dd-shelf--best"
+          eyebrow="Best Sellers"
+          titleLines={["Loved, again", "and again."]}
+          subtitle="The pieces our customers keep coming back for — straight from the current collection."
+          products={bestSellers}
+          initialCount={8}
+          stagger
+          cta={{ label: "Shop Women", to: "/category/women" }}
+        />
+        <BrandStory />
+        <ProductShelf
+          id="allProducts"
+          className="dd-shelf--trending"
+          eyebrow="Trending Now"
+          titleLines={["What everyone", "is wearing."]}
+          subtitle="Trending across men, women and kids right now. Filter by collection."
+          products={trending}
+          initialCount={8}
+          filterable
+        />
+        <PromoBanner />
+      </main>
+      <div className="dd-home-footer">
+        <Footer />
       </div>
-
-      <Footer />
     </div>
   );
 };

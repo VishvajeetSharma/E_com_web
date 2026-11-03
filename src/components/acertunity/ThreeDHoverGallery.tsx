@@ -193,7 +193,7 @@ const ThreeDHoverGallery: React.FC<ThreeDHoverGalleryProps> = ({
   return (
     <div
       className={cn(
-        "flex items-center justify-center min-h-87.5 w-full overflow-hidden bg-linear-to-r from-black via-[#063B4A] to-black  px-10 ",
+        "flex items-center justify-center min-h-87.5 w-full overflow-hidden bg-linear-to-r from-[#151522] via-[#4A101C] to-[#151522]  px-10 ",
         className,
       )}
       style={backgroundColor ? { backgroundColor, ...style } : style}

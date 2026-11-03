@@ -89,7 +89,7 @@ export default function Scroll() {
   }, []);
 
   return (
-    <div className="w-full bg-gradient-to-r from-black via-[#063B4A] to-black  selection:bg-none">
+    <div className="w-full bg-gradient-to-r from-[#151522] via-[#4A101C] to-[#151522]  selection:bg-none">
       <style>{`
         .scroll-gallery-container {
           min-height: 500vh;

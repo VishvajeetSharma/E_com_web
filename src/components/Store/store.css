@@ -1,0 +1,122 @@
+/* Darling Desire — account / bag / checkout / beauty / studio pages.
+   Everything is scoped under .st (always used together with .dd-home) or prefixed st-. */
+
+.st { background: var(--dd-ivory); }
+.st-main { padding: clamp(2rem, 5vw, 4rem) 0 clamp(4rem, 8vw, 7rem); }
+.st-block { width: 100%; }
+
+/* ---------- Minimal checkout header / footer ---------- */
+.st-cohead { position: sticky; top: 0; z-index: 60; background: var(--dd-burgundy); color: var(--dd-ivory); border-bottom: 1px solid rgba(198, 164, 106, 0.3); }
+.st-cohead-in { display: grid; grid-template-columns: 1fr auto 1fr; align-items: center; height: 68px; }
+.st-cohead-back { justify-self: start; display: inline-flex; align-items: center; gap: 0.6rem; background: none; border: 0; color: var(--dd-champagne); font-size: 0.7rem; letter-spacing: 0.22em; text-transform: uppercase; padding: 0.6rem 0; }
+.st-cohead-back:hover { color: var(--dd-gold); }
+.st-cohead-lock { justify-self: end; margin: 0; display: inline-flex; align-items: center; gap: 0.5rem; color: var(--dd-gold); font-size: 0.68rem; letter-spacing: 0.24em; text-transform: uppercase; }
+@media (max-width: 520px) { .st-cohead-back span, .st-cohead-lock span { display: none; } .st-cohead-in { height: 60px; } }
+.st-slimfoot { background: var(--dd-obsidian); color: rgba(232, 217, 201, 0.65); font-size: 0.74rem; }
+.st-slimfoot .dd-container { display: flex; gap: 1.5rem; align-items: center; padding-top: 1.4rem; padding-bottom: 1.4rem; }
+.st-slimfoot span { margin-right: auto; }
+.st-slimfoot a:hover { color: var(--dd-gold); }
+
+/* ---------- Page hero ---------- */
+.st-hero {
+  position: relative; overflow: hidden; color: var(--dd-ivory); padding: clamp(3rem, 7vw, 6rem) 0;
+  background: radial-gradient(ellipse 60% 120% at 85% 0%, rgba(129, 45, 58, 0.9), rgba(74, 16, 28, 0) 70%), var(--dd-burgundy);
+}
+.st-hero--compact { padding: clamp(2.2rem, 5vw, 4rem) 0; }
+.st-hero::before { content: ""; position: absolute; inset: 0; pointer-events: none; opacity: 0.08; mix-blend-mode: overlay;
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='160' height='160'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2'/><feColorMatrix values='0 0 0 0 1  0 0 0 0 1  0 0 0 0 1  0 0 0 .8 0'/></filter><rect width='100%' height='100%' filter='url(%23n)'/></svg>"); }
+.st-hero::after { content: ""; position: absolute; right: -80px; top: -120px; width: 360px; height: 360px; border-radius: 50%; border: 1px solid rgba(198, 164, 106, 0.35); box-shadow: 0 0 0 40px rgba(198, 164, 106, 0.05); pointer-events: none; }
+.st-hero-in { position: relative; z-index: 1; display: flex; flex-wrap: wrap; align-items: flex-end; justify-content: space-between; gap: 1.5rem; }
+.st-hero .dd-eyebrow { color: var(--dd-gold); }
+.st-h1 { margin: 0; font-family: var(--dd-serif); font-weight: 400; font-size: clamp(2.6rem, 6vw, 5rem); line-height: 1; letter-spacing: -0.015em; color: var(--dd-ivory); }
+.st-h1 em { color: var(--dd-gold); }
+.st-hero-sub { margin: 1rem 0 0; color: rgba(232, 217, 201, 0.82); font-size: 0.98rem; }
+.st-count { margin: 0; display: inline-flex; align-items: center; gap: 0.6rem; padding: 0.7rem 1.2rem; border: 1px solid rgba(198, 164, 106, 0.5); color: var(--dd-champagne); font-size: 0.72rem; letter-spacing: 0.2em; text-transform: uppercase; }
+.st-count b { color: var(--dd-gold); font-weight: 500; font-size: 1rem; }
+
+/* ---------- Empty state ---------- */
+.st-empty { max-width: 30rem; margin: 2rem auto; text-align: center; padding: clamp(2.5rem, 6vw, 4rem) 1.5rem; background: #fff; border: 1px solid var(--dd-champagne); box-shadow: 0 30px 60px -40px rgba(74, 16, 28, 0.35); }
+.st-empty-mark { display: inline-grid; place-items: center; width: 72px; height: 72px; border-radius: 50%; color: var(--dd-gold); background: var(--dd-burgundy); margin-bottom: 1.4rem; box-shadow: 0 0 0 8px rgba(198, 164, 106, 0.18); }
+.st-empty h2 { margin: 0 0 0.6rem; font-family: var(--dd-serif); font-weight: 500; font-size: 2rem; color: var(--dd-burgundy); }
+.st-empty p { margin: 0 0 1.8rem; color: rgba(21, 21, 34, 0.65); }
+
+/* ---------- Wishlist ---------- */
+.st-wgrid > li { min-width: 0; }
+.st-wcard { display: flex; flex-direction: column; height: 100%; }
+.st-wremove { margin-top: 0.6rem; align-self: flex-start; display: inline-flex; gap: 0.5rem; align-items: center; background: none; border: 0; padding: 0.4rem 0; color: rgba(21, 21, 34, 0.55); font-size: 0.68rem; letter-spacing: 0.2em; text-transform: uppercase; transition: color 0.3s; }
+.st-wremove:hover { color: var(--dd-wine); }
+
+/* ---------- Cart ---------- */
+.st-cols { display: grid; grid-template-columns: minmax(0, 1fr); gap: 2rem; align-items: start; }
+.st-cols > * { min-width: 0; }
+@media (min-width: 1000px) { .st-cols { grid-template-columns: minmax(0, 1fr) 400px; gap: 3rem; } .st-col-side { position: sticky; top: 90px; } }
+.st-lines { list-style: none; margin: 0; padding: 0; background: #fff; border: 1px solid var(--dd-champagne); }
+.st-line { display: flex; gap: clamp(0.9rem, 2.5vw, 1.6rem); padding: clamp(1rem, 2.5vw, 1.6rem); }
+.st-line + .st-line { border-top: 1px solid var(--dd-champagne); }
+.st-line-img { position: relative; flex: none; width: clamp(88px, 20vw, 150px); aspect-ratio: 3 / 4; overflow: hidden; background: var(--dd-champagne); }
+.st-line-img img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.9s var(--dd-ease); }
+.st-line-img:hover img { transform: scale(1.06); }
+.st-line-pct { position: absolute; left: 0; top: 0.6rem; padding: 0.25rem 0.55rem; background: var(--dd-burgundy); color: var(--dd-gold); font-size: 0.58rem; letter-spacing: 0.16em; text-transform: uppercase; }
+.st-line-body { flex: 1; min-width: 0; display: flex; flex-direction: column; }
+.st-line-top { display: flex; justify-content: space-between; gap: 0.8rem; }
+.st-line h3 { margin: 0; font-family: var(--dd-serif); font-weight: 500; font-size: clamp(1.15rem, 2.2vw, 1.5rem); line-height: 1.2; }
+.st-line h3 a:hover { color: var(--dd-wine); }
+.st-line-opts { margin: 0.4rem 0 0; display: flex; flex-wrap: wrap; gap: 0.4rem; }
+.st-line-opts span { padding: 0.2rem 0.6rem; background: var(--dd-ivory); border: 1px solid var(--dd-champagne); font-size: 0.7rem; letter-spacing: 0.08em; }
+.st-icon { flex: none; width: 38px; height: 38px; display: grid; place-items: center; border-radius: 50%; border: 1px solid var(--dd-champagne); background: none; color: var(--dd-burgundy); transition: all 0.3s; }
+.st-icon:hover, .st-icon.is-on { background: var(--dd-burgundy); color: var(--dd-gold); border-color: var(--dd-burgundy); }
+.st-line-price { margin: 0.9rem 0 0; display: flex; flex-wrap: wrap; gap: 0.1rem 0.7rem; align-items: baseline; }
+.st-line-price strong { font-size: 1.15rem; font-weight: 500; color: var(--dd-burgundy); }
+.st-line-price s { color: rgba(21, 21, 34, 0.45); font-size: 0.85rem; }
+.st-line-delivery { margin: 0.4rem 0 0; font-size: 0.76rem; color: rgba(21, 21, 34, 0.6); }
+.st-line-delivery b { color: var(--dd-obsidian); font-weight: 500; }
+.st-line-foot { margin-top: auto; padding-top: 1rem; display: flex; flex-wrap: wrap; gap: 0.8rem 1.4rem; align-items: center; justify-content: space-between; }
+.st-qty { display: inline-flex; align-items: stretch; border: 1px solid var(--dd-burgundy); }
+.st-qty button { width: 40px; height: 40px; display: grid; place-items: center; background: none; border: 0; color: var(--dd-burgundy); transition: background-color 0.25s, color 0.25s; }
+.st-qty button:hover:not(:disabled) { background: var(--dd-burgundy); color: var(--dd-ivory); }
+.st-qty button:disabled { opacity: 0.35; cursor: not-allowed; }
+.st-qty-n { width: 44px; display: grid; place-items: center; overflow: hidden; position: relative; border-inline: 1px solid var(--dd-champagne); }
+.st-qty-n b { font-weight: 500; font-size: 0.95rem; }
+.st-line-actions { display: flex; gap: 1.2rem; }
+.st-line-actions button { display: inline-flex; gap: 0.45rem; align-items: center; background: none; border: 0; padding: 0.5rem 0; font-size: 0.66rem; letter-spacing: 0.2em; text-transform: uppercase; color: rgba(21, 21, 34, 0.65); transition: color 0.3s; }
+.st-line-actions button:hover { color: var(--dd-wine); }
+
+.st-promo { margin-top: 1rem; padding: 1.2rem clamp(1rem, 2.5vw, 1.6rem); background: #fff; border: 1px solid var(--dd-champagne); }
+.st-promo label { display: inline-flex; gap: 0.5rem; align-items: center; font-size: 0.66rem; letter-spacing: 0.22em; text-transform: uppercase; color: var(--dd-wine); margin-bottom: 0.7rem; }
+.st-promo-row { display: flex; gap: 0; }
+.st-promo-row input { flex: 1; min-width: 0; padding: 0.85rem 1rem; border: 1px solid var(--dd-champagne); border-right: 0; background: var(--dd-ivory); font: inherit; font-size: 0.9rem; text-transform: uppercase; letter-spacing: 0.08em; }
+.st-promo-row input:focus { outline: 2px solid var(--dd-gold); outline-offset: -2px; }
+.st-promo-row button { padding: 0 1.5rem; background: var(--dd-burgundy); color: var(--dd-ivory); border: 0; font-size: 0.68rem; letter-spacing: 0.22em; text-transform: uppercase; transition: background-color 0.3s; }
+.st-promo-row button:hover { background: var(--dd-wine); }
+.st-msg { margin: 0.8rem 0 0; display: flex; gap: 0.5rem; align-items: center; font-size: 0.8rem; }
+.st-msg--ok { color: #1f6b3a; }
+.st-msg--err { color: #a3202f; }
+.st-continue { display: inline-block; margin-top: 1.4rem; font-size: 0.7rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--dd-burgundy); border-bottom: 1px solid var(--dd-gold); padding-bottom: 0.3rem; }
+
+/* ---------- Summary panel ---------- */
+.st-summary { background: #fff; border: 1px solid var(--dd-champagne); padding: clamp(1.3rem, 3vw, 2rem); box-shadow: 0 40px 70px -50px rgba(74, 16, 28, 0.5); }
+.st-summary-title { margin: 0 0 1.2rem; font-family: var(--dd-serif); font-weight: 500; font-size: 1.5rem; color: var(--dd-burgundy); }
+.st-summary-rows { margin: 0; padding-bottom: 1rem; border-bottom: 1px solid var(--dd-champagne); display: grid; gap: 0.7rem; }
+.st-summary-rows > div { display: flex; justify-content: space-between; align-items: baseline; gap: 1rem; font-size: 0.88rem; }
+.st-summary-rows dt { margin: 0; display: flex; flex-direction: column; color: rgba(21, 21, 34, 0.72); }
+.st-summary-rows dd { margin: 0; font-variant-numeric: tabular-nums; }
+.st-summary-rows .is-good dd { color: #1f6b3a; }
+.st-fees-btn { display: inline-flex; gap: 0.4rem; align-items: center; background: none; border: 0; padding: 0; font: inherit; color: inherit; }
+.st-fees-note { font-size: 0.7rem; color: rgba(21, 21, 34, 0.5); margin-top: 0.25rem; }
+.st-summary-total { display: flex; justify-content: space-between; align-items: baseline; padding: 1.1rem 0 0.3rem; font-size: 0.72rem; letter-spacing: 0.22em; text-transform: uppercase; color: var(--dd-burgundy); }
+.st-summary-amt { display: inline-flex; gap: 0.7rem; align-items: baseline; letter-spacing: 0; text-transform: none; }
+.st-summary-amt b { font-family: var(--dd-serif); font-weight: 500; font-size: 2rem; color: var(--dd-burgundy); }
+.st-summary-amt s { font-size: 0.85rem; color: rgba(21, 21, 34, 0.45); }
+.st-summary-save { margin: 0.3rem 0 0; font-size: 0.8rem; color: #1f6b3a; }
+.st-summary-cta { margin-top: 1.4rem; }
+.st-summary-note { margin: 1rem 0 0; display: flex; gap: 0.6rem; align-items: center; font-size: 0.74rem; color: rgba(21, 21, 34, 0.55); }
+
+/* Mobile sticky checkout bar: padded page bottom so it never covers content */
+.st-sticky { display: none; }
+@media (max-width: 999px) {
+  .st-main--cart { padding-bottom: 7rem; }
+  .st-sticky { position: fixed; left: 0; right: 0; bottom: 0; z-index: 55; display: flex; align-items: center; justify-content: space-between; gap: 1rem; padding: 0.8rem 1.1rem calc(0.8rem + env(safe-area-inset-bottom)); background: var(--dd-burgundy); color: var(--dd-ivory); border-top: 1px solid rgba(198, 164, 106, 0.4); box-shadow: 0 -20px 40px -20px rgba(0, 0, 0, 0.5); }
+  .st-sticky small { display: block; font-size: 0.6rem; letter-spacing: 0.22em; text-transform: uppercase; color: var(--dd-gold); }
+  .st-sticky b { font-family: var(--dd-serif); font-weight: 500; font-size: 1.5rem; }
+  .st-sticky .dd-btn { padding: 0.95rem 1.6rem; }
+}

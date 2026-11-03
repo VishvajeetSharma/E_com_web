@@ -46,7 +46,7 @@ const Nav = () => {
       <button
         onClick={() => {
           document
-            .getElementById("launch-schedule")
+            .getElementById("studio-edit")
             ?.scrollIntoView({ behavior: "smooth" });
         }}
         className="flex items-center gap-1 text-xs text-zinc-400"
@@ -182,7 +182,7 @@ const ParallaxImg = ({
 const Schedule = () => {
   return (
     <section
-      id="launch-schedule"
+      id="studio-edit"
       className="mx-auto max-w-5xl px-4 py-48 text-white"
     >
       <motion.h1
@@ -191,12 +191,12 @@ const Schedule = () => {
         transition={{ duration: 0.7 }}
         className="mb-20 text-4xl font-black uppercase"
       >
-        Launch Schedule
+        The Studio Edit
       </motion.h1>
 
-      <ScheduleItem title="NG-21" date="Dec 9th" location="Florida" />
-      <ScheduleItem title="Starlink" date="Dec 20th" location="Texas" />
-      <ScheduleItem title="Turksat 6A" date="Feb 22nd" location="Florida" />
+      <ScheduleItem title="Editorial" date="Considered silhouettes" location="Style" />
+      <ScheduleItem title="Campaign" date="Imagery with a point of view" location="Story" />
+      <ScheduleItem title="Craft" date="Details made to last" location="Detail" />
     </section>
   );
 };

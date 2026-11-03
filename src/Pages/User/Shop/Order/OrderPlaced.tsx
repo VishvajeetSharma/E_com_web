@@ -30,7 +30,7 @@ const OrderSuccess = ({
   orderId      = "DD2026041200001",
   phone        = "98XXXXXX12",
   address      = "123, Green Park, New Delhi...",
-  userName     = "Visu",
+  userName     = "Shruti",
 }: OrderSuccessProps) => {
   const navigate = useNavigate();
 // const returns = useSelector((state: any) => state.return?.returns);
