@@ -9,7 +9,12 @@ import Header from "../../components/Header/Heading";
 
 // ── Types ──
 interface FAQ { id: string; question: string; answer: string; }
-interface Tab  { id: string; label: string; icon: React.ElementType; }
+interface IconProps {
+  size?: number | string;
+  className?: string;
+  style?: React.CSSProperties;
+}
+interface Tab { id: string; label: string; icon: React.ComponentType<IconProps>; }
 
 // ── Data ──
 const tabs: Tab[] = [
