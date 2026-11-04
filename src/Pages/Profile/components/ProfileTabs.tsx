@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { FaChevronRight, FaStar } from "react-icons/fa";
-import { SAMPLE_ADDRESSES, SAMPLE_COUPONS, SAMPLE_REVIEWS, SAMPLE_USER, SAMPLE_WALLET } from "@/pages/Profile/utils/profileData";
+import { SAMPLE_ADDRESSES, SAMPLE_COUPONS, SAMPLE_REVIEWS, SAMPLE_USER, SAMPLE_WALLET } from "@/Pages/Profile/utils/profileData";
 import { homeToast } from "@/utils/toast";
 
 const Sample = () => <p className="pf-note pf-note--top">Sample data — not connected to an account.</p>;

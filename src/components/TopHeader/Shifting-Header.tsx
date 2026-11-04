@@ -7,7 +7,6 @@ import {
   FiPieChart,
 } from "react-icons/fi";
 import { AnimatePresence, motion } from "framer-motion";
-import LoginPage from "../../Pages/User/Auth/Login";
 
 export const ShiftingDropDown = () => {
   return (
@@ -23,21 +22,6 @@ type TabItem = {
   title: string;
   Component: React.FC;
 };
-
-const TABS: TabItem[] = [
-  {
-    title: "Products",
-    Component: LoginPage,
-  },
-  {
-    title: "Pricing",
-    Component: LoginPage,
-  },
-  {
-    title: "Blog",
-    Component: LoginPage,
-  },
-].map((n, idx) => ({ ...n, id: idx + 1 }));
 
 const Tabs = () => {
   const [selected, setSelected] = useState<number | null>(null);
@@ -315,3 +299,18 @@ const Blog = () => {
     </div>
   );
 };
+
+const TABS: TabItem[] = [
+  {
+    title: "Products",
+    Component: Products,
+  },
+  {
+    title: "Pricing",
+    Component: Pricing,
+  },
+  {
+    title: "Blog",
+    Component: Blog,
+  },
+].map((n, idx) => ({ ...n, id: idx + 1 }));

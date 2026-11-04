@@ -4,7 +4,7 @@ import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import StoreShell from "@/components/layout/StoreShell";
 import StoreHero from "@/components/layout/StoreHero";
-import WishlistProductCard from "@/pages/Wishlist/components/WishlistProductCard";
+import WishlistProductCard from "@/Pages/Wishlist/components/WishlistProductCard";
 import type { HomeProduct } from "@/utils/storefront";
 
 /** Route: /wishlist — reads the existing Redux wishlist slice. */

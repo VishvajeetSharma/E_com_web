@@ -9,9 +9,9 @@ import { placeOrder } from "@/store/slices/orderSlice";
 import StoreShell from "@/components/layout/StoreShell";
 import StoreHero from "@/components/layout/StoreHero";
 import CheckoutStepper from "@/components/data-display/CheckoutStepper";
-import PaymentMethodSelector, { type PayOption } from "@/pages/Payment/components/PaymentMethodSelector";
+import PaymentMethodSelector, { type PayOption } from "@/Pages/Payment/components/PaymentMethodSelector";
 import PaymentSummary from "@/components/data-display/PaymentSummary";
-import OrderReview from "@/pages/Checkout/components/OrderReview";
+import OrderReview from "@/Pages/Checkout/components/OrderReview";
 import type { CartLine } from "@/components/data-display/CartItem";
 import "@/styles/checkout.css";
 

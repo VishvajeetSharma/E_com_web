@@ -32,7 +32,6 @@ import {
 } from "react-icons/fa";
 import { useState } from "react";
 import Swal from "sweetalert2";
-import { IconIcons } from "@tabler/icons-react";
 import { IoBagHandleOutline } from "react-icons/io5";
 //import SellerProductsComponent from "../../seller/dashboard/Product";
 
@@ -577,62 +576,63 @@ const ProductDetail = () => {
                     </button>
                   ))}
                 </div> */}
-                <div className="flex items-center gap-2 flex-wrap">
-                  {product?.sizeAvailability?.map((opt: any) => {
-                    const isLowStock = opt.stock > 0 && opt.stock < 30;
+                {hasSizeSelector && (
+                  <div className="flex items-center gap-2 flex-wrap">
+                    {product?.sizeAvailability?.map((opt: any) => {
+                      const isLowStock = opt.stock > 0 && opt.stock < 30;
 
-                    return (
-                      <div key={opt.size} className="relative inline-block">
-                        <button
-                          onClick={() => setSelectedSize(opt.size)}
-                          disabled={!opt.stock}
-                          className="w-auto px-3 h-8 rounded-xl text-sm font-medium transition-all duration-200"
-                          style={{
-                            border:
-                              selectedSize === opt.size
-                                ? "2px solid #db2777"
-                                : "1.5px solid #e5e7eb",
-
-                            background:
-                              selectedSize === opt.size
-                                ? "linear-gradient(135deg,#fdf2f8,#f3e8ff)"
-                                : isLowStock
-                                ? "#fef2f2" // light red bg for low stock
-                                : "#fff",
-
-                            color:
-                              selectedSize === opt.size
-                                ? "#db2777"
-                                : !opt.stock
-                                ? "#d1d5db"
-                                : isLowStock
-                                ? "#dc2626"
-                                : "#6b7280",
-
-                            cursor: !opt.stock ? "not-allowed" : "pointer",
-                            textDecoration: !opt.stock
-                              ? "line-through"
-                              : "none",
-                          }}
-                        >
-                          {opt.size}
-                        </button>
-
-                        {/* Low Stock Badge - Separate badge */}
-                        {isLowStock && opt.stock > 0 && (
-                          <span
-                            className="absolute -top-3 -right-2 bg-red-500 text-white text-[8px] font-bold px-1.5 py-0.5 rounded-full shadow-md"
+                      return (
+                        <div key={opt.size} className="relative inline-block">
+                          <button
+                            onClick={() => setSelectedSize(opt.size)}
+                            disabled={!opt.stock}
+                            className="w-auto px-3 h-8 rounded-xl text-sm font-medium transition-all duration-200"
                             style={{
-                              animation: "pulse 1.5s infinite",
+                              border:
+                                selectedSize === opt.size
+                                  ? "2px solid #db2777"
+                                  : "1.5px solid #e5e7eb",
+
+                              background:
+                                selectedSize === opt.size
+                                  ? "linear-gradient(135deg,#fdf2f8,#f3e8ff)"
+                                  : isLowStock
+                                  ? "#fef2f2"
+                                  : "#fff",
+
+                              color:
+                                selectedSize === opt.size
+                                  ? "#db2777"
+                                  : !opt.stock
+                                  ? "#d1d5db"
+                                  : isLowStock
+                                  ? "#dc2626"
+                                  : "#6b7280",
+
+                              cursor: !opt.stock ? "not-allowed" : "pointer",
+                              textDecoration: !opt.stock
+                                ? "line-through"
+                                : "none",
                             }}
                           >
-                            {opt.stock} left
-                          </span>
-                        )}
-                      </div>
-                    );
-                  })}
-                </div>
+                            {opt.size}
+                          </button>
+
+                          {isLowStock && opt.stock > 0 && (
+                            <span
+                              className="absolute -top-3 -right-2 bg-red-500 text-white text-[8px] font-bold px-1.5 py-0.5 rounded-full shadow-md"
+                              style={{
+                                animation: "pulse 1.5s infinite",
+                              }}
+                            >
+                              {opt.stock} left
+                            </span>
+                          )}
+                        </div>
+                      );
+                    })}
+                  </div>
+                )}
                 {/* Quantity */}
                 <div className="mb-3 mt-2">
                   <p

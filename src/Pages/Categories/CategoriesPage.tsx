@@ -1,5 +1,5 @@
 import { useParams } from "react-router-dom";
-import CategoryPage from "@/pages/Categories/components/CategoryPage";
+import CategoryPage from "@/Pages/Categories/components/CategoryPage";
 
 /** Route: /category/:gender — women | men | kids. Layout and logic live in components/Category. */
 const Category = () => {

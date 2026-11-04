@@ -6,18 +6,18 @@ import { useHomeAnimations } from "@/hooks/useRevealAnimations";
 import { pickProducts, type HomeProduct } from "@/utils/storefront";
 import { products as allData } from "@/data/products";
 import "@/styles/storefront.css";
-import "@/pages/Categories/styles/category.css";
-import { getCategoryConfig } from "@/pages/Categories/utils/categoryConfig";
+import "@/Pages/Categories/styles/category.css";
+import { getCategoryConfig } from "@/Pages/Categories/utils/categoryConfig";
 import {
   EMPTY_FILTERS, activeCount, applyFilters, buildFacets,
   type FilterState, type SortBy,
-} from "@/pages/Categories/utils/categoryFilters";
-import CategoryHero from "@/pages/Categories/components/CategoryHero";
-import CategoryHighlights from "@/pages/Categories/components/CategoryHighlights";
-import FeaturedCollection from "@/pages/Categories/components/FeaturedCollection";
-import CategoryProductGrid from "@/pages/Categories/components/CategoryProductGrid";
-import CategoryPromoBanner from "@/pages/Categories/components/CategoryPromoBanner";
-import { CategoryToolbar, FilterPanel, MobileFilterSheet } from "@/pages/Categories/components/CategoryFilterToolbar";
+} from "@/Pages/Categories/utils/categoryFilters";
+import CategoryHero from "@/Pages/Categories/components/CategoryHero";
+import CategoryHighlights from "@/Pages/Categories/components/CategoryHighlights";
+import FeaturedCollection from "@/Pages/Categories/components/FeaturedCollection";
+import CategoryProductGrid from "@/Pages/Categories/components/CategoryProductGrid";
+import CategoryPromoBanner from "@/Pages/Categories/components/CategoryPromoBanner";
+import { CategoryToolbar, FilterPanel, MobileFilterSheet } from "@/Pages/Categories/components/CategoryFilterToolbar";
 
 const scrollToId = (id: string) => document.getElementById(id)?.scrollIntoView({ behavior: "smooth", block: "start" });
 

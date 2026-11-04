@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
 import { hiRes } from "@/utils/storefront";
-import type { BeautyGroup } from "@/pages/Beauty/utils/beautyData";
+import type { BeautyGroup } from "@/Pages/Beauty/utils/beautyData";
 
 interface Props { group: BeautyGroup; index: number; active: boolean; onPick: (key: string) => void }
 

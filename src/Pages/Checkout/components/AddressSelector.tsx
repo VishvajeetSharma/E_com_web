@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
 import { FaBuilding, FaCheckCircle, FaEdit, FaHome, FaMapMarkerAlt, FaPlus, FaTrash } from "react-icons/fa";
-import type { Address } from "@/pages/Checkout/components/AddressForm";
+import type { Address } from "@/Pages/Checkout/components/AddressForm";
 
 interface Props {
   addresses: Address[];

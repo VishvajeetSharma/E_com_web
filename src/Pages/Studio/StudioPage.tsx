@@ -1,13 +1,13 @@
 import StoreShell from "@/components/layout/StoreShell";
-import ShapeHero from "@/pages/Studio/components/effects/shapeshero";
-import { TextParallaxContentExample } from "@/pages/Studio/components/effects/textparallelcontext";
-import ThreeDHoverGallery from "@/pages/Studio/components/effects/ThreeDHoverGallery";
-import Gallery from "@/pages/Studio/components/effects/studiogallery";
-import Scroll from "@/pages/Studio/components/effects/Scrolllightwind";
-import ParticleOrbitContainer from "@/pages/Studio/components/effects/ParticleOrbitEffect";
-import { AngledSlider } from "@/pages/Studio/components/effects/AngledCard";
-import ThreeDSlider from "@/pages/Studio/components/effects/SliderItem";
-import SmoothScrollHero from "@/pages/Studio/components/effects/ScrollEffect";
+import ShapeHero from "@/Pages/Studio/components/effects/shapeshero";
+import { TextParallaxContentExample } from "@/Pages/Studio/components/effects/textparallelcontext";
+import ThreeDHoverGallery from "@/Pages/Studio/components/effects/ThreeDHoverGallery";
+import Gallery from "@/Pages/Studio/components/effects/studiogallery";
+import Scroll from "@/Pages/Studio/components/effects/Scrolllightwind";
+import ParticleOrbitContainer from "@/Pages/Studio/components/effects/ParticleOrbitEffect";
+import { AngledSlider } from "@/Pages/Studio/components/effects/AngledCard";
+import ThreeDSlider from "@/Pages/Studio/components/effects/SliderItem";
+import SmoothScrollHero from "@/Pages/Studio/components/effects/ScrollEffect";
 
 const sliderItems = [
   {

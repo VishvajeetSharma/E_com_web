@@ -8,7 +8,6 @@ import Swal from "sweetalert2";
 import {
   FaHeart,
   FaRegHeart,
-  FaShoppingBag,
   FaStar,
   FaTrash,
 } from "react-icons/fa";
@@ -16,20 +15,6 @@ import { IoBagHandleOutline } from "react-icons/io5";
 import { SiTicktick } from "react-icons/si";
 
 // ── Types ──
-interface Product {
-  id: number;
-  name: string;
-  price: number;
-  originalPrice: number | null;
-  image: string;
-  category: string;
-  rating?: number;
-  ratingCount?: number;
-  badge?: string;
-  discount?: string;
-  mainCategory: string;
-}
-
 interface ProductCardProps {
   item: any;
   className?: string;

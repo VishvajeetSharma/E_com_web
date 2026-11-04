@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
 import { hiRes, type HomeProduct } from "@/utils/storefront";
-import type { CategoryConfig } from "@/pages/Categories/utils/categoryConfig";
+import type { CategoryConfig } from "@/Pages/Categories/utils/categoryConfig";
 
 interface Props { cfg: CategoryConfig; maxDiscount: number; total: number; image?: HomeProduct; onShop: () => void }
 

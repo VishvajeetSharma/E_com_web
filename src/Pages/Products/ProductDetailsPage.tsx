@@ -33,7 +33,7 @@ import {
 import { useState } from "react";
 import Swal from "sweetalert2";
 import { IoBagHandleOutline } from "react-icons/io5";
-//import SellerProductsComponent from "@/pages/Seller/dashboard/Product";
+//import SellerProductsComponent from "@/Pages/seller/dashboard/Product";
 
 // ── Static addresses ──
 const addressList = [

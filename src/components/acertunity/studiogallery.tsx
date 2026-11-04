@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState } from "react";
+import { useState } from "react";
 import {
   Maximize2,
   Heart,
@@ -115,6 +115,34 @@ const Gallery = () => {
               Creations
             </h2>
           </div>
+          <div className="flex items-center gap-3 text-white/70">
+            <button className="rounded-full border border-white/10 bg-white/5 p-2" aria-label="Grid view">
+              <LayoutGrid className="h-4 w-4" />
+            </button>
+            <button className="rounded-full border border-white/10 bg-white/5 p-2" aria-label="Share gallery">
+              <Share2 className="h-4 w-4" />
+            </button>
+            <button className="rounded-full border border-white/10 bg-white/5 p-2" aria-label="Featured content">
+              <Zap className="h-4 w-4" />
+            </button>
+          </div>
+        </div>
+
+        <div className="mb-8 flex flex-wrap gap-3">
+          {categories.map((category) => (
+            <button
+              key={category}
+              type="button"
+              onClick={() => setActiveCategory(category)}
+              className={`rounded-full border px-4 py-2 text-sm transition ${
+                activeCategory === category
+                  ? "border-[#C6A46A] bg-[#C6A46A]/15 text-[#FAF7F2]"
+                  : "border-white/10 bg-white/5 text-white/60 hover:text-white"
+              }`}
+            >
+              {category}
+            </button>
+          ))}
         </div>
 
         {/* Masonry Grid */}
@@ -123,7 +151,7 @@ const Gallery = () => {
           className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 auto-rows-[200px]"
         >
           <AnimatePresence mode="popLayout">
-            {filteredItems.map((item, idx) => (
+            {filteredItems.map((item) => (
               <motion.div
                 key={item.id}
                 layout

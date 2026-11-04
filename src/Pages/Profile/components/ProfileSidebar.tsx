@@ -1,5 +1,5 @@
 import { FaBoxOpen, FaHeart, FaSignOutAlt, FaStore, FaUser } from "react-icons/fa";
-import { NAV_ITEMS } from "@/pages/Profile/utils/profileData";
+import { NAV_ITEMS } from "@/Pages/Profile/utils/profileData";
 
 interface Props {
   active: string;

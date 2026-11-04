@@ -1,6 +1,6 @@
 import { useState } from "react";
-import { SellerDetailPage } from "@/pages/Admin/Payments/SellerDetailPage";
-import { MonthDetailPage } from "@/pages/Admin/Payments/MonthDetailPage";
+import { SellerDetailPage } from "@/Pages/Admin/Payments/SellerDetailPage";
+import { MonthDetailPage } from "@/Pages/Admin/Payments/MonthDetailPage";
 
 // ─── Types ───────────────────────────────────────────────────────────────────
 

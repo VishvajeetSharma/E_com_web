@@ -13,7 +13,7 @@ import {
 if (typeof window !== "undefined") gsap.registerPlugin(ScrollTrigger);
 
 // The whole 3D stack (three, R3F, drei) stays out of the initial bundle.
-const HeroScene = lazy(() => import("@/pages/Home/components/HeroScene"));
+const HeroScene = lazy(() => import("@/Pages/Home/components/HeroScene"));
 
 function webglAvailable() {
   try {

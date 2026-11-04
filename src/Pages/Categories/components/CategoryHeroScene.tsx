@@ -3,7 +3,7 @@ import { Canvas, useFrame, useThree } from "@react-three/fiber";
 import { Environment, Float, Lightformer, Sparkles } from "@react-three/drei";
 import * as THREE from "three";
 import { useEffect } from "react";
-import type { CatKey } from "@/pages/Categories/utils/categoryConfig";
+import type { CatKey } from "@/Pages/Categories/utils/categoryConfig";
 
 const GOLD = "#C6A46A";
 const WINE = "#812D3A";

@@ -4,11 +4,11 @@ import { motion } from "framer-motion";
 import StoreShell from "@/components/layout/StoreShell";
 import ProductShelf from "@/components/data-display/ProductShelf";
 import HomeProductCard from "@/components/data-display/ProductCard";
-import BeautyHero from "@/pages/Beauty/components/BeautyHero";
-import BeautyCollectionCard from "@/pages/Beauty/components/BeautyCollectionCard";
-import { buildBeauty, hiRes } from "@/pages/Beauty/utils/beautyData";
+import BeautyHero from "@/Pages/Beauty/components/BeautyHero";
+import BeautyCollectionCard from "@/Pages/Beauty/components/BeautyCollectionCard";
+import { buildBeauty, hiRes } from "@/Pages/Beauty/utils/beautyData";
 import { selectProducts, type HomeRootState } from "@/utils/storefront";
-import "@/pages/Beauty/styles/beauty.css";
+import "@/Pages/Beauty/styles/beauty.css";
 
 type Sort = "popularity" | "low" | "high";
 const go = (id: string) => document.getElementById(id)?.scrollIntoView({ behavior: "smooth", block: "start" });

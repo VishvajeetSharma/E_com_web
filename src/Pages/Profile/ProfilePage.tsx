@@ -2,11 +2,11 @@ import { useState } from "react";
 import { useNavigate, useSearchParams } from "react-router-dom";
 import StoreShell from "@/components/layout/StoreShell";
 import StoreHero from "@/components/layout/StoreHero";
-import ProfileSidebar from "@/pages/Profile/components/ProfileSidebar";
-import ProfileOverview from "@/pages/Profile/components/ProfileOverview";
-import { AddressesTab, CouponsTab, ReviewsTab, SettingsTab, WalletTab } from "@/pages/Profile/components/ProfileTabs";
+import ProfileSidebar from "@/Pages/Profile/components/ProfileSidebar";
+import ProfileOverview from "@/Pages/Profile/components/ProfileOverview";
+import { AddressesTab, CouponsTab, ReviewsTab, SettingsTab, WalletTab } from "@/Pages/Profile/components/ProfileTabs";
 import { homeToast } from "@/utils/toast";
-import "@/pages/Profile/styles/profile.css";
+import "@/Pages/Profile/styles/profile.css";
 
 const TABS = ["overview", "wallet", "addresses", "coupons", "reviews", "settings"];
 

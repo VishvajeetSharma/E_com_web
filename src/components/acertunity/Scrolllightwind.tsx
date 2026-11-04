@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState, useLayoutEffect } from "react";
+import { useRef, useLayoutEffect } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 
@@ -33,7 +33,7 @@ export default function Scroll() {
 
     const cols = gsap.utils.toArray(".scroll-col", galleryRef.current);
 
-    const updateOffset = (time: number, deltaTime: number) => {
+    const updateOffset = (_time: number, deltaTime: number) => {
       const dtSec = deltaTime / 1000;
 
       cols.forEach((col: any, i: number) => {

@@ -5,11 +5,11 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { useGSAP } from "@gsap/react";
 import ErrorBoundary from "@/components/common/ErrorBoundary";
 import { hiRes, type HomeProduct } from "@/utils/storefront";
-import type { CategoryConfig } from "@/pages/Categories/utils/categoryConfig";
+import type { CategoryConfig } from "@/Pages/Categories/utils/categoryConfig";
 import Tilt from "@/components/common/Tilt";
 
 if (typeof window !== "undefined") gsap.registerPlugin(ScrollTrigger);
-const CategoryHeroScene = lazy(() => import("@/pages/Categories/components/CategoryHeroScene"));
+const CategoryHeroScene = lazy(() => import("@/Pages/Categories/components/CategoryHeroScene"));
 
 function webglAvailable() {
   try {

@@ -184,6 +184,7 @@ const ThreeDSlider: React.FC<ThreeDSliderProps> = ({
     <div
       ref={containerRef}
       className="relative w-full h-[70vh] overflow-hidden bg-gradient-to-r from-[#151522] via-[#4A101C] to-[#151522]"
+      style={containerStyle}
     >
       {items.map((item, i) => (
         <SliderItem

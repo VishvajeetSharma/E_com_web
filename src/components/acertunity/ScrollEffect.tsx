@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useRef } from "react";
+import { useRef } from "react";
 import { ReactLenis } from "lenis/react";
 import {
   motion,
@@ -32,8 +32,10 @@ export default function SmoothScrollHero() {
           lerp: 0.08,
         }}
       >
+        <Nav />
         <Hero />
       </ReactLenis>
+      <Schedule />
     </div>
   );
 }

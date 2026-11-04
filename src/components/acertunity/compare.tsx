@@ -10,6 +10,7 @@ interface CompareProps {
   secondImage?: string;
   className?: string;
   firstImageClassName?: string;
+  secondImageClassName?: string;
   secondImageClassname?: string;
 
   firstText?: string;
@@ -27,6 +28,7 @@ export const Compare = ({
   secondImage = "",
   className,
   firstImageClassName,
+  secondImageClassName,
   secondImageClassname,
   firstText,
   secondText,
@@ -44,6 +46,7 @@ export const Compare = ({
 
   const [isMouseOver, setIsMouseOver] = useState(false);
   const autoplayRef = useRef<ReturnType<typeof setTimeout> | null>(null);
+  const secondImageClasses = secondImageClassName || secondImageClassname;
 
   const startAutoplay = useCallback(() => {
     if (!autoplay) return;
@@ -91,7 +94,7 @@ export const Compare = ({
   }
 
   const handleStart = useCallback(
-    (clientX: number) => {
+    (_clientX: number) => {
       if (slideMode === "drag") {
         setIsDragging(true);
       }
@@ -160,7 +163,12 @@ export const Compare = ({
       className={cn("w-[400px] h-[400px] overflow-hidden", className)}
       style={{
         position: "relative",
-        cursor: slideMode === "drag" ? "grab" : "col-resize",
+        cursor:
+          isMouseOver && slideMode === "drag"
+            ? "grabbing"
+            : slideMode === "drag"
+              ? "grab"
+              : "col-resize",
       }}
       onMouseMove={handleMouseMove}
       onMouseLeave={mouseLeaveHandler}
@@ -219,7 +227,7 @@ export const Compare = ({
                 draggable={false}
               />
 
-              {firstText && (
+              {(showText && firstText) && (
                 <div className="absolute inset-0 flex items-center justify-center z-30">
                   <h2 className="text-white text-2xl md:text-3xl font-bold relative">
                     <span className="absolute inset-0 text-white blur-md opacity-70">
@@ -239,11 +247,11 @@ export const Compare = ({
           <motion.div className="absolute top-0 left-0 z-[19] w-full h-full">
             <img
               src={secondImage}
-              className="w-full h-full object-cover rounded-2xl"
+              className={cn("w-full h-full object-cover rounded-2xl", secondImageClasses)}
               draggable={false}
             />
 
-            {secondText && (
+            {(showText && secondText) && (
               <div className="absolute inset-0 flex items-center justify-center">
                 <h2 className="text-white text-2xl md:text-3xl font-bold relative">
                   <span className="absolute inset-0 text-white blur-md opacity-70">

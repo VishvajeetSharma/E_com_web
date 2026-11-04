@@ -4,7 +4,7 @@ import { FaSlidersH, FaTimes } from "react-icons/fa";
 import {
   EMPTY_FILTERS, PRICE_BUCKETS, activeCount,
   type Facets, type FilterState, type SortBy,
-} from "@/pages/Categories/utils/categoryFilters";
+} from "@/Pages/Categories/utils/categoryFilters";
 
 type Change = (patch: Partial<FilterState>) => void;
 

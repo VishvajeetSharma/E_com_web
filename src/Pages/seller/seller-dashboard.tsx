@@ -4,14 +4,14 @@ import { motion, AnimatePresence } from "framer-motion";
 import { useNavigate, useLocation } from "react-router-dom";
 
 // ─── Import your existing premium components ───────────────────────────────
-import DashboardComponent from "@/pages/Seller/dashboard/Home";
-import OrdersComponent from "@/pages/Seller/dashboard/Orders";
-import SellerReturnsComponent from "@/pages/Seller/dashboard/Return";
-import SellerProductsComponent from "@/pages/Seller/dashboard/Product";
-import SellerPaymentsComponent from "@/pages/Seller/dashboard/Payment";
-import SellerProfileDashboard from "@/pages/Seller/dashboard/Profilesetting";
-import CatalogComponent from "@/pages/Seller/dashboard/Catalog";
-import InventoryComponent from "@/pages/Seller/dashboard/Inventory";
+import DashboardComponent from "@/Pages/seller/dashboard/Home";
+import OrdersComponent from "@/Pages/seller/dashboard/Orders";
+import SellerReturnsComponent from "@/Pages/seller/dashboard/Return";
+import SellerProductsComponent from "@/Pages/seller/dashboard/Product";
+import SellerPaymentsComponent from "@/Pages/seller/dashboard/Payment";
+import SellerProfileDashboard from "@/Pages/seller/dashboard/Profilesetting";
+import CatalogComponent from "@/Pages/seller/dashboard/Catalog";
+import InventoryComponent from "@/Pages/seller/dashboard/Inventory";
 
 // ─── Types ────────────────────────────────────────────────────────────────────
 interface NavItem {

@@ -5,7 +5,7 @@ import { motion, useScroll, useTransform } from "framer-motion";
 import imgs from "@/assets/images/imgs.png";
 import imgb from "@/assets/images/imgsb.png";
 import imgc from "@/assets/images/imgsc.png";
-import { SVGMaskEffectDemo } from "@/pages/Studio/components/effects/SVGMaskEffectDemo";
+import { SVGMaskEffectDemo } from "@/Pages/Studio/components/effects/SVGMaskEffectDemo";
 
 /* 🔹 TYPES */
 type TextParallaxContentProps = {

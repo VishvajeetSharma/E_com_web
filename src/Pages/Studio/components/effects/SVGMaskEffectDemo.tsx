@@ -1,5 +1,5 @@
 "use client";
-import { MaskContainer } from "@/pages/Studio/components/effects/svg-mask-effect";
+import { MaskContainer } from "@/Pages/Studio/components/effects/svg-mask-effect";
 
 export function SVGMaskEffectDemo() {
   return (

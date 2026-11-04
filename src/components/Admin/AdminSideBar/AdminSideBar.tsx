@@ -8,8 +8,6 @@ import {
   FiShield, 
   FiSettings, 
   FiLogOut,
-  FiChevronLeft,
-  FiChevronRight
 } from 'react-icons/fi';
 
 

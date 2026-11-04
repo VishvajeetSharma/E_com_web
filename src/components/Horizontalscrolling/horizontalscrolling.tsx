@@ -1,5 +1,5 @@
 import { motion, useScroll, useTransform, useSpring } from "framer-motion";
-import React, { useRef } from "react";
+import { useRef } from "react";
 
 export const VelocityText = ({ items = [] }) => {
   const targetRef = useRef(null);

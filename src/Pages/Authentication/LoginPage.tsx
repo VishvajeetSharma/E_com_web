@@ -11,11 +11,11 @@ import {
 import { motion } from "framer-motion";
 import Header from "@/components/layout/Header";
 import img from "@/assets/images/logo.png";
-import type { GlobeMarker } from "@/pages/Authentication/components/3d-globe";
+import type { GlobeMarker } from "@/Pages/Authentication/components/3d-globe";
 import ErrorBoundary from "@/components/common/ErrorBoundary";
 
 // Heavy three.js scene: loaded on demand, and contained so a failed texture can never take the login page down.
-const Globe3D = lazy(() => import("@/pages/Authentication/components/3d-globe").then((m) => ({ default: m.Globe3D })));
+const Globe3D = lazy(() => import("@/Pages/Authentication/components/3d-globe").then((m) => ({ default: m.Globe3D })));
 
 const GlobeFallback = () => (
   <div className="w-full h-full grid place-items-center rounded-full border border-[#C6A46A]/30 text-[#E8D9C9]/70 text-xs tracking-[0.3em] uppercase">

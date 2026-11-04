@@ -11,10 +11,10 @@ import AdminLayout from "@/components/layout/admin/AdminLayout";
 export const adminRoutes: RouteObject = {
   path: "/admin",
   children: [
-    { index: true, element: page(() => import("@/pages/Admin/AdminLogin")) },
+    { index: true, element: page(() => import("@/Pages/Admin/AdminLogin")) },
     {
       path: "payments/:year/:month",
-      element: page(() => import("@/pages/Admin/Payments/MonthDetailPage").then((m) => ({ default: m.MonthDetailPage }))),
+      element: page(() => import("@/Pages/Admin/Payments/MonthDetailPage").then((m) => ({ default: m.MonthDetailPage }))),
     },
     {
       element: <AdminLayout />,
@@ -22,13 +22,13 @@ export const adminRoutes: RouteObject = {
         {
           element: <RequireAdmin />,
           children: [
-            { path: "dashboard", element: page(() => import("@/pages/Admin/AdminDashboard")) },
-            { path: "pending-sellers", element: page(() => import("@/pages/Admin/PendingSellers")) },
-            { path: "verified-sellers", element: page(() => import("@/pages/Admin/VerifiedSellers")) },
-            { path: "seller-products/:sellerId", element: page(() => import("@/pages/Admin/SellerProductsDetail")) },
+            { path: "dashboard", element: page(() => import("@/Pages/Admin/AdminDashboard")) },
+            { path: "pending-sellers", element: page(() => import("@/Pages/Admin/PendingSellers")) },
+            { path: "verified-sellers", element: page(() => import("@/Pages/Admin/VerifiedSellers")) },
+            { path: "seller-products/:sellerId", element: page(() => import("@/Pages/Admin/SellerProductsDetail")) },
           ],
         },
-        { path: "payments/*", element: page(() => import("@/pages/Admin/SellerPaymentManagement")) },
+        { path: "payments/*", element: page(() => import("@/Pages/Admin/SellerPaymentManagement")) },
       ],
     },
   ],

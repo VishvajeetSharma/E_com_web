@@ -1,7 +1,7 @@
 import { motion } from "framer-motion";
 import { hiRes } from "@/utils/storefront";
-import type { Facets } from "@/pages/Categories/utils/categoryFilters";
-import type { CategoryConfig } from "@/pages/Categories/utils/categoryConfig";
+import type { Facets } from "@/Pages/Categories/utils/categoryFilters";
+import type { CategoryConfig } from "@/Pages/Categories/utils/categoryConfig";
 
 interface Props { cfg: CategoryConfig; groups: Facets["groups"]; active: string; onPick: (name: string) => void }
 

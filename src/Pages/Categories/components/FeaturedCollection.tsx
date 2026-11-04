@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 import { formatPrice, hiRes, type HomeProduct } from "@/utils/storefront";
-import type { CategoryConfig } from "@/pages/Categories/utils/categoryConfig";
+import type { CategoryConfig } from "@/Pages/Categories/utils/categoryConfig";
 import Tilt from "@/components/common/Tilt";
 
 export const CollectionCard = ({ item, index }: { item: HomeProduct; index: number }) => (

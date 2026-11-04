@@ -130,6 +130,7 @@ function Marker({
   const groupRef = useRef<THREE.Group>(null);
   const imageGroupRef = useRef<THREE.Group>(null);
   const { camera } = useThree();
+  const markerSize = defaultSize ?? 8;
 
   // Surface position (where the line starts)
   const surfacePosition = useMemo(() => {
@@ -227,8 +228,8 @@ function Marker({
               hovered && "scale-125 shadow-xl ring-1 ring-white/50",
             )}
             style={{
-              width: "8px",
-              height: "8px",
+              width: `${markerSize}px`,
+              height: `${markerSize}px`,
             }}
             onMouseEnter={handlePointerEnter}
             onMouseLeave={handlePointerLeave}

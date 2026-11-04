@@ -53,7 +53,6 @@ const ExchangePage = () => {
   const [showAddForm, setShowAddForm] = useState(false);
   const [newAddr, setNewAddr]         = useState({ name: "", line1: "", city: "", state: "", pin: "", phone: "" });
 
-  const step1Valid = selSize !== "" && selSize !== PRODUCT.currentSize || selColor !== "" && selColor !== PRODUCT.currentColor;
   const sameAsOriginal = selSize === PRODUCT.currentSize && selColor === PRODUCT.currentColor && selSize !== "" && selColor !== "";
 
   return (

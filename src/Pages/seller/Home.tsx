@@ -1,4 +1,4 @@
-import NavMegaMenu from "@/pages/Seller/components/SellerHeader";
+import NavMegaMenu from "@/Pages/seller/components/SellerHeader";
 import {
   Sparkles,
   ShieldCheck,
@@ -11,7 +11,7 @@ import {
   ArrowRight,
 } from "lucide-react";
 import { motion } from "framer-motion";
-import { AnimatedTestimonials } from "@/pages/Seller/components/animated-testimonials";
+import { AnimatedTestimonials } from "@/Pages/seller/components/animated-testimonials";
 import { Footer } from "@/components/layout/Footer";
 
 const categories = [

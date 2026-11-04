@@ -1,7 +1,7 @@
 "use client";
 
-import React, { useRef, useEffect, useState } from "react";
-import { motion, useAnimation, useMotionValue, animate } from "framer-motion";
+import { useRef, useEffect, useState } from "react";
+import { motion, useMotionValue, animate } from "framer-motion";
 
 import type { Variants } from "framer-motion";
 import { cn } from "../../utils/acertunity";
