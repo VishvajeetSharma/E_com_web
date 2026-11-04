@@ -247,12 +247,12 @@ function SummaryRow({
         justifyContent: "space-between",
         alignItems: "center",
         padding: "10px 0",
-        borderBottom: border ? "1px solid #edeae2" : "none",
+        borderBottom: border ? "1px solid #E8D9C9" : "none",
       }}
     >
       <span style={{ fontSize: 13, color: "#52525e" }}>{label}</span>
       <span
-        style={{ fontSize: 13, fontWeight: 500, color: color || "#0d0d0f" }}
+        style={{ fontSize: 13, fontWeight: 500, color: color || "#151522" }}
       >
         {value}
       </span>
@@ -278,7 +278,7 @@ function MonthCard({
     <div
       style={{
         background: "#fdfcf8",
-        border: "1px solid #edeae2",
+        border: "1px solid #E8D9C9",
         borderRadius: 14,
         marginBottom: 14,
         overflow: "hidden",
@@ -293,13 +293,13 @@ function MonthCard({
           alignItems: "center",
           padding: "16px 20px",
           cursor: "pointer",
-          background: open ? "#f5f3ee" : "#fdfcf8",
-          borderBottom: open ? "1px solid #edeae2" : "none",
+          background: open ? "#FAF7F2" : "#fdfcf8",
+          borderBottom: open ? "1px solid #E8D9C9" : "none",
           transition: "background 0.15s",
         }}
       >
         <div>
-          <div style={{ fontSize: 14, fontWeight: 500, color: "#0d0d0f" }}>
+          <div style={{ fontSize: 14, fontWeight: 500, color: "#151522" }}>
             {data.month}
           </div>
           <div style={{ fontSize: 11, color: "#8e8e9a", marginTop: 3 }}>
@@ -342,7 +342,7 @@ function MonthCard({
               <SummaryRow
                 label="Gross Sales"
                 value={fmt(data.grossSales)}
-                color="#0d0d0f"
+                color="#151522"
                 border
               />
               <SummaryRow
@@ -366,7 +366,7 @@ function MonthCard({
             </div>
             <div
               style={{
-                background: "#f5f3ee",
+                background: "#FAF7F2",
                 borderRadius: 10,
                 padding: "16px",
                 display: "flex",
@@ -407,7 +407,7 @@ function MonthCard({
             style={{
               fontSize: 12,
               fontWeight: 500,
-              color: "#0d0d0f",
+              color: "#151522",
               marginBottom: 10,
             }}
           >
@@ -422,7 +422,7 @@ function MonthCard({
               }}
             >
               <thead>
-                <tr style={{ background: "#f5f3ee" }}>
+                <tr style={{ background: "#FAF7F2" }}>
                   {[
                     "Order ID",
                     "Customer",
@@ -451,7 +451,7 @@ function MonthCard({
               </thead>
               <tbody>
                 {data.orders.map((o: any) => (
-                  <tr key={o.id} style={{ borderBottom: "1px solid #f5f3ee" }}>
+                  <tr key={o.id} style={{ borderBottom: "1px solid #FAF7F2" }}>
                     <td
                       style={{
                         padding: "10px 10px",
@@ -465,7 +465,7 @@ function MonthCard({
                       style={{
                         padding: "10px 10px",
                         fontWeight: 500,
-                        color: "#0d0d0f",
+                        color: "#151522",
                       }}
                     >
                       {o.customer}
@@ -510,13 +510,13 @@ const CustomTooltip = ({ active, payload, label }: any) => {
       <div
         style={{
           background: "#fdfcf8",
-          border: "1px solid #edeae2",
+          border: "1px solid #E8D9C9",
           borderRadius: 10,
           padding: "12px 16px",
           fontSize: 12,
         }}
       >
-        <div style={{ fontWeight: 500, marginBottom: 6, color: "#0d0d0f" }}>
+        <div style={{ fontWeight: 500, marginBottom: 6, color: "#151522" }}>
           {label}
         </div>
         {payload.map((p: any) => (
@@ -553,9 +553,9 @@ export default function PaymentReport3Month() {
       <div
         style={{
           minHeight: "100vh",
-          background: "#f5f3ee",
+          background: "#FAF7F2",
           fontFamily: "'DM Sans', sans-serif",
-          color: "#0d0d0f",
+          color: "#151522",
         }}
       >
         <div style={{ maxWidth: 900, margin: "0 auto", padding: "28px 20px" }}>
@@ -564,7 +564,7 @@ export default function PaymentReport3Month() {
             style={{
               marginBottom: 28,
               paddingBottom: 22,
-              borderBottom: "1px solid #edeae2",
+              borderBottom: "1px solid #E8D9C9",
             }}
           >
             <h1
@@ -573,7 +573,7 @@ export default function PaymentReport3Month() {
                 fontSize: 26,
                 letterSpacing: -0.3,
                 margin: 0,
-                color: "#0d0d0f",
+                color: "#151522",
               }}
             >
               Payment Report
@@ -629,7 +629,7 @@ export default function PaymentReport3Month() {
                 key={k.label}
                 style={{
                   background: "#fdfcf8",
-                  border: "1px solid #edeae2",
+                  border: "1px solid #E8D9C9",
                   borderRadius: 13,
                   padding: "18px 16px",
                   flex: "1 1 160px",
@@ -661,7 +661,7 @@ export default function PaymentReport3Month() {
                   style={{
                     fontFamily: "'DM Serif Display', serif",
                     fontSize: 22,
-                    color: "#0d0d0f",
+                    color: "#151522",
                     margin: "6px 0 3px",
                   }}
                 >
@@ -676,7 +676,7 @@ export default function PaymentReport3Month() {
           <div
             style={{
               background: "#fdfcf8",
-              border: "1px solid #edeae2",
+              border: "1px solid #E8D9C9",
               borderRadius: 14,
               padding: "20px",
               marginBottom: 24,
@@ -686,7 +686,7 @@ export default function PaymentReport3Month() {
               style={{
                 fontSize: 13,
                 fontWeight: 500,
-                color: "#0d0d0f",
+                color: "#151522",
                 marginBottom: 16,
               }}
             >
@@ -731,7 +731,7 @@ export default function PaymentReport3Month() {
               <BarChart data={chartData} barCategoryGap="30%" barGap={4}>
                 <CartesianGrid
                   strokeDasharray="3 3"
-                  stroke="#edeae2"
+                  stroke="#E8D9C9"
                   vertical={false}
                 />
                 <XAxis
@@ -748,7 +748,7 @@ export default function PaymentReport3Month() {
                 />
                 <Tooltip
                   content={<CustomTooltip />}
-                  cursor={{ fill: "#f5f3ee" }}
+                  cursor={{ fill: "#FAF7F2" }}
                 />
                 <Bar
                   dataKey="Gross Sales"
@@ -774,7 +774,7 @@ export default function PaymentReport3Month() {
             style={{
               fontSize: 13,
               fontWeight: 500,
-              color: "#0d0d0f",
+              color: "#151522",
               marginBottom: 14,
             }}
           >

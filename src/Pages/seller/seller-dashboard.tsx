@@ -1,16 +1,17 @@
 import { useState } from "react";
+import { useMediaQuery } from "@/hooks/useMediaQuery";
 import { motion, AnimatePresence } from "framer-motion";
 import { useNavigate, useLocation } from "react-router-dom";
 
 // ─── Import your existing premium components ───────────────────────────────
-import DashboardComponent from "./dashboard/Home";
-import OrdersComponent from "./dashboard/Orders";
-import SellerReturnsComponent from "./dashboard/Return";
-import SellerProductsComponent from "./dashboard/Product";
-import SellerPaymentsComponent from "./dashboard/Payment";
-import SellerProfileDashboard from "./dashboard/Profilesetting";
-import CatalogComponent from "./dashboard/Catalog";
-import InventoryComponent from "./dashboard/Inventory";
+import DashboardComponent from "@/pages/Seller/dashboard/Home";
+import OrdersComponent from "@/pages/Seller/dashboard/Orders";
+import SellerReturnsComponent from "@/pages/Seller/dashboard/Return";
+import SellerProductsComponent from "@/pages/Seller/dashboard/Product";
+import SellerPaymentsComponent from "@/pages/Seller/dashboard/Payment";
+import SellerProfileDashboard from "@/pages/Seller/dashboard/Profilesetting";
+import CatalogComponent from "@/pages/Seller/dashboard/Catalog";
+import InventoryComponent from "@/pages/Seller/dashboard/Inventory";
 
 // ─── Types ────────────────────────────────────────────────────────────────────
 interface NavItem {
@@ -248,8 +249,11 @@ const NAV_ITEMS: NavItem[] = [
 ];
 
 // ─── SIDEBAR ──────────────────────────────────────────────────────────────────
-function Sidebar() {
-  const [open, setOpen] = useState(true);
+function Sidebar({ mobile = false, drawerOpen = false, onClose = () => {} }: { mobile?: boolean; drawerOpen?: boolean; onClose?: () => void }) {
+  const [expanded, setExpanded] = useState(true);
+  // On phones the sidebar is an off-canvas drawer that is always full width when shown.
+  const open = mobile ? true : expanded;
+  const setOpen = (v: boolean | ((p: boolean) => boolean)) => setExpanded(v);
   const navigate = useNavigate();
   const location = useLocation();
 
@@ -262,20 +266,28 @@ function Sidebar() {
         @import url('https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@300;400;500&family=JetBrains+Mono:wght@400;500&display=swap');
         * { box-sizing: border-box; }
         .nav-btn { transition: background 0.15s, color 0.15s; }
-        .nav-btn:hover { background: #f5f3ee !important; }
+        .nav-btn:hover { background: #FAF7F2 !important; }
       `}</style>
 
+      {mobile && drawerOpen && (
+        <div onClick={onClose} aria-hidden="true" style={{ position: "fixed", inset: 0, background: "rgba(21,21,34,0.45)", zIndex: 49 }} />
+      )}
       <motion.div
-        layout
+        layout={!mobile}
         animate={{ width: open ? 220 : 64 }}
         transition={{ duration: 0.25, ease: [0.4, 0, 0.2, 1] }}
+        aria-hidden={mobile && !drawerOpen ? true : undefined}
         style={{
           height: "100vh",
-          position: "sticky",
+          position: mobile ? "fixed" : "sticky",
           top: 0,
+          left: 0,
+          zIndex: mobile ? 50 : undefined,
+          transform: mobile ? `translateX(${drawerOpen ? "0" : "-105%"})` : undefined,
+          transition: mobile ? "transform 0.25s ease" : undefined,
           flexShrink: 0,
           background: "#fdfcf8",
-          borderRight: "1px solid #edeae2",
+          borderRight: "1px solid #E8D9C9",
           display: "flex",
           flexDirection: "column",
           overflow: "hidden",
@@ -286,7 +298,7 @@ function Sidebar() {
         <div
           style={{
             padding: "16px 12px 14px",
-            borderBottom: "1px solid #edeae2",
+            borderBottom: "1px solid #E8D9C9",
           }}
         >
           <div
@@ -301,7 +313,7 @@ function Sidebar() {
               transition: "background 0.15s",
             }}
             onMouseEnter={(e) =>
-              ((e.currentTarget as HTMLElement).style.background = "#f5f3ee")
+              ((e.currentTarget as HTMLElement).style.background = "#FAF7F2")
             }
             onMouseLeave={(e) =>
               ((e.currentTarget as HTMLElement).style.background =
@@ -314,7 +326,7 @@ function Sidebar() {
                 width: 36,
                 height: 36,
                 borderRadius: 10,
-                background: "#0d0d0f",
+                background: "#151522",
                 display: "flex",
                 alignItems: "center",
                 justifyContent: "center",
@@ -325,7 +337,7 @@ function Sidebar() {
                 width="18"
                 height="14"
                 viewBox="0 0 50 39"
-                fill="#c9a84c"
+                fill="#C6A46A"
                 xmlns="http://www.w3.org/2000/svg"
               >
                 <path d="M16.4992 2H37.5808L22.0816 24.9729H1L16.4992 2Z" />
@@ -343,7 +355,7 @@ function Sidebar() {
                     style={{
                       fontSize: 13,
                       fontWeight: 500,
-                      color: "#0d0d0f",
+                      color: "#151522",
                       lineHeight: 1.2,
                     }}
                   >
@@ -376,7 +388,7 @@ function Sidebar() {
                 key={item.id}
                 layout
                 className="nav-btn"
-                onClick={() => navigate(item.path)}
+                onClick={() => { navigate(item.path); if (mobile) onClose(); }}
                 style={{
                   width: "100%",
                   height: 40,
@@ -403,7 +415,7 @@ function Sidebar() {
                       top: 0,
                       bottom: 0,
                       width: 3,
-                      background: "#c9a84c",
+                      background: "#C6A46A",
                       borderRadius: "0 3px 3px 0",
                     }}
                   />
@@ -440,7 +452,7 @@ function Sidebar() {
                     style={{
                       minWidth: 18,
                       height: 18,
-                      background: "#c9a84c",
+                      background: "#C6A46A",
                       color: "#fff",
                       borderRadius: 99,
                       fontSize: 10,
@@ -462,7 +474,7 @@ function Sidebar() {
                       right: 6,
                       width: 7,
                       height: 7,
-                      background: "#c9a84c",
+                      background: "#C6A46A",
                       borderRadius: "50%",
                     }}
                   />
@@ -482,9 +494,9 @@ function Sidebar() {
               style={{
                 margin: "0 8px 8px",
                 padding: "12px 14px",
-                background: "#f5f3ee",
+                background: "#FAF7F2",
                 borderRadius: 12,
-                border: "1px solid #edeae2",
+                border: "1px solid #E8D9C9",
               }}
             >
               <div style={{ display: "flex", alignItems: "center", gap: 10 }}>
@@ -494,13 +506,13 @@ function Sidebar() {
                     height: 32,
                     borderRadius: "50%",
                     background: "linear-gradient(135deg,#c9a84c22,#c9a84c55)",
-                    border: "1px solid #c9a84c",
+                    border: "1px solid #C6A46A",
                     display: "flex",
                     alignItems: "center",
                     justifyContent: "center",
                     fontSize: 13,
                     fontWeight: 600,
-                    color: "#c9a84c",
+                    color: "#C6A46A",
                     flexShrink: 0,
                   }}
                 >
@@ -511,7 +523,7 @@ function Sidebar() {
                     style={{
                       fontSize: 12,
                       fontWeight: 500,
-                      color: "#0d0d0f",
+                      color: "#151522",
                       overflow: "hidden",
                       textOverflow: "ellipsis",
                       whiteSpace: "nowrap",
@@ -533,7 +545,7 @@ function Sidebar() {
           style={
             {
               height: 44,
-              borderTop: "1px solid #edeae2",
+              borderTop: "1px solid #E8D9C9",
               background: "transparent",
               border: "none",
 
@@ -547,7 +559,7 @@ function Sidebar() {
             } as React.CSSProperties
           }
           onMouseEnter={(e) =>
-            ((e.currentTarget as HTMLElement).style.background = "#f5f3ee")
+            ((e.currentTarget as HTMLElement).style.background = "#FAF7F2")
           }
           onMouseLeave={(e) =>
             ((e.currentTarget as HTMLElement).style.background = "transparent")
@@ -632,18 +644,18 @@ function MembersComponent() {
 
   const roleAccent: Record<string, { bg: string; color: string }> = {
     Admin: { bg: "#fdf6ea", color: "#8a5e1a" },
-    Manager: { bg: "#eef3fb", color: "#1a4d8a" },
-    Staff: { bg: "#f5f3ee", color: "#52525e" },
+    Manager: { bg: "#f3ede4", color: "#1a4d8a" },
+    Staff: { bg: "#FAF7F2", color: "#52525e" },
   };
 
   const inputStyle: React.CSSProperties = {
     width: "100%",
     padding: "9px 12px",
-    border: "1px solid #edeae2",
+    border: "1px solid #E8D9C9",
     borderRadius: 9,
     fontSize: 13,
-    color: "#0d0d0f",
-    background: "#f5f3ee",
+    color: "#151522",
+    background: "#FAF7F2",
     ...F.sans,
     outline: "none",
   };
@@ -652,9 +664,9 @@ function MembersComponent() {
     <div
       style={{
         minHeight: "100vh",
-        background: "#f5f3ee",
+        background: "#FAF7F2",
         ...F.sans,
-        color: "#0d0d0f",
+        color: "#151522",
       }}
     >
       <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -677,7 +689,7 @@ function MembersComponent() {
             alignItems: "flex-start",
             marginBottom: 28,
             paddingBottom: 24,
-            borderBottom: "1px solid #edeae2",
+            borderBottom: "1px solid #E8D9C9",
           }}
         >
           <div>
@@ -706,7 +718,7 @@ function MembersComponent() {
             onClick={() => setShowInvite((s) => !s)}
             style={{
               padding: "9px 18px",
-              background: "#0d0d0f",
+              background: "#151522",
               color: "#fdfcf8",
               border: "none",
               borderRadius: 10,
@@ -727,7 +739,7 @@ function MembersComponent() {
             animate={{ opacity: 1, y: 0 }}
             style={{
               background: "#fdfcf8",
-              border: "1px solid #edeae2",
+              border: "1px solid #E8D9C9",
               borderRadius: 16,
               padding: 20,
               marginBottom: 20,
@@ -777,7 +789,7 @@ function MembersComponent() {
                 }}
                 style={{
                   padding: "9px 20px",
-                  background: "#c9a84c",
+                  background: "#C6A46A",
                   color: "#fff",
                   border: "none",
                   borderRadius: 9,
@@ -811,7 +823,7 @@ function MembersComponent() {
               key={s.label}
               style={{
                 background: "#fdfcf8",
-                border: "1px solid #edeae2",
+                border: "1px solid #E8D9C9",
                 borderRadius: 12,
                 padding: "12px 18px",
                 flex: 1,
@@ -831,7 +843,7 @@ function MembersComponent() {
                 style={{
                   ...F.serif,
                   fontSize: 24,
-                  color: "#0d0d0f",
+                  color: "#151522",
                   marginTop: 4,
                 }}
               >
@@ -852,7 +864,7 @@ function MembersComponent() {
               exit={{ opacity: 0, x: -20 }}
               style={{
                 background: "#fdfcf8",
-                border: "1px solid #edeae2",
+                border: "1px solid #E8D9C9",
                 borderRadius: 14,
                 padding: "16px 20px",
                 display: "flex",
@@ -873,7 +885,7 @@ function MembersComponent() {
                   justifyContent: "center",
                   fontSize: 15,
                   fontWeight: 600,
-                  color: "#c9a84c",
+                  color: "#C6A46A",
                   flexShrink: 0,
                 }}
               >
@@ -891,7 +903,7 @@ function MembersComponent() {
                   }}
                 >
                   <span
-                    style={{ fontSize: 14, fontWeight: 500, color: "#0d0d0f" }}
+                    style={{ fontSize: 14, fontWeight: 500, color: "#151522" }}
                   >
                     {m.name}
                   </span>
@@ -934,8 +946,8 @@ function MembersComponent() {
                     cursor: "pointer",
                     padding: "4px 10px",
                     borderRadius: 20,
-                    background: m.status === "Active" ? "#edf7f2" : "#f5f3ee",
-                    border: `1px solid ${m.status === "Active" ? "#4ab47a44" : "#edeae2"}`,
+                    background: m.status === "Active" ? "#edf7f2" : "#FAF7F2",
+                    border: `1px solid ${m.status === "Active" ? "#4ab47a44" : "#E8D9C9"}`,
                   }}
                 >
                   <div
@@ -965,7 +977,7 @@ function MembersComponent() {
                   style={{
                     padding: "6px 12px",
                     background: "transparent",
-                    border: "1px solid #edeae2",
+                    border: "1px solid #E8D9C9",
                     borderRadius: 8,
                     fontSize: 12,
                     color: "#a83232",
@@ -1020,11 +1032,23 @@ function DashboardContent() {
 }
 
 // ─── ROOT EXPORT ──────────────────────────────────────────────────────────────
-export const SellerDashboard: React.FC = () => (
-  <div style={{ display: "flex", background: "#f5f3ee", minHeight: "100vh" }}>
-    <Sidebar />
-    <DashboardContent />
-  </div>
-);
+export const SellerDashboard: React.FC = () => {
+  const mobile = useMediaQuery("(max-width: 767px)");
+  const [drawer, setDrawer] = useState(false);
+  return (
+    <div style={{ display: "flex", background: "#FAF7F2", minHeight: "100vh" }}>
+      <Sidebar mobile={mobile} drawerOpen={drawer} onClose={() => setDrawer(false)} />
+      <div style={{ flex: 1, minWidth: 0 }}>
+        {mobile && (
+          <div style={{ position: "sticky", top: 0, zIndex: 40, display: "flex", alignItems: "center", gap: 12, padding: "10px 14px", background: "#4A101C", color: "#FAF7F2" }}>
+            <button type="button" aria-label="Open menu" aria-expanded={drawer} onClick={() => setDrawer(true)} style={{ background: "none", border: 0, color: "inherit", fontSize: 22, lineHeight: 1, padding: 4, cursor: "pointer" }}>☰</button>
+            <span style={{ letterSpacing: "0.22em", textTransform: "uppercase", fontSize: 12 }}>Seller Centre</span>
+          </div>
+        )}
+        <DashboardContent />
+      </div>
+    </div>
+  );
+};
 
 export default SellerDashboard;

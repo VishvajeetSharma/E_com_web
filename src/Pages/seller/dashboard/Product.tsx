@@ -40,7 +40,7 @@ const TOKEN = {
   surfaceRaised: "#e8e8e8",
   border: "rgba(0,0,0,0.07)",
   borderHover: "rgba(0,0,0,0.13)",
-  gold: "#c9a84c",
+  gold: "#C6A46A",
   goldLight: "#e8c97a",
   goldDim: "rgba(201,168,76,0.12)",
   text: "#0f0f0f",
@@ -848,7 +848,7 @@ const SellerProductsComponent: React.FC = () => {
             <div className="sp-stat">
               <div
                 className="sp-stat-accent"
-                style={{ background: "#8a6fd4" }}
+                style={{ background: "#8f6f36" }}
               />
               <div className="sp-stat-label">Units Sold</div>
               <div className="sp-stat-value">{stats.totalSold}</div>

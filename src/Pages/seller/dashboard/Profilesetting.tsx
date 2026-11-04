@@ -64,7 +64,7 @@ const Toggle = ({
       height: 22,
       borderRadius: 22,
       border: "none",
-      background: checked ? "#185FA5" : "#d1d5db",
+      background: checked ? "#812D3A" : "#cbbfb1",
       cursor: "pointer",
       transition: "background 0.2s",
       flexShrink: 0,
@@ -89,7 +89,7 @@ const ProgressBar = ({ value, color }: { value: number; color: string }) => (
   <div
     style={{
       height: 4,
-      background: "#f3f4f6",
+      background: "#f3ede4",
       borderRadius: 4,
       overflow: "hidden",
     }}
@@ -142,11 +142,11 @@ const SellerProfileDashboard = () => {
   const [editDraft, setEditDraft] = useState<SellerData>(seller);
 
   const stats = [
-    { label: "Products", value: "156", color: "#374151" },
-    { label: "Orders", value: "3,420", color: "#374151" },
+    { label: "Products", value: "156", color: "#3d2e12" },
+    { label: "Orders", value: "3,420", color: "#3d2e12" },
     { label: "Revenue", value: "₹42.5L", color: "#0F6E56" },
     { label: "Rating", value: "4.7★", color: "#BA7517" },
-    { label: "Response", value: "98%", color: "#185FA5" },
+    { label: "Response", value: "98%", color: "#812D3A" },
     { label: "On-Time", value: "96%", color: "#0F6E56" },
   ];
 
@@ -210,7 +210,7 @@ const SellerProfileDashboard = () => {
 
   const card: React.CSSProperties = {
     background: "#ffffff",
-    border: "0.5px solid #e5e7eb",
+    border: "0.5px solid #e8d9c9",
     borderRadius: 12,
     padding: "20px 24px",
   };
@@ -234,23 +234,23 @@ const SellerProfileDashboard = () => {
 
   const fieldValue: React.CSSProperties = {
     fontSize: 14,
-    color: "#111827",
+    color: "#151522",
   };
 
   const divider: React.CSSProperties = {
     height: "0.5px",
-    background: "#f3f4f6",
+    background: "#f3ede4",
     margin: "12px 0",
   };
 
   const inputStyle: React.CSSProperties = {
     width: "100%",
     padding: "7px 10px",
-    border: "0.5px solid #d1d5db",
+    border: "0.5px solid #cbbfb1",
     borderRadius: 8,
     fontSize: 13,
-    background: "#f9fafb",
-    color: "#111827",
+    background: "#faf7f2",
+    color: "#151522",
     outline: "none",
     fontFamily: "inherit",
     boxSizing: "border-box",
@@ -260,7 +260,7 @@ const SellerProfileDashboard = () => {
     <div
       style={{
         minHeight: "100vh",
-        background: "#f9fafb",
+        background: "#faf7f2",
         fontFamily: "'DM Sans', system-ui, sans-serif",
       }}
     >
@@ -268,7 +268,7 @@ const SellerProfileDashboard = () => {
       <div
         style={{
           background: "#fff",
-          borderBottom: "0.5px solid #e5e7eb",
+          borderBottom: "0.5px solid #e8d9c9",
           padding: "0 32px",
           height: 56,
           display: "flex",
@@ -284,7 +284,7 @@ const SellerProfileDashboard = () => {
             style={{
               width: 30,
               height: 30,
-              background: "#185FA5",
+              background: "#812D3A",
               borderRadius: 8,
               display: "flex",
               alignItems: "center",
@@ -296,7 +296,7 @@ const SellerProfileDashboard = () => {
           >
             D
           </div>
-          <span style={{ fontSize: 14, fontWeight: 500, color: "#111827" }}>
+          <span style={{ fontSize: 14, fontWeight: 500, color: "#151522" }}>
             Seller Dashboard
           </span>
         </div>
@@ -313,7 +313,7 @@ const SellerProfileDashboard = () => {
               display: "flex",
               alignItems: "center",
               justifyContent: "center",
-              color: "#0C447C",
+              color: "#2a2733",
               fontWeight: 600,
               fontSize: 13,
             }}
@@ -340,7 +340,7 @@ const SellerProfileDashboard = () => {
               key={s.label}
               style={{
                 background: "#fff",
-                border: "0.5px solid #e5e7eb",
+                border: "0.5px solid #e8d9c9",
                 borderRadius: 10,
                 padding: "12px 14px",
               }}
@@ -360,7 +360,7 @@ const SellerProfileDashboard = () => {
           style={{
             display: "flex",
             gap: 4,
-            background: "#f3f4f6",
+            background: "#f3ede4",
             padding: 4,
             borderRadius: 10,
             width: "fit-content",
@@ -380,7 +380,7 @@ const SellerProfileDashboard = () => {
                 fontFamily: "inherit",
                 transition: "all 0.15s",
                 background: activeTab === t.key ? "#fff" : "transparent",
-                color: activeTab === t.key ? "#111827" : "#6b7280",
+                color: activeTab === t.key ? "#151522" : "#6b7280",
                 fontWeight: activeTab === t.key ? 500 : 400,
                 boxShadow:
                   activeTab === t.key ? "0 1px 3px rgba(0,0,0,0.08)" : "none",
@@ -421,7 +421,7 @@ const SellerProfileDashboard = () => {
                         justifyContent: "center",
                         fontWeight: 500,
                         fontSize: 20,
-                        color: "#0C447C",
+                        color: "#2a2733",
                       }}
                     >
                       {seller.fullName.charAt(0)}
@@ -431,7 +431,7 @@ const SellerProfileDashboard = () => {
                         style={{
                           fontSize: 15,
                           fontWeight: 500,
-                          color: "#111827",
+                          color: "#151522",
                         }}
                       >
                         {seller.fullName}
@@ -448,7 +448,7 @@ const SellerProfileDashboard = () => {
                           onClick={() => setIsEditing(false)}
                           style={{
                             padding: "6px 14px",
-                            border: "0.5px solid #d1d5db",
+                            border: "0.5px solid #cbbfb1",
                             borderRadius: 8,
                             background: "transparent",
                             fontSize: 13,
@@ -465,7 +465,7 @@ const SellerProfileDashboard = () => {
                             padding: "6px 14px",
                             border: "none",
                             borderRadius: 8,
-                            background: "#185FA5",
+                            background: "#812D3A",
                             color: "white",
                             fontSize: 13,
                             cursor: "pointer",
@@ -481,13 +481,13 @@ const SellerProfileDashboard = () => {
                         onClick={handleEditStart}
                         style={{
                           padding: "6px 14px",
-                          border: "0.5px solid #d1d5db",
+                          border: "0.5px solid #cbbfb1",
                           borderRadius: 8,
                           background: "transparent",
                           fontSize: 13,
                           cursor: "pointer",
                           fontFamily: "inherit",
-                          color: "#374151",
+                          color: "#3d2e12",
                         }}
                       >
                         Edit
@@ -645,7 +645,7 @@ const SellerProfileDashboard = () => {
                       }}
                     >
                       <div>
-                        <p style={{ fontSize: 13, color: "#111827" }}>
+                        <p style={{ fontSize: 13, color: "#151522" }}>
                           {item.label}
                         </p>
                         <p style={{ fontSize: 11, color: "#9ca3af" }}>
@@ -665,7 +665,7 @@ const SellerProfileDashboard = () => {
             {/* Right column */}
             <div style={{ display: "flex", flexDirection: "column", gap: 12 }}>
               {/* Business docs */}
-              <div style={{ ...card, border: "0.5px solid #d1d5db" }}>
+              <div style={{ ...card, border: "0.5px solid #cbbfb1" }}>
                 <div
                   style={{
                     display: "flex",
@@ -711,7 +711,7 @@ const SellerProfileDashboard = () => {
                             fontSize: 14,
                             fontFamily: "monospace",
                             letterSpacing: "0.04em",
-                            color: "#111827",
+                            color: "#151522",
                           }}
                         >
                           {field.value}
@@ -720,7 +720,7 @@ const SellerProfileDashboard = () => {
                           style={{
                             fontSize: 10,
                             color: "#9ca3af",
-                            background: "#f9fafb",
+                            background: "#faf7f2",
                             padding: "2px 8px",
                             borderRadius: 4,
                           }}
@@ -808,7 +808,7 @@ const SellerProfileDashboard = () => {
                       <p style={{ fontSize: 13, color: "#6b7280" }}>
                         Instagram
                       </p>
-                      <p style={{ fontSize: 13, color: "#185FA5" }}>
+                      <p style={{ fontSize: 13, color: "#812D3A" }}>
                         {seller.instagram || "—"}
                       </p>
                     </div>
@@ -822,7 +822,7 @@ const SellerProfileDashboard = () => {
                       }}
                     >
                       <p style={{ fontSize: 13, color: "#6b7280" }}>Facebook</p>
-                      <p style={{ fontSize: 13, color: "#185FA5" }}>
+                      <p style={{ fontSize: 13, color: "#812D3A" }}>
                         {seller.facebook || "—"}
                       </p>
                     </div>
@@ -836,7 +836,7 @@ const SellerProfileDashboard = () => {
                       }}
                     >
                       <p style={{ fontSize: 13, color: "#6b7280" }}>Twitter</p>
-                      <p style={{ fontSize: 13, color: "#185FA5" }}>
+                      <p style={{ fontSize: 13, color: "#812D3A" }}>
                         {seller.twitter || "—"}
                       </p>
                     </div>
@@ -850,7 +850,7 @@ const SellerProfileDashboard = () => {
                       }}
                     >
                       <p style={{ fontSize: 13, color: "#6b7280" }}>YouTube</p>
-                      <p style={{ fontSize: 13, color: "#185FA5" }}>
+                      <p style={{ fontSize: 13, color: "#812D3A" }}>
                         {seller.youtube || "—"}
                       </p>
                     </div>
@@ -864,7 +864,7 @@ const SellerProfileDashboard = () => {
                       }}
                     >
                       <p style={{ fontSize: 13, color: "#6b7280" }}>Website</p>
-                      <p style={{ fontSize: 13, color: "#185FA5" }}>
+                      <p style={{ fontSize: 13, color: "#812D3A" }}>
                         {seller.website || "—"}
                       </p>
                     </div>
@@ -930,7 +930,7 @@ const SellerProfileDashboard = () => {
                   <div style={divider} />
                   <div>
                     <p style={fieldLabel}>Website</p>
-                    <p style={{ ...fieldValue, color: "#185FA5" }}>
+                    <p style={{ ...fieldValue, color: "#812D3A" }}>
                       {seller.website}
                     </p>
                   </div>
@@ -995,7 +995,7 @@ const SellerProfileDashboard = () => {
                     onClick={() => setShowAddCategory(true)}
                     style={{
                       fontSize: 11,
-                      color: "#185FA5",
+                      color: "#812D3A",
                       background: "none",
                       border: "none",
                       cursor: "pointer",
@@ -1012,7 +1012,7 @@ const SellerProfileDashboard = () => {
                       <div
                         key={cat}
                         style={{
-                          background: "#f3f4f6",
+                          background: "#f3ede4",
                           padding: "4px 8px 4px 12px",
                           borderRadius: 20,
                           fontSize: 12,
@@ -1059,7 +1059,7 @@ const SellerProfileDashboard = () => {
                         onClick={addSecondaryCategory}
                         style={{
                           padding: "6px 16px",
-                          background: "#185FA5",
+                          background: "#812D3A",
                           color: "white",
                           border: "none",
                           borderRadius: 8,
@@ -1073,8 +1073,8 @@ const SellerProfileDashboard = () => {
                         onClick={() => setShowAddCategory(false)}
                         style={{
                           padding: "6px 16px",
-                          background: "#f3f4f6",
-                          border: "0.5px solid #d1d5db",
+                          background: "#f3ede4",
+                          border: "0.5px solid #cbbfb1",
                           borderRadius: 8,
                           fontSize: 12,
                           cursor: "pointer",
@@ -1092,7 +1092,7 @@ const SellerProfileDashboard = () => {
                       <span
                         key={cat}
                         style={{
-                          background: "#f3f4f6",
+                          background: "#f3ede4",
                           padding: "4px 12px",
                           borderRadius: 20,
                           fontSize: 12,
@@ -1212,7 +1212,7 @@ const SellerProfileDashboard = () => {
                 style={{
                   fontSize: 28,
                   fontWeight: 500,
-                  color: "#111827",
+                  color: "#151522",
                   marginBottom: 4,
                 }}
               >
@@ -1221,7 +1221,7 @@ const SellerProfileDashboard = () => {
               <p style={{ fontSize: 12, color: "#9ca3af", marginBottom: 16 }}>
                 Next settlement: 15 May 2026
               </p>
-              <ProgressBar value={62} color="#185FA5" />
+              <ProgressBar value={62} color="#812D3A" />
               <div
                 style={{
                   display: "flex",
@@ -1245,7 +1245,7 @@ const SellerProfileDashboard = () => {
                   style={{
                     fontSize: 14,
                     fontFamily: "monospace",
-                    color: "#111827",
+                    color: "#151522",
                     marginTop: 4,
                     letterSpacing: "0.04em",
                   }}
@@ -1260,7 +1260,7 @@ const SellerProfileDashboard = () => {
                   style={{
                     fontSize: 14,
                     fontFamily: "monospace",
-                    color: "#111827",
+                    color: "#151522",
                     marginTop: 4,
                     letterSpacing: "0.04em",
                   }}
@@ -1316,7 +1316,7 @@ const SellerProfileDashboard = () => {
                         style={{
                           fontSize: 14,
                           fontWeight: 500,
-                          color: "#111827",
+                          color: "#151522",
                         }}
                       >
                         {row.value}
@@ -1329,7 +1329,7 @@ const SellerProfileDashboard = () => {
             <div style={card}>
               <p style={sectionTitle}>Performance</p>
               {[
-                { label: "Response rate", value: 98, color: "#185FA5" },
+                { label: "Response rate", value: 98, color: "#812D3A" },
                 { label: "On-time delivery", value: 96, color: "#0F6E56" },
                 { label: "Rating (4.7 / 5.0)", value: 94, color: "#BA7517" },
               ].map((metric) => (
@@ -1348,7 +1348,7 @@ const SellerProfileDashboard = () => {
                       style={{
                         fontSize: 13,
                         fontWeight: 500,
-                        color: "#111827",
+                        color: "#151522",
                       }}
                     >
                       {metric.value}%

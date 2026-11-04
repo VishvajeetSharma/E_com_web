@@ -1,4 +1,4 @@
-import NavMegaMenu from "../../components/Header/SellerHeader";
+import NavMegaMenu from "@/pages/Seller/components/SellerHeader";
 import {
   Sparkles,
   ShieldCheck,
@@ -11,8 +11,8 @@ import {
   ArrowRight,
 } from "lucide-react";
 import { motion } from "framer-motion";
-import { AnimatedTestimonials } from "../../components/acertunity/animated-testimonials";
-import { Footer } from "../../components/Footer/Footer";
+import { AnimatedTestimonials } from "@/pages/Seller/components/animated-testimonials";
+import { Footer } from "@/components/layout/Footer";
 
 const categories = [
   "Sell Sarees Online",
@@ -146,32 +146,32 @@ const testimonial = [
 
 const Home = () => {
   return (
-    <div>
+    <div className="overflow-x-clip">
       <NavMegaMenu />
       <div className="max-w-7xl mx-auto text-center  z-10 mt-15">
         <h2 className="text-4xl md:text-5xl font-black text-zinc-900 ">
           Our Happy{" "}
-          <span className="text-transparent bg-clip-text bg-linear-to-r from-pink-500 to-purple-600">
+          <span className="text-transparent bg-clip-text bg-linear-to-r from-[#812D3A] to-[#812D3A]">
             Sellers
           </span>
         </h2>
       </div>
       <AnimatedTestimonials testimonials={testimonial} />
-      <section className="relative  px-6 overflow-hidden bg-linear-to-br from-pink-50 via-white to-purple-50">
-        <div className="absolute top-0 left-0 w-72 h-72 bg-pink-300/30 blur-[120px] rounded-full" />
-        <div className="absolute bottom-0 right-0 w-72 h-72 bg-purple-300/30 blur-[120px] rounded-full" />
+      <section className="relative  px-6 overflow-hidden bg-linear-to-br from-[#FAF7F2] via-white to-[#FAF7F2]">
+        <div className="absolute top-0 left-0 w-72 h-72 bg-[#C6A46A]/30 blur-[120px] rounded-full" />
+        <div className="absolute bottom-0 right-0 w-72 h-72 bg-[#C6A46A]/30 blur-[120px] rounded-full" />
 
       <div className="max-w-7xl mx-auto relative z-10">
 
   {/* ── Why Sellers Love ── */}
   <div className="grid md:grid-cols-2 gap-16 items-center">
     <div>
-      <p className="text-xs font-bold uppercase tracking-widest text-pink-400 mb-3 font-google">
+      <p className="text-xs font-bold uppercase tracking-widest text-[#C6A46A] mb-3 font-google">
         Why choose us
       </p>
       <h2 className="text-4xl md:text-5xl font-black text-zinc-900 leading-tight font-google">
         Why Sellers Love{" "}
-        <span className="text-transparent bg-clip-text bg-gradient-to-r from-pink-400 via-fuchsia-400 to-purple-500">
+        <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#C6A46A] via-[#C6A46A] to-[#812D3A]">
           Darling Desire
         </span>
       </h2>
@@ -204,7 +204,7 @@ const Home = () => {
           className="group p-5 rounded-2xl bg-white border border-zinc-100 shadow-sm hover:shadow-md transition-all hover:-translate-y-1"
         >
           {/* soft icon bg instead of heavy gradient */}
-          <div className="w-11 h-11 flex items-center justify-center rounded-xl bg-pink-50 text-pink-400 mb-4 group-hover:bg-pink-100 transition-colors">
+          <div className="w-11 h-11 flex items-center justify-center rounded-xl bg-[#FAF7F2] text-[#C6A46A] mb-4 group-hover:bg-[#E8D9C9] transition-colors">
             <b.icon className="w-5 h-5" />
           </div>
           <h4 className="font-bold text-sm text-zinc-800 font-google">{b.title}</h4>
@@ -220,7 +220,7 @@ const Home = () => {
   {/* ── Exclusive Seller Rewards ── */}
   <div className="grid md:grid-cols-3 gap-10 items-start">
     <div className="md:sticky md:top-28">
-      <p className="text-xs font-bold uppercase tracking-widest text-purple-400 mb-3 font-google">
+      <p className="text-xs font-bold uppercase tracking-widest text-[#C6A46A] mb-3 font-google">
         Perks for you
       </p>
       <h3 className="text-3xl font-black text-zinc-900 leading-tight font-google">
@@ -230,7 +230,7 @@ const Home = () => {
         Special perks for your first 30 days on Darling Desire
       </p>
       {/* soft outline button instead of filled gradient */}
-      <button className="mt-6 px-5 py-2.5 border border-pink-200 text-pink-500 bg-pink-50 hover:bg-pink-100 text-xs font-bold rounded-xl transition font-google">
+      <button className="mt-6 px-5 py-2.5 border border-[#E8D9C9] text-[#812D3A] bg-[#FAF7F2] hover:bg-[#E8D9C9] text-xs font-bold rounded-xl transition font-google">
         Claim rewards →
       </button>
     </div>
@@ -241,7 +241,7 @@ const Home = () => {
           key={i}
           className="group p-5 rounded-2xl bg-white border border-zinc-100 shadow-sm hover:shadow-md hover:-translate-y-1 transition-all"
         >
-          <div className="w-11 h-11 flex items-center justify-center rounded-xl bg-purple-50 text-purple-400 mb-4 group-hover:bg-pink-50 group-hover:text-pink-400 transition-all">
+          <div className="w-11 h-11 flex items-center justify-center rounded-xl bg-[#FAF7F2] text-[#C6A46A] mb-4 group-hover:bg-[#FAF7F2] group-hover:text-[#C6A46A] transition-all">
             <r.icon className="w-5 h-5" />
           </div>
           <h4 className="font-bold text-sm text-zinc-800 font-google">{r.title}</h4>
@@ -254,18 +254,18 @@ const Home = () => {
 </div>
       </section>
       <section className="relative py-24 px-6 bg-white overflow-hidden">
-        <div className="absolute top-10 left-1/2 -translate-x-1/2 w-125 h-50 bg-pink-200/30 blur-[120px] rounded-full" />
+        <div className="absolute top-10 left-1/2 -translate-x-1/2 w-125 h-50 bg-[#E8D9C9]/30 blur-[120px] rounded-full" />
 
         <div className="max-w-7xl mx-auto text-center relative z-10">
           <h2 className="text-4xl md:text-5xl font-black text-zinc-900 mb-16">
             How it{" "}
-            <span className="text-transparent bg-clip-text bg-linear-to-r from-pink-500 to-purple-600">
+            <span className="text-transparent bg-clip-text bg-linear-to-r from-[#812D3A] to-[#812D3A]">
               works
             </span>
           </h2>
 
           <div className="relative">
-            <div className="hidden md:block absolute top-6 left-0 right-0 h-0.5 bg-linear-to-r from-pink-400 to-purple-500" />
+            <div className="hidden md:block absolute top-6 left-0 right-0 h-0.5 bg-linear-to-r from-[#C6A46A] to-[#812D3A]" />
 
             <div className="grid md:grid-cols-5 gap-10">
               {steps.map((step, i) => (
@@ -278,7 +278,7 @@ const Home = () => {
                 >
                   <div
                     className="z-10 w-12 h-12 flex items-center justify-center rounded-full 
-                bg-linear-to-r from-pink-500 to-purple-600 text-white font-bold shadow-lg"
+                bg-linear-to-r from-[#812D3A] to-[#812D3A] text-white font-bold shadow-lg"
                   >
                     {i + 1}
                   </div>
@@ -295,16 +295,16 @@ const Home = () => {
           </div>
         </div>
       </section>
-      <section className="relative py-24 px-6 bg-linear-to-br from-zinc-50 via-white to-pink-50 overflow-hidden">
-        <div className="absolute left-0 top-10 w-72 h-72 bg-pink-300/20 blur-[120px] rounded-full" />
-        <div className="absolute right-0 bottom-10 w-72 h-72 bg-purple-300/20 blur-[120px] rounded-full" />
+      <section className="relative py-24 px-6 bg-linear-to-br from-zinc-50 via-white to-[#FAF7F2] overflow-hidden">
+        <div className="absolute left-0 top-10 w-72 h-72 bg-[#C6A46A]/20 blur-[120px] rounded-full" />
+        <div className="absolute right-0 bottom-10 w-72 h-72 bg-[#C6A46A]/20 blur-[120px] rounded-full" />
 
         <div className="max-w-7xl mx-auto grid md:grid-cols-2 gap-16 items-center relative z-10">
           {/* LEFT TEXT */}
           <div>
             <h2 className="text-4xl md:text-5xl font-black text-zinc-900 leading-tight">
               Grow Your Business With{" "}
-              <span className="text-transparent bg-clip-text bg-linear-to-r from-pink-500 to-purple-600">
+              <span className="text-transparent bg-clip-text bg-linear-to-r from-[#812D3A] to-[#812D3A]">
                 Darling Desire
               </span>
             </h2>
@@ -323,7 +323,7 @@ const Home = () => {
                 className="group p-6 rounded-3xl bg-white/70 backdrop-blur-xl border border-white/40 shadow-xl hover:shadow-2xl transition-all hover:-translate-y-1"
               >
                 {/* ICON */}
-                <div className="w-12 h-12 flex items-center justify-center rounded-xl bg-linear-to-r from-pink-500 to-purple-600 text-white mb-4">
+                <div className="w-12 h-12 flex items-center justify-center rounded-xl bg-linear-to-r from-[#812D3A] to-[#812D3A] text-white mb-4">
                   <item.icon className="w-6 h-6" />
                 </div>
 
@@ -338,7 +338,7 @@ const Home = () => {
           </div>
         </div>
       </section>
-      <section className="bg-linear-to-br from-white via-zinc-50 to-pink-50 py-24 px-6">
+      <section className="bg-linear-to-br from-white via-zinc-50 to-[#FAF7F2] py-24 px-6">
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-16">
             <h2 className="text-4xl font-black text-zinc-900">
@@ -349,14 +349,14 @@ const Home = () => {
               {categories.map((cat, i) => (
                 <div
                   key={i}
-                  className="cursor-pointer text-sm font-medium text-zinc-600 hover:text-pink-600 transition"
+                  className="cursor-pointer text-sm font-medium text-zinc-600 hover:text-[#812D3A] transition"
                 >
                   {cat}
                 </div>
               ))}
             </div>
 
-            <button className="mt-6 flex items-center justify-center mx-auto text-pink-600 font-semibold hover:underline">
+            <button className="mt-6 flex items-center justify-center mx-auto text-[#812D3A] font-semibold hover:underline">
               View More <ArrowRight className="ml-1 w-4 h-4" />
             </button>
           </div>
@@ -376,13 +376,13 @@ const Home = () => {
             </div>
 
             <div className="flex items-center gap-4">
-              <div className="w-12 h-12 flex items-center justify-center rounded-xl bg-linear-to-r from-pink-500 to-purple-600 text-white">
+              <div className="w-12 h-12 flex items-center justify-center rounded-xl bg-linear-to-r from-[#812D3A] to-[#812D3A] text-white">
                 <Mail className="w-5 h-5" />
               </div>
 
               <div>
                 <p className="text-sm text-zinc-500">Contact us at</p>
-                <p className="font-semibold text-pink-600">
+                <p className="font-semibold text-[#812D3A]">
                   support@darlingdesire.com
                 </p>
               </div>
@@ -390,7 +390,7 @@ const Home = () => {
           </div>
         </div>
       </section>
-      <Footer />
+      <div className="dd-home dd-home-footer"><Footer /></div>
     </div>
   );
 };

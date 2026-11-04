@@ -47,7 +47,7 @@ const STATUS_META: Record<
 > = {
   placed: {
     label: "Placed",
-    bg: "#eef3fb",
+    bg: "#f3ede4",
     color: "#1a4d8a",
     dot: "#4a7fd4",
     accent: "#4a7fd4",
@@ -56,15 +56,15 @@ const STATUS_META: Record<
     label: "Processing",
     bg: "#fdf6ea",
     color: "#8a5e1a",
-    dot: "#c9a84c",
-    accent: "#c9a84c",
+    dot: "#C6A46A",
+    accent: "#C6A46A",
   },
   shipped: {
     label: "Shipped",
-    bg: "#f3eefb",
-    color: "#4a1a8a",
-    dot: "#9a6dd4",
-    accent: "#9a6dd4",
+    bg: "#f5ecd9",
+    color: "#574219",
+    dot: "#8f6f36",
+    accent: "#8f6f36",
   },
   delivered: {
     label: "Delivered",
@@ -115,7 +115,7 @@ const fmtTime = (d: string) =>
 const S = {
   surface: {
     background: "#fdfcf8",
-    border: "1px solid #edeae2",
+    border: "1px solid #E8D9C9",
   } as React.CSSProperties,
   mono: { fontFamily: "'JetBrains Mono', monospace" } as React.CSSProperties,
   serif: { fontFamily: "'DM Serif Display', serif" } as React.CSSProperties,
@@ -247,9 +247,9 @@ export default function OrdersComponent() {
       <div
         style={{
           minHeight: "100vh",
-          background: "#f5f3ee",
+          background: "#FAF7F2",
           ...S.sans,
-          color: "#0d0d0f",
+          color: "#151522",
         }}
       >
         <div style={{ maxWidth: 1000, margin: "0 auto", padding: "28px 20px" }}>
@@ -261,7 +261,7 @@ export default function OrdersComponent() {
               alignItems: "flex-start",
               marginBottom: 32,
               paddingBottom: 24,
-              borderBottom: "1px solid #edeae2",
+              borderBottom: "1px solid #E8D9C9",
             }}
           >
             <div>
@@ -271,7 +271,7 @@ export default function OrdersComponent() {
                   fontSize: 28,
                   letterSpacing: -0.3,
                   margin: 0,
-                  color: "#0d0d0f",
+                  color: "#151522",
                 }}
               >
                 Orders Management
@@ -328,11 +328,11 @@ export default function OrdersComponent() {
                   style={{
                     width: "100%",
                     padding: "9px 12px 9px 34px",
-                    border: "1px solid #edeae2",
+                    border: "1px solid #E8D9C9",
                     borderRadius: 9,
                     fontSize: 13,
-                    color: "#0d0d0f",
-                    background: "#f5f3ee",
+                    color: "#151522",
+                    background: "#FAF7F2",
                     ...S.sans,
                     outline: "none",
                     boxSizing: "border-box",
@@ -370,9 +370,9 @@ export default function OrdersComponent() {
                       transition: "all 0.15s",
                       background: active
                         ? t === "all"
-                          ? "#0d0d0f"
+                          ? "#151522"
                           : m!.bg
-                        : "#f5f3ee",
+                        : "#FAF7F2",
                       color: active
                         ? t === "all"
                           ? "#fff"
@@ -401,7 +401,7 @@ export default function OrdersComponent() {
                           ? t === "all"
                             ? "rgba(255,255,255,0.2)"
                             : `${m!.dot}33`
-                          : "#edeae2",
+                          : "#E8D9C9",
                         color: active
                           ? t === "all"
                             ? "#fff"
@@ -425,8 +425,8 @@ export default function OrdersComponent() {
                 display: "grid",
                 gridTemplateColumns: COL_WIDTHS,
                 padding: "12px 20px",
-                background: "#f5f3ee",
-                borderBottom: "1px solid #edeae2",
+                background: "#FAF7F2",
+                borderBottom: "1px solid #E8D9C9",
               }}
             >
               {[
@@ -478,7 +478,7 @@ export default function OrdersComponent() {
                     alignItems: "center",
                     borderBottom:
                       i < filteredOrders.length - 1
-                        ? "1px solid #edeae2"
+                        ? "1px solid #E8D9C9"
                         : "none",
                     transition: "background 0.12s",
                   }}
@@ -517,7 +517,7 @@ export default function OrdersComponent() {
                       style={{
                         fontSize: 13,
                         fontWeight: 500,
-                        color: "#0d0d0f",
+                        color: "#151522",
                       }}
                     >
                       {getCustomerName(order)}
@@ -530,7 +530,7 @@ export default function OrdersComponent() {
                   </div>
 
                   <div>
-                    <div style={{ fontSize: 12, color: "#0d0d0f" }}>
+                    <div style={{ fontSize: 12, color: "#151522" }}>
                       {fmtDate(getOrderDate(order))}
                     </div>
                     <div
@@ -550,7 +550,7 @@ export default function OrdersComponent() {
                       style={{
                         fontSize: 18,
                         fontWeight: 600,
-                        color: "#0d0d0f",
+                        color: "#151522",
                       }}
                     >
                       {order.items?.length || 1}

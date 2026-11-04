@@ -47,7 +47,7 @@
   justify-content: center;
   padding: 4rem 2rem;
   text-align: center;
-  background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+  background: linear-gradient(135deg, #faf7f2 0%, #cbbfb1 100%);
   border-radius: 12px;
   min-height: 400px;
 }
@@ -72,7 +72,7 @@
 
 .pending-sellers-container {
   padding: 2rem;
-  background: #f8f9fa;
+  background: #faf7f2;
   min-height: 100vh;
 }
 
@@ -101,7 +101,7 @@
   justify-content: space-between;
   align-items: center;
   padding: 1.5rem;
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  background: linear-gradient(135deg, #667eea 0%, #735826 100%);
   color: white;
 }
 
@@ -162,8 +162,8 @@
 }
 
 .expanded-details {
-  background: #f8f9fa;
-  border-top: 2px solid #e9ecef;
+  background: #faf7f2;
+  border-top: 2px solid #e8d9c9;
   padding: 1.5rem;
   margin-top: 1.5rem;
   border-radius: 8px;
@@ -235,7 +235,7 @@
 }
 
 .view-doc:hover {
-  background: #764ba2;
+  background: #735826;
 }
 
 .rejection-form {
@@ -301,8 +301,8 @@
   display: flex;
   gap: 1rem;
   padding: 1rem 1.5rem;
-  background: #f8f9fa;
-  border-top: 1px solid #e9ecef;
+  background: #faf7f2;
+  border-top: 1px solid #e8d9c9;
 }
 
 .btn {
@@ -340,7 +340,7 @@
 
 .verified-sellers-container {
   padding: 2rem;
-  background: #f8f9fa;
+  background: #faf7f2;
   min-height: 100vh;
 }
 
@@ -358,7 +358,7 @@
 .search-input {
   flex: 1;
   padding: 0.8rem 1.2rem;
-  border: 2px solid #e9ecef;
+  border: 2px solid #e8d9c9;
   border-radius: 8px;
   font-size: 1rem;
   transition: all 0.3s ease;
@@ -378,7 +378,7 @@
 
 .filter-btn {
   padding: 0.6rem 1.2rem;
-  border: 2px solid #e9ecef;
+  border: 2px solid #e8d9c9;
   background: white;
   border-radius: 20px;
   cursor: pointer;
@@ -432,7 +432,7 @@
 
 .card-top-section {
   padding: 1.5rem;
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  background: linear-gradient(135deg, #667eea 0%, #735826 100%);
   color: white;
   position: relative;
   display: flex;
@@ -490,8 +490,8 @@
   display: flex;
   justify-content: space-around;
   padding: 1rem;
-  background: #f8f9fa;
-  border-bottom: 1px solid #e9ecef;
+  background: #faf7f2;
+  border-bottom: 1px solid #e8d9c9;
 }
 
 .stat {
@@ -604,7 +604,7 @@
   display: flex;
   gap: 0.8rem;
   padding: 1rem 1.5rem;
-  border-top: 1px solid #e9ecef;
+  border-top: 1px solid #e8d9c9;
 }
 
 .card-actions .btn {
@@ -619,7 +619,7 @@
 }
 
 .btn-primary {
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  background: linear-gradient(135deg, #667eea 0%, #735826 100%);
   color: white;
 }
 
@@ -652,7 +652,7 @@
 
 .seller-products-container {
   padding: 2rem;
-  background: #f8f9fa;
+  background: #faf7f2;
   min-height: 100vh;
 }
 
@@ -692,7 +692,7 @@
 }
 
 .back-btn:hover {
-  background: #764ba2;
+  background: #735826;
   transform: translateX(-3px);
 }
 
@@ -714,7 +714,7 @@
 .seller-avatar-large {
   width: 100px;
   height: 100px;
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  background: linear-gradient(135deg, #667eea 0%, #735826 100%);
   color: white;
   border-radius: 12px;
   display: flex;
@@ -756,7 +756,7 @@
 
 .stat-badge {
   display: inline-block;
-  background: #f0f2f5;
+  background: #f3ede4;
   padding: 0.5rem 1rem;
   border-radius: 20px;
   font-size: 0.85rem;
@@ -768,7 +768,7 @@
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 1rem;
-  border-left: 2px solid #e9ecef;
+  border-left: 2px solid #e8d9c9;
   padding-left: 1.5rem;
 }
 
@@ -815,7 +815,7 @@
 
 .select-control {
   padding: 0.6rem 1rem;
-  border: 2px solid #e9ecef;
+  border: 2px solid #e8d9c9;
   border-radius: 6px;
   background: white;
   cursor: pointer;
@@ -974,7 +974,7 @@
 }
 
 .size-item {
-  background: #f0f2f5;
+  background: #f3ede4;
   padding: 0.2rem 0.5rem;
   border-radius: 4px;
   font-size: 0.75rem;
@@ -995,7 +995,7 @@
 
 .feature {
   display: inline-block;
-  background: #e7f5ff;
+  background: #f3ede4;
   color: #0066cc;
   padding: 0.3rem 0.6rem;
   border-radius: 4px;
@@ -1013,7 +1013,7 @@
 
 .product-actions {
   padding-top: 0.8rem;
-  border-top: 1px solid #e9ecef;
+  border-top: 1px solid #e8d9c9;
 }
 
 .btn-secondary {
@@ -1030,7 +1030,7 @@
 }
 
 .btn-secondary:hover {
-  background: #764ba2;
+  background: #735826;
 }
 
 /* ==================== RESPONSIVE ==================== */
@@ -1103,7 +1103,7 @@
 
 .admin-dashboard-container {
   padding: 2rem;
-  background: #f8f9fa;
+  background: #faf7f2;
   min-height: 100vh;
 }
 
@@ -1254,13 +1254,13 @@
   align-items: center;
   gap: 1rem;
   padding: 1rem;
-  background: #f8f9fa;
+  background: #faf7f2;
   border-radius: 8px;
   transition: all 0.3s ease;
 }
 
 .activity-item:hover {
-  background: #e9ecef;
+  background: #e8d9c9;
 }
 
 .activity-icon {
@@ -1302,7 +1302,7 @@
 }
 
 .activity-btn:hover {
-  background: #764ba2;
+  background: #735826;
   transform: translateY(-2px);
 }
 
@@ -1368,7 +1368,7 @@
 
 .admin-login-container {
   min-height: 100vh;
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  background: linear-gradient(135deg, #667eea 0%, #735826 100%);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -1393,7 +1393,7 @@
 }
 
 .login-header {
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  background: linear-gradient(135deg, #667eea 0%, #735826 100%);
   padding: 2rem;
   text-align: center;
   color: white;
@@ -1455,7 +1455,7 @@
 
 .form-input {
   padding: 0.9rem 1rem;
-  border: 2px solid #e9ecef;
+  border: 2px solid #e8d9c9;
   border-radius: 8px;
   font-size: 1rem;
   transition: all 0.3s ease;
@@ -1469,7 +1469,7 @@
 }
 
 .form-input:disabled {
-  background: #f8f9fa;
+  background: #faf7f2;
   cursor: not-allowed;
 }
 
@@ -1491,7 +1491,7 @@
 }
 
 .login-btn {
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  background: linear-gradient(135deg, #667eea 0%, #735826 100%);
   color: white;
   border: none;
   padding: 1rem;
@@ -1539,11 +1539,11 @@
 .login-footer {
   margin-top: 2rem;
   padding-top: 2rem;
-  border-top: 1px solid #e9ecef;
+  border-top: 1px solid #e8d9c9;
 }
 
 .demo-credentials {
-  background: #f8f9fa;
+  background: #faf7f2;
   padding: 1rem;
   border-radius: 8px;
   font-size: 0.85rem;

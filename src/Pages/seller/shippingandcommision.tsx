@@ -24,7 +24,7 @@ const ShippingPolicy: React.FC = () => {
     <>
       <div className="bg-gray-50 min-h-screen">
         {/* HERO */}
-        <section className="bg-linear-to-r from-pink-50 to-purple-100 py-16">
+        <section className="bg-linear-to-r from-[#FAF7F2] to-[#E8D9C9] py-16">
           <div className="max-w-7xl mx-auto px-6 grid md:grid-cols-2 gap-10 items-center">
             <div>
               <h1 className="text-3xl md:text-5xl font-bold text-gray-900">
@@ -42,7 +42,7 @@ const ShippingPolicy: React.FC = () => {
                   className="border rounded-lg px-4 py-2 w-full outline-none"
                 />
 
-                <button className="bg-linear-to-r from-pink-500 to-purple-600 text-white px-6 py-2 rounded-lg font-semibold">
+                <button className="bg-linear-to-r from-[#812D3A] to-[#812D3A] text-white px-6 py-2 rounded-lg font-semibold">
                   Start Selling
                 </button>
               </div>
@@ -68,7 +68,7 @@ const ShippingPolicy: React.FC = () => {
                 onClick={() => setActiveTab(tab)}
                 className={`cursor-pointer px-3 py-2 rounded-lg mb-2 text-sm transition ${
                   activeTab === tab
-                    ? "bg-linear-to-r from-pink-500 to-purple-600 text-white"
+                    ? "bg-linear-to-r from-[#812D3A] to-[#812D3A] text-white"
                     : "text-gray-600 hover:bg-gray-100"
                 }`}
               >
@@ -169,12 +169,12 @@ const ShippingPolicy: React.FC = () => {
         </section>
 
         {/* CTA */}
-        <section className="py-16 bg-linear-to-r from-purple-600 to-pink-500 text-center text-white">
+        <section className="py-16 bg-linear-to-r from-[#812D3A] to-[#812D3A] text-center text-white">
           <h2 className="text-3xl font-bold mb-4">
             Start Selling on Darling Desire 🚀
           </h2>
 
-          <button className="bg-white text-purple-600 px-6 py-3 rounded-lg font-semibold">
+          <button className="bg-white text-[#812D3A] px-6 py-3 rounded-lg font-semibold">
             Create Account
           </button>
         </section>

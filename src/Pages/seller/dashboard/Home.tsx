@@ -137,9 +137,9 @@ const YEARLY_DATA = [
   { d: "Jun", sales: 118000, orders: 390 },
 ];
 const CATEGORY_DATA = [
-  { name: "Clothing", value: 45, color: "#c9a84c" },
+  { name: "Clothing", value: 45, color: "#C6A46A" },
   { name: "Electronics", value: 25, color: "#4a7fd4" },
-  { name: "Jewelry", value: 15, color: "#9a6dd4" },
+  { name: "Jewelry", value: 15, color: "#8f6f36" },
   { name: "Accessories", value: 15, color: "#4ab47a" },
 ];
 
@@ -151,19 +151,19 @@ const STATUS_META: Record<
     label: "Pending",
     bg: "#fdf6ea",
     color: "#8a5e1a",
-    dot: "#c9a84c",
+    dot: "#C6A46A",
   },
   processing: {
     label: "Processing",
-    bg: "#eef3fb",
+    bg: "#f3ede4",
     color: "#1a4d8a",
     dot: "#4a7fd4",
   },
   shipped: {
     label: "Shipped",
-    bg: "#f3eefb",
-    color: "#4a1a8a",
-    dot: "#9a6dd4",
+    bg: "#f5ecd9",
+    color: "#574219",
+    dot: "#8f6f36",
   },
   delivered: {
     label: "Delivered",
@@ -264,7 +264,7 @@ function KpiCard({
       onMouseLeave={() => setHov(false)}
       style={{
         background: "#fdfcf8",
-        border: "1px solid #edeae2",
+        border: "1px solid #E8D9C9",
         borderRadius: 16,
         padding: "22px 20px",
         cursor: onClick ? "pointer" : "default",
@@ -317,7 +317,7 @@ function KpiCard({
         style={{
           ...S.serif,
           fontSize: 28,
-          color: "#0d0d0f",
+          color: "#151522",
           letterSpacing: -0.5,
           marginBottom: 6,
         }}
@@ -352,7 +352,7 @@ function TodayCard({
         background: gradient,
         borderRadius: 14,
         padding: "18px 20px",
-        color: "#0d0d0f",
+        color: "#151522",
         position: "relative",
         overflow: "hidden",
       }}
@@ -383,7 +383,7 @@ function TodayCard({
         style={{
           ...S.serif,
           fontSize: 24,
-          color: "#0d0d0f",
+          color: "#151522",
           letterSpacing: -0.3,
         }}
       >
@@ -402,7 +402,7 @@ function ChartTooltip({ active, payload, label }: any) {
   return (
     <div
       style={{
-        background: "#0d0d0f",
+        background: "#151522",
         border: "none",
         borderRadius: 10,
         padding: "10px 14px",
@@ -411,7 +411,7 @@ function ChartTooltip({ active, payload, label }: any) {
       <div style={{ fontSize: 10, color: "#8e8e9a", marginBottom: 4 }}>
         {label}
       </div>
-      <div style={{ ...S.serif, fontSize: 18, color: "#c9a84c" }}>
+      <div style={{ ...S.serif, fontSize: 18, color: "#C6A46A" }}>
         {fmt(payload[0].value)}
       </div>
     </div>
@@ -464,7 +464,7 @@ export default function DashboardComponent() {
         @keyframes fadeSlideUp { from { opacity:0; transform:translateY(10px); } to { opacity:1; transform:translateY(0); } }
         @keyframes pulse { 0%,100%{opacity:1;} 50%{opacity:0.4;} }
         .dash-page { animation: fadeSlideUp 0.4s ease both; }
-        .row-hover:hover { background:#f5f3ee !important; }
+        .row-hover:hover { background:#FAF7F2 !important; }
         .action-btn:hover { transform:translateY(-2px); box-shadow:0 6px 20px rgba(0,0,0,0.08); }
         .action-btn { transition: transform 0.18s, box-shadow 0.18s; }
       `}</style>
@@ -473,9 +473,9 @@ export default function DashboardComponent() {
         className="dash-page"
         style={{
           minHeight: "100vh",
-          background: "#f5f3ee",
+          background: "#FAF7F2",
           ...S.sans,
-          color: "#0d0d0f",
+          color: "#151522",
         }}
       >
         <div style={{ maxWidth: 1080, margin: "0 auto", padding: "28px 20px" }}>
@@ -487,7 +487,7 @@ export default function DashboardComponent() {
               alignItems: "flex-start",
               marginBottom: 32,
               paddingBottom: 24,
-              borderBottom: "1px solid #edeae2",
+              borderBottom: "1px solid #E8D9C9",
             }}
           >
             <div>
@@ -511,7 +511,7 @@ export default function DashboardComponent() {
                 }}
               >
                 Welcome back,{" "}
-                <span style={{ color: "#c9a84c" }}>Viraj</span>{" "}
+                <span style={{ color: "#C6A46A" }}>Viraj</span>{" "}
               </h1>
               <p
                 style={{
@@ -529,7 +529,7 @@ export default function DashboardComponent() {
               <div
                 style={{
                   display: "flex",
-                  background: "#edeae2",
+                  background: "#E8D9C9",
                   borderRadius: 10,
                   padding: 3,
                 }}
@@ -547,7 +547,7 @@ export default function DashboardComponent() {
                       fontSize: 12,
                       fontWeight: period === p ? 500 : 400,
                       background: period === p ? "#fdfcf8" : "transparent",
-                      color: period === p ? "#0d0d0f" : "#8e8e9a",
+                      color: period === p ? "#151522" : "#8e8e9a",
                       boxShadow:
                         period === p ? "0 1px 4px rgba(0,0,0,0.08)" : "none",
                       transition: "all 0.15s",
@@ -565,7 +565,7 @@ export default function DashboardComponent() {
                   gap: 7,
                   padding: "8px 14px",
                   background: "#fdfcf8",
-                  border: "1px solid #edeae2",
+                  border: "1px solid #E8D9C9",
                   borderRadius: 9,
                   fontSize: 12,
                   color: "#52525e",
@@ -591,7 +591,7 @@ export default function DashboardComponent() {
               label="Total Sales"
               value={showBalance ? fmt(stats.totalSales) : "₹ ••••••"}
               growth={stats.growthRate.sales}
-              accent="#c9a84c"
+              accent="#C6A46A"
               sub={
                 (
                   <span
@@ -623,7 +623,7 @@ export default function DashboardComponent() {
               label="Customers"
               value={stats.totalCustomers}
               growth={stats.growthRate.customers}
-              accent="#9a6dd4"
+              accent="#8f6f36"
             />
           </div>
 
@@ -646,7 +646,7 @@ export default function DashboardComponent() {
               label="Today's Orders"
               value={String(stats.todayOrders)}
               sub="↑ 8% from yesterday"
-              gradient="linear-gradient(135deg,#eef3fb,#c8daf5)"
+              gradient="linear-gradient(135deg,#f3ede4,#c8daf5)"
             />
             <TodayCard
               label="Avg. Order Value"
@@ -658,7 +658,7 @@ export default function DashboardComponent() {
               label="Conversion Rate"
               value={`${stats.conversionRate}%`}
               sub="Target: 3%"
-              gradient="linear-gradient(135deg,#f3eefb,#d8c8f0)"
+              gradient="linear-gradient(135deg,#f5ecd9,#ebdab8)"
             />
           </div>
 
@@ -675,7 +675,7 @@ export default function DashboardComponent() {
             <div
               style={{
                 background: "#fdfcf8",
-                border: "1px solid #edeae2",
+                border: "1px solid #E8D9C9",
                 borderRadius: 16,
                 padding: 24,
               }}
@@ -689,7 +689,7 @@ export default function DashboardComponent() {
                 }}
               >
                 <div>
-                  <div style={{ ...S.serif, fontSize: 18, color: "#0d0d0f" }}>
+                  <div style={{ ...S.serif, fontSize: 18, color: "#151522" }}>
                     Sales Overview
                   </div>
                   <div style={{ fontSize: 12, color: "#8e8e9a", marginTop: 2 }}>
@@ -706,15 +706,15 @@ export default function DashboardComponent() {
                     <linearGradient id="grad" x1="0" y1="0" x2="0" y2="1">
                       <stop
                         offset="5%"
-                        stopColor="#c9a84c"
+                        stopColor="#C6A46A"
                         stopOpacity={0.25}
                       />
-                      <stop offset="95%" stopColor="#c9a84c" stopOpacity={0} />
+                      <stop offset="95%" stopColor="#C6A46A" stopOpacity={0} />
                     </linearGradient>
                   </defs>
                   <CartesianGrid
                     strokeDasharray="3 3"
-                    stroke="#edeae2"
+                    stroke="#E8D9C9"
                     vertical={false}
                   />
                   <XAxis
@@ -733,12 +733,12 @@ export default function DashboardComponent() {
                   <Area
                     type="monotone"
                     dataKey="sales"
-                    stroke="#c9a84c"
+                    stroke="#C6A46A"
                     strokeWidth={2}
                     fillOpacity={1}
                     fill="url(#grad)"
                     dot={false}
-                    activeDot={{ r: 5, fill: "#c9a84c", strokeWidth: 0 }}
+                    activeDot={{ r: 5, fill: "#C6A46A", strokeWidth: 0 }}
                   />
                 </AreaChart>
               </ResponsiveContainer>
@@ -748,7 +748,7 @@ export default function DashboardComponent() {
             <div
               style={{
                 background: "#fdfcf8",
-                border: "1px solid #edeae2",
+                border: "1px solid #E8D9C9",
                 borderRadius: 16,
                 padding: 24,
               }}
@@ -757,7 +757,7 @@ export default function DashboardComponent() {
                 style={{
                   ...S.serif,
                   fontSize: 18,
-                  color: "#0d0d0f",
+                  color: "#151522",
                   marginBottom: 4,
                 }}
               >
@@ -786,7 +786,7 @@ export default function DashboardComponent() {
                   <Tooltip
                     formatter={(v) => [`${v}%`, ""]}
                     contentStyle={{
-                      background: "#0d0d0f",
+                      background: "#151522",
                       border: "none",
                       borderRadius: 8,
                       fontSize: 12,
@@ -831,7 +831,7 @@ export default function DashboardComponent() {
                         ...S.mono,
                         fontSize: 11,
                         fontWeight: 500,
-                        color: "#0d0d0f",
+                        color: "#151522",
                       }}
                     >
                       {c.value}%
@@ -855,7 +855,7 @@ export default function DashboardComponent() {
             <div
               style={{
                 background: "#fdfcf8",
-                border: "1px solid #edeae2",
+                border: "1px solid #E8D9C9",
                 borderRadius: 16,
                 padding: 24,
               }}
@@ -864,7 +864,7 @@ export default function DashboardComponent() {
                 style={{
                   ...S.serif,
                   fontSize: 18,
-                  color: "#0d0d0f",
+                  color: "#151522",
                   marginBottom: 20,
                 }}
               >
@@ -880,7 +880,7 @@ export default function DashboardComponent() {
                 {
                   label: "Pending",
                   count: stats.pendingOrders,
-                  dot: "#c9a84c",
+                  dot: "#C6A46A",
                   pct: "+5%",
                 },
                 {
@@ -934,7 +934,7 @@ export default function DashboardComponent() {
                 style={{
                   marginTop: 18,
                   paddingTop: 16,
-                  borderTop: "1px solid #edeae2",
+                  borderTop: "1px solid #E8D9C9",
                 }}
               >
                 <div
@@ -952,7 +952,7 @@ export default function DashboardComponent() {
                   </span>
                 </div>
                 <div
-                  style={{ background: "#edeae2", borderRadius: 99, height: 3 }}
+                  style={{ background: "#E8D9C9", borderRadius: 99, height: 3 }}
                 >
                   <div
                     style={{
@@ -971,7 +971,7 @@ export default function DashboardComponent() {
             <div
               style={{
                 background: "#fdfcf8",
-                border: "1px solid #edeae2",
+                border: "1px solid #E8D9C9",
                 borderRadius: 16,
                 overflow: "hidden",
               }}
@@ -979,19 +979,19 @@ export default function DashboardComponent() {
               <div
                 style={{
                   padding: "20px 24px",
-                  borderBottom: "1px solid #edeae2",
+                  borderBottom: "1px solid #E8D9C9",
                   display: "flex",
                   justifyContent: "space-between",
                   alignItems: "center",
                 }}
               >
-                <div style={{ ...S.serif, fontSize: 18, color: "#0d0d0f" }}>
+                <div style={{ ...S.serif, fontSize: 18, color: "#151522" }}>
                   Recent Orders
                 </div>
                 <span
                   style={{
                     fontSize: 12,
-                    color: "#c9a84c",
+                    color: "#C6A46A",
                     cursor: "pointer",
                     fontWeight: 500,
                   }}
@@ -1011,7 +1011,7 @@ export default function DashboardComponent() {
                     padding: "14px 24px",
                     borderBottom:
                       i < RECENT_ORDERS.length - 1
-                        ? "1px solid #f5f3ee"
+                        ? "1px solid #FAF7F2"
                         : "none",
                     cursor: "pointer",
                     transition: "background 0.15s",
@@ -1021,7 +1021,7 @@ export default function DashboardComponent() {
                     style={{
                       ...S.mono,
                       fontSize: 11,
-                      color: "#0d0d0f",
+                      color: "#151522",
                       fontWeight: 500,
                     }}
                   >
@@ -1032,7 +1032,7 @@ export default function DashboardComponent() {
                       style={{
                         fontSize: 13,
                         fontWeight: 500,
-                        color: "#0d0d0f",
+                        color: "#151522",
                       }}
                     >
                       {o.customer}
@@ -1047,7 +1047,7 @@ export default function DashboardComponent() {
                     <StatusBadge status={o.status} />
                   </div>
                   <div style={{ textAlign: "right" }}>
-                    <div style={{ ...S.serif, fontSize: 17, color: "#0d0d0f" }}>
+                    <div style={{ ...S.serif, fontSize: 17, color: "#151522" }}>
                       {fmt(o.amount)}
                     </div>
                     <div

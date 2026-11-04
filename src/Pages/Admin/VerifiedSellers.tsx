@@ -1,11 +1,11 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import {
   selectSeller,
   suspendSeller,
   reactivateSeller,
-} from "../../redux/sellerManagementSlice";
+} from "@/store/slices/sellerManagementSlice";
 
 const getInitials = (name: string) =>
   name
@@ -34,7 +34,7 @@ const s: Record<string, React.CSSProperties> = {
     fontWeight: 500,
     padding: "3px 10px",
     borderRadius: 20,
-    background: "#eff6ff",
+    background: "#faf7f2",
     color: "#1d4ed8",
   },
   filtersRow: {
@@ -84,7 +84,7 @@ const s: Record<string, React.CSSProperties> = {
     padding: "5px 12px",
     borderRadius: 20,
     border: "0.5px solid #1d4ed8",
-    background: "#eff6ff",
+    background: "#faf7f2",
     color: "#1d4ed8",
     cursor: "pointer",
     fontFamily: "inherit",
@@ -127,7 +127,7 @@ const s: Record<string, React.CSSProperties> = {
     width: 42,
     height: 42,
     borderRadius: 10,
-    background: "#f0f9ff",
+    background: "#faf7f2",
     color: "#0369a1",
     display: "flex",
     alignItems: "center",
@@ -140,7 +140,7 @@ const s: Record<string, React.CSSProperties> = {
     width: 42,
     height: 42,
     borderRadius: 10,
-    background: "#f9fafb",
+    background: "#faf7f2",
     color: "#9ca3af",
     display: "flex",
     alignItems: "center",
@@ -367,10 +367,6 @@ const VerifiedSellers = () => {
   const [suspensionReason, setSuspensionReason] = useState("");
   const [reasonError, setReasonError] = useState(false);
 
-  useEffect(() => {
-    const isLoggedIn = localStorage.getItem("adminLoggedIn");
-    if (!isLoggedIn) navigate("/admin/login");
-  }, [navigate]);
 
   const categories = [
     "all",

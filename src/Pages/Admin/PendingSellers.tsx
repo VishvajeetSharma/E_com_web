@@ -1,7 +1,6 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { useNavigate } from "react-router-dom";
-import { acceptSeller, rejectSeller } from "../../redux/sellerManagementSlice";
+import { acceptSeller, rejectSeller } from "@/store/slices/sellerManagementSlice";
 
 const getInitials = (name: string) =>
   name
@@ -49,7 +48,7 @@ const s: Record<string, React.CSSProperties> = {
     width: 40,
     height: 40,
     borderRadius: "50%",
-    background: "#eff6ff",
+    background: "#faf7f2",
     color: "#1d4ed8",
     display: "flex",
     alignItems: "center",
@@ -209,7 +208,6 @@ const s: Record<string, React.CSSProperties> = {
 };
 
 const PendingSellers = () => {
-  const navigate = useNavigate();
   const dispatch = useDispatch();
   const { pendingSellers } = useSelector(
     (state: any) => state.sellerManagement,
@@ -220,10 +218,6 @@ const PendingSellers = () => {
   const [rejectionReason, setRejectionReason] = useState("");
   const [reasonError, setReasonError] = useState(false);
 
-  useEffect(() => {
-    const isLoggedIn = localStorage.getItem("adminLoggedIn");
-    if (!isLoggedIn) navigate("/admin/login");
-  }, [navigate]);
 
   const handleAccept = (sellerId: string) => {
     dispatch(acceptSeller(sellerId));

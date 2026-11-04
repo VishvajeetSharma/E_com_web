@@ -86,7 +86,7 @@ const AdvertiseProducts: React.FC = () => {
       icon: <FaEye className="text-2xl" />,
       title: "More Visibility",
       description: "Your products appear at the top of search results",
-      color: "from-blue-500 to-cyan-500",
+      color: "from-[#812D3A] to-cyan-500",
       stat: "500%",
       statLabel: "More Views",
     },
@@ -102,7 +102,7 @@ const AdvertiseProducts: React.FC = () => {
       icon: <FaMousePointer className="text-2xl" />,
       title: "Pay Per Click",
       description: "Only pay when a customer clicks on your ad",
-      color: "from-purple-500 to-pink-500",
+      color: "from-[#812D3A] to-[#812D3A]",
       stat: "₹0.50",
       statLabel: "Starting CPC",
     },
@@ -126,7 +126,7 @@ const AdvertiseProducts: React.FC = () => {
       icon: <FaUsers className="text-2xl" />,
       title: "Target Customers",
       description: "Reach customers looking for products like yours",
-      color: "from-indigo-500 to-blue-500",
+      color: "from-[#812D3A] to-[#812D3A]",
       stat: "5Cr+",
       statLabel: "Monthly Shoppers",
     },
@@ -139,7 +139,7 @@ const AdvertiseProducts: React.FC = () => {
       description:
         "Choose which products you want to advertise from your catalog",
       icon: "📦",
-      color: "from-blue-500 to-cyan-500",
+      color: "from-[#812D3A] to-cyan-500",
     },
     {
       step: "02",
@@ -147,7 +147,7 @@ const AdvertiseProducts: React.FC = () => {
       description:
         "Set your daily budget and how much you want to pay per click",
       icon: "💰",
-      color: "from-purple-500 to-pink-500",
+      color: "from-[#812D3A] to-[#812D3A]",
     },
     {
       step: "03",
@@ -162,7 +162,7 @@ const AdvertiseProducts: React.FC = () => {
     <>
       <div className="bg-linear-to-br from-slate-50 via-white to-slate-50 min-h-screen">
         {/* Hero Section - Premium Design */}
-        <div className="relative overflow-hidden bg-linear-to-r from-blue-700 via-purple-700 to-pink-700 text-white">
+        <div className="relative overflow-hidden bg-linear-to-r from-[#812D3A] via-[#4A101C] to-[#4A101C] text-white">
           <div className="absolute inset-0 bg-black/20"></div>
           <div className="absolute top-0 -right-32 w-96 h-96 bg-white/10 rounded-full blur-3xl"></div>
           <div className="absolute bottom-0 -left-32 w-96 h-96 bg-white/10 rounded-full blur-3xl"></div>
@@ -178,7 +178,7 @@ const AdvertiseProducts: React.FC = () => {
 
               <h1 className="text-5xl lg:text-7xl font-bold mb-6 leading-tight">
                 Get More Customers,
-                <span className="block text-transparent bg-clip-text bg-linear-to-r from-yellow-300 via-pink-300 to-orange-300">
+                <span className="block text-transparent bg-clip-text bg-linear-to-r from-yellow-300 via-[#C6A46A] to-orange-300">
                   Increase Your Sales 🚀
                 </span>
               </h1>
@@ -192,12 +192,12 @@ const AdvertiseProducts: React.FC = () => {
               <div className="flex flex-wrap gap-4 justify-center">
                 <button
                   onClick={() => setShowForm(true)}
-                  className="group bg-white text-purple-700 px-8 py-4 rounded-xl font-bold text-lg hover:shadow-2xl transition-all duration-300 transform hover:scale-105 inline-flex items-center gap-3"
+                  className="group bg-white text-[#4A101C] px-8 py-4 rounded-xl font-bold text-lg hover:shadow-2xl transition-all duration-300 transform hover:scale-105 inline-flex items-center gap-3"
                 >
                   Start Advertising Now
                   <FaArrowRight className="group-hover:translate-x-1 transition-transform" />
                 </button>
-                <button className="border-2 border-white text-white px-8 py-4 rounded-xl font-semibold text-lg hover:bg-white hover:text-purple-700 transition-all duration-300">
+                <button className="border-2 border-white text-white px-8 py-4 rounded-xl font-semibold text-lg hover:bg-white hover:text-[#4A101C] transition-all duration-300">
                   Watch Demo
                 </button>
               </div>
@@ -235,7 +235,7 @@ const AdvertiseProducts: React.FC = () => {
                   onClick={() => setActiveTab(tab.id)}
                   className={`flex items-center gap-2 px-5 py-2.5 rounded-full font-semibold transition-all duration-300 whitespace-nowrap ${
                     activeTab === tab.id
-                      ? "bg-linear-to-r from-purple-600 to-pink-600 text-white shadow-lg transform scale-105"
+                      ? "bg-linear-to-r from-[#812D3A] to-[#812D3A] text-white shadow-lg transform scale-105"
                       : "text-gray-700 hover:bg-gray-100"
                   }`}
                 >
@@ -252,7 +252,7 @@ const AdvertiseProducts: React.FC = () => {
           <div className="fixed inset-0 bg-black/60 backdrop-blur-sm flex items-center justify-center z-50 p-4">
             <div className="bg-white rounded-2xl max-w-md w-full p-8 shadow-2xl transform transition-all">
               <div className="text-center mb-6">
-                <div className="w-20 h-20 bg-linear-to-br from-purple-600 to-pink-600 rounded-2xl flex items-center justify-center mx-auto mb-4">
+                <div className="w-20 h-20 bg-linear-to-br from-[#812D3A] to-[#812D3A] rounded-2xl flex items-center justify-center mx-auto mb-4">
                   <FaRocket className="text-white text-3xl" />
                 </div>
                 <h3 className="text-2xl font-bold text-gray-900">
@@ -265,7 +265,7 @@ const AdvertiseProducts: React.FC = () => {
               <input
                 type="tel"
                 placeholder="Enter 10-digit mobile number"
-                className="w-full px-4 py-3 border-2 border-gray-200 rounded-xl focus:border-purple-500 focus:outline-none transition mb-4 text-lg"
+                className="w-full px-4 py-3 border-2 border-gray-200 rounded-xl focus:border-[#812D3A] focus:outline-none transition mb-4 text-lg"
                 value={mobile}
                 onChange={handleMobileChange}
                 maxLength={10}
@@ -273,7 +273,7 @@ const AdvertiseProducts: React.FC = () => {
               <div className="flex gap-3">
                 <button
                   onClick={handleSubmit}
-                  className="flex-1 bg-linear-to-r from-purple-600 to-pink-600 text-white py-3 rounded-xl font-semibold hover:shadow-lg transition transform hover:scale-105"
+                  className="flex-1 bg-linear-to-r from-[#812D3A] to-[#812D3A] text-white py-3 rounded-xl font-semibold hover:shadow-lg transition transform hover:scale-105"
                 >
                   Get Started
                 </button>
@@ -299,7 +299,7 @@ const AdvertiseProducts: React.FC = () => {
               {/* Main Overview */}
               <div className="grid md:grid-cols-2 gap-12 items-center mb-16">
                 <div>
-                  <div className="inline-flex items-center gap-2 bg-purple-100 text-purple-700 px-4 py-2 rounded-full mb-4">
+                  <div className="inline-flex items-center gap-2 bg-[#E8D9C9] text-[#4A101C] px-4 py-2 rounded-full mb-4">
                     <FaBullhorn />
                     <span className="text-sm font-semibold">
                       What is Product Advertising?
@@ -317,7 +317,7 @@ const AdvertiseProducts: React.FC = () => {
                   <p className="text-gray-600 text-lg leading-relaxed mb-6">
                     When customers search for products like yours, your
                     advertised products will appear at the top with an{" "}
-                    <span className="font-semibold text-purple-600">
+                    <span className="font-semibold text-[#812D3A]">
                       "Ad" tag
                     </span>
                     , making them more likely to be seen and clicked.
@@ -331,10 +331,10 @@ const AdvertiseProducts: React.FC = () => {
                 </div>
 
                 <div className="relative">
-                  <div className="bg-linear-to-br from-blue-50 via-purple-50 to-pink-50 rounded-2xl p-8 shadow-xl">
+                  <div className="bg-linear-to-br from-[#812D3A] via-[#FAF7F2] to-[#FAF7F2] rounded-2xl p-8 shadow-xl">
                     <div className="text-center mb-6">
                       <div className="text-6xl mb-2">📈</div>
-                      <div className="text-4xl font-bold text-purple-600 mb-2">
+                      <div className="text-4xl font-bold text-[#812D3A] mb-2">
                         3x
                       </div>
                       <p className="text-gray-600 font-medium">
@@ -354,21 +354,21 @@ const AdvertiseProducts: React.FC = () => {
                       </div>
                       <div className="flex justify-between items-center pt-2">
                         <span className="text-gray-600">Increase</span>
-                        <span className="font-bold text-purple-600 text-lg">
+                        <span className="font-bold text-[#812D3A] text-lg">
                           5x More Views
                         </span>
                       </div>
                     </div>
                   </div>
-                  <div className="absolute -bottom-3 -right-3 w-32 h-32 bg-linear-to-br from-purple-400 to-pink-400 rounded-full blur-2xl opacity-30"></div>
+                  <div className="absolute -bottom-3 -right-3 w-32 h-32 bg-linear-to-br from-[#C6A46A] to-[#C6A46A] rounded-full blur-2xl opacity-30"></div>
                 </div>
               </div>
 
               {/* Why Choose Us */}
               <div className="grid md:grid-cols-3 gap-6">
                 <div className="bg-white rounded-xl p-6 shadow-lg border border-gray-100 hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1">
-                  <div className="w-14 h-14 bg-blue-100 rounded-xl flex items-center justify-center mb-4">
-                    <FaShieldAlt className="text-blue-600 text-2xl" />
+                  <div className="w-14 h-14 bg-[#812D3A] rounded-xl flex items-center justify-center mb-4">
+                    <FaShieldAlt className="text-[#812D3A] text-2xl" />
                   </div>
                   <h3 className="font-bold text-lg mb-2">Safe & Secure</h3>
                   <p className="text-gray-600">
@@ -385,8 +385,8 @@ const AdvertiseProducts: React.FC = () => {
                   </p>
                 </div>
                 <div className="bg-white rounded-xl p-6 shadow-lg border border-gray-100 hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1">
-                  <div className="w-14 h-14 bg-purple-100 rounded-xl flex items-center justify-center mb-4">
-                    <FaHeadset className="text-purple-600 text-2xl" />
+                  <div className="w-14 h-14 bg-[#E8D9C9] rounded-xl flex items-center justify-center mb-4">
+                    <FaHeadset className="text-[#812D3A] text-2xl" />
                   </div>
                   <h3 className="font-bold text-lg mb-2">24/7 Support</h3>
                   <p className="text-gray-600">
@@ -502,7 +502,7 @@ const AdvertiseProducts: React.FC = () => {
               </div>
 
               {/* Real Example */}
-              <div className="bg-linear-to-r from-gray-900 to-purple-900 rounded-2xl p-8 text-white">
+              <div className="bg-linear-to-r from-gray-900 to-[#2A0910] rounded-2xl p-8 text-white">
                 <h3 className="text-2xl font-bold mb-6 text-center">
                   📊 Real Example
                 </h3>
@@ -554,8 +554,8 @@ const AdvertiseProducts: React.FC = () => {
 
               <div className="grid md:grid-cols-2 gap-8 mb-10">
                 {/* Starter Plan */}
-                <div className="bg-white rounded-2xl shadow-xl overflow-hidden transform hover:scale-105 transition-all duration-300 border-2 border-purple-200">
-                  <div className="bg-linear-to-r from-purple-600 to-pink-600 p-6 text-white text-center">
+                <div className="bg-white rounded-2xl shadow-xl overflow-hidden transform hover:scale-105 transition-all duration-300 border-2 border-[#E8D9C9]">
+                  <div className="bg-linear-to-r from-[#812D3A] to-[#812D3A] p-6 text-white text-center">
                     <h3 className="text-2xl font-bold">Pay Per Click</h3>
                     <div className="text-4xl font-bold mt-2">₹5 - ₹20</div>
                     <p className="text-sm opacity-90">per click</p>
@@ -581,7 +581,7 @@ const AdvertiseProducts: React.FC = () => {
                     </ul>
                     <button
                       onClick={() => setShowForm(true)}
-                      className="w-full bg-linear-to-r from-purple-600 to-pink-600 text-white py-3 rounded-xl font-semibold hover:shadow-lg transition"
+                      className="w-full bg-linear-to-r from-[#812D3A] to-[#812D3A] text-white py-3 rounded-xl font-semibold hover:shadow-lg transition"
                     >
                       Get Started
                     </button>
@@ -636,7 +636,7 @@ const AdvertiseProducts: React.FC = () => {
           )}
 
           {/* Final CTA */}
-          <div className="mt-16 relative overflow-hidden bg-linear-to-r from-purple-600 via-pink-600 to-orange-600 rounded-2xl p-10 text-center text-white">
+          <div className="mt-16 relative overflow-hidden bg-linear-to-r from-[#812D3A] via-[#812D3A] to-orange-600 rounded-2xl p-10 text-center text-white">
             <div className="absolute inset-0 bg-black/20"></div>
             <div className="relative">
               <h3 className="text-3xl lg:text-4xl font-bold mb-3">
@@ -648,7 +648,7 @@ const AdvertiseProducts: React.FC = () => {
               </p>
               <button
                 onClick={() => setShowForm(true)}
-                className="bg-white text-purple-700 px-8 py-3 rounded-xl font-bold text-lg hover:shadow-2xl transition-all duration-300 transform hover:scale-105 inline-flex items-center gap-2"
+                className="bg-white text-[#4A101C] px-8 py-3 rounded-xl font-bold text-lg hover:shadow-2xl transition-all duration-300 transform hover:scale-105 inline-flex items-center gap-2"
               >
                 Start Your First Campaign
                 <FaArrowRight />

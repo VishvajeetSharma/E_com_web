@@ -45,8 +45,8 @@ const SELLERS: Seller[] = [
     email: "ananya@textiles.in",
     phone: "+91 98765 43210",
     initials: "AT",
-    avatarBg: "#E6F1FB",
-    avatarColor: "#0C447C",
+    avatarBg: "#f3ede4",
+    avatarColor: "#2a2733",
     joinedDate: "Jan 2023",
     rating: 4.7,
     pendingDays: 16,
@@ -105,7 +105,7 @@ const SELLERS: Seller[] = [
     email: "durga@couture.in",
     phone: "+91 43210 98765",
     initials: "DC",
-    avatarBg: "#E6F1FB",
+    avatarBg: "#f3ede4",
     avatarColor: "#185FA5",
     joinedDate: "Dec 2023",
     rating: 4.9,
@@ -293,7 +293,7 @@ export function SellerDetailPage({
             <Chip bg="#EAF3DE" color="#27500A">
               ✓ Payments active
             </Chip>
-            <Chip bg="#E6F1FB" color="#0C447C">
+            <Chip bg="#f3ede4" color="#2a2733">
               ★ {seller.rating} Rating
             </Chip>
             <Chip bg="#F1EFE8" color="#444441">

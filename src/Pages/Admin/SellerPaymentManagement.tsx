@@ -1,6 +1,6 @@
 import { useState } from "react";
-import { SellerDetailPage } from "./Payments/SellerDetailPage";
-import { MonthDetailPage } from "./Payments/MonthDetailPage";
+import { SellerDetailPage } from "@/pages/Admin/Payments/SellerDetailPage";
+import { MonthDetailPage } from "@/pages/Admin/Payments/MonthDetailPage";
 
 // ─── Types ───────────────────────────────────────────────────────────────────
 
@@ -38,8 +38,8 @@ const SELLERS: Seller[] = [
     email: "ananya@textiles.in",
     phone: "+91 98765 43210",
     initials: "AT",
-    avatarBg: "#E6F1FB",
-    avatarColor: "#0C447C",
+    avatarBg: "#f3ede4",
+    avatarColor: "#2a2733",
     joinedDate: "Jan 2023",
     rating: 4.7,
     pendingDays: 16,
@@ -355,6 +355,7 @@ const S: Record<string, React.CSSProperties> = {
 
   topFilters: {
     display: "flex",
+    flexWrap: "wrap",
     gap: 12,
     marginBottom: 20,
   },
@@ -364,6 +365,7 @@ const S: Record<string, React.CSSProperties> = {
     border: "1px solid #ddd",
     borderRadius: 10,
     width: 240,
+    maxWidth: "100%",
   },
 
   filterSel: {

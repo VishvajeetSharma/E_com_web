@@ -1,8 +1,5 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import {
-  FaUsers,
-  FaMapMarkerAlt,
-  FaLayerGroup,
   FaStore,
   FaArrowRight,
   FaShieldAlt,
@@ -83,7 +80,7 @@ const SignupPage = () => {
   return (
     <div className="min-h-screen flex flex-col lg:flex-row overflow-hidden">
       {/* LEFT SECTION */}
-      <div className="lg:w-1/2 bg-gradient-to-br from-[#6366f1] via-[#8b5cf6] to-[#d946ef] text-white p-6 sm:p-10 md:p-12 lg:p-16 flex flex-col justify-center relative overflow-hidden">
+      <div className="lg:w-1/2 bg-gradient-to-br from-[#812D3A] via-[#C6A46A] to-[#8f6f36] text-white p-6 sm:p-10 md:p-12 lg:p-16 flex flex-col justify-center relative overflow-hidden">
         {/* Background Pattern */}
         <div className="absolute inset-0 opacity-10">
           <div className="absolute top-10 left-10 w-72 h-72 bg-white rounded-full blur-3xl"></div>
@@ -99,7 +96,7 @@ const SignupPage = () => {
 
           <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold mb-4 leading-tight">
             Start Your
-            <span className="block text-transparent bg-clip-text bg-gradient-to-r from-yellow-400 to-pink-400">
+            <span className="block text-transparent bg-clip-text bg-gradient-to-r from-yellow-400 to-[#C6A46A]">
               Selling Journey
             </span>
           </h1>
@@ -185,7 +182,7 @@ const SignupPage = () => {
         <div className="w-full max-w-md">
           {/* Header */}
           <div className="text-center mb-8">
-            <div className="inline-flex items-center justify-center w-16 h-16 bg-gradient-to-br from-[#6366f1] to-[#8b5cf6] rounded-2xl shadow-lg mb-4">
+            <div className="inline-flex items-center justify-center w-16 h-16 bg-gradient-to-br from-[#812D3A] to-[#C6A46A] rounded-2xl shadow-lg mb-4">
               <FaStore className="text-white text-2xl" />
             </div>
             <h2 className="text-2xl sm:text-3xl font-bold text-gray-800 mb-2">
@@ -213,7 +210,7 @@ const SignupPage = () => {
                   <input
                     type="tel"
                     placeholder="98765 43210"
-                    className="w-full pl-12 pr-4 py-3 border-2 border-gray-200 rounded-xl focus:border-[#6366f1] focus:ring-2 focus:ring-[#6366f1]/20 outline-none transition-all duration-200"
+                    className="w-full pl-12 pr-4 py-3 border-2 border-gray-200 rounded-xl focus:border-[#812D3A] focus:ring-2 focus:ring-[#812D3A]/20 outline-none transition-all duration-200"
                     value={mobile}
                     onChange={handleMobileChange}
                     disabled={otpSent}
@@ -230,7 +227,7 @@ const SignupPage = () => {
                   <input
                     type="text"
                     placeholder="Enter 6-digit OTP"
-                    className="w-full px-4 py-3 border-2 border-gray-200 rounded-xl focus:border-[#6366f1] focus:ring-2 focus:ring-[#6366f1]/20 outline-none transition-all duration-200 text-center text-lg tracking-widest"
+                    className="w-full px-4 py-3 border-2 border-gray-200 rounded-xl focus:border-[#812D3A] focus:ring-2 focus:ring-[#812D3A]/20 outline-none transition-all duration-200 text-center text-lg tracking-widest"
                     value={otp}
                     onChange={handleOtpChange}
                     maxLength={6}
@@ -238,7 +235,7 @@ const SignupPage = () => {
                   <button
                     type="button"
                     onClick={handleSendOtp}
-                    className="mt-2 text-sm text-[#6366f1] hover:text-[#8b5cf6] transition-colors"
+                    className="mt-2 text-sm text-[#812D3A] hover:text-[#C6A46A] transition-colors"
                   >
                     Resend OTP
                   </button>
@@ -256,7 +253,7 @@ const SignupPage = () => {
               <button
                 type="submit"
                 disabled={loading}
-                className="w-full bg-gradient-to-r from-[#6366f1] to-[#8b5cf6] hover:from-[#8b5cf6] hover:to-[#6366f1] text-white py-3 rounded-xl font-semibold transition-all duration-300 transform hover:scale-[1.02] disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-2"
+                className="w-full bg-gradient-to-r from-[#812D3A] to-[#C6A46A] hover:from-[#C6A46A] hover:to-[#812D3A] text-white py-3 rounded-xl font-semibold transition-all duration-300 transform hover:scale-[1.02] disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-2"
               >
                 {loading ? (
                   <div className="w-5 h-5 border-2 border-white border-t-transparent rounded-full animate-spin"></div>
@@ -271,11 +268,11 @@ const SignupPage = () => {
               {/* Terms */}
               <p className="text-xs text-gray-400 mt-6 text-center">
                 By continuing, you agree to our{" "}
-                <a href="#" className="text-[#6366f1] hover:underline">
+                <a href="#" className="text-[#812D3A] hover:underline">
                   Terms of Service
                 </a>{" "}
                 and{" "}
-                <a href="#" className="text-[#6366f1] hover:underline">
+                <a href="#" className="text-[#812D3A] hover:underline">
                   Privacy Policy
                 </a>
               </p>
@@ -286,8 +283,8 @@ const SignupPage = () => {
               <p className="text-center text-sm text-gray-500 mb-4">
                 Want to sell as a business?
               </p>
-              <button className="w-full border-2 border-gray-200 hover:border-[#6366f1] text-gray-700 py-2 rounded-xl transition-all duration-200 flex items-center justify-center gap-2">
-                <MdSecurity className="text-[#6366f1]" />
+              <button className="w-full border-2 border-gray-200 hover:border-[#812D3A] text-gray-700 py-2 rounded-xl transition-all duration-200 flex items-center justify-center gap-2">
+                <MdSecurity className="text-[#812D3A]" />
                 Register as Business Seller
               </button>
             </div>

@@ -27,11 +27,11 @@ const SellerPartnerPortal = () => {
   };
 
   return (
-    <div className="min-h-screen bg-linear-to-br from-pink-50 via-purple-50 to-indigo-50">
+    <div className="min-h-screen bg-linear-to-br from-[#FAF7F2] via-[#FAF7F2] to-[#FAF7F2]">
       <div className="max-w-7xl mx-auto px-4 py-8 lg:py-12">
         {/* Header */}
         <div className="text-center mb-12">
-          <h1 className="text-4xl lg:text-5xl font-bold bg-linear-to-r from-pink-600 to-purple-600 bg-clip-text text-transparent mb-2">
+          <h1 className="text-4xl lg:text-5xl font-bold bg-linear-to-r from-[#812D3A] to-[#812D3A] bg-clip-text text-transparent mb-2">
             Darling Desire
           </h1>
           <p className="text-gray-600 font-medium">SELLER PARTNER PORTAL</p>
@@ -41,9 +41,9 @@ const SellerPartnerPortal = () => {
         <div className="grid lg:grid-cols-2 gap-12 items-center">
           {/* Left Section - Brand Message */}
           <div className="space-y-8">
-            <div className="bg-linear-to-br from-pink-500 to-purple-600 rounded-3xl p-8 text-white shadow-2xl">
+            <div className="bg-linear-to-br from-[#812D3A] to-[#812D3A] rounded-3xl p-8 text-white shadow-2xl">
               <div className="inline-flex items-center gap-2 bg-white/20 backdrop-blur-md rounded-full px-4 py-2 mb-6">
-                <FaHeart className="text-pink-200" />
+                <FaHeart className="text-[#E8D9C9]" />
                 <span className="text-sm font-semibold">
                   Premium Partner Program
                 </span>
@@ -101,15 +101,15 @@ const SellerPartnerPortal = () => {
             {/* Stats */}
             <div className="grid grid-cols-3 gap-4">
               <div className="bg-white rounded-xl p-4 text-center shadow-md">
-                <div className="text-2xl font-bold text-purple-600">50L+</div>
+                <div className="text-2xl font-bold text-[#812D3A]">50L+</div>
                 <div className="text-xs text-gray-600">Monthly Customers</div>
               </div>
               <div className="bg-white rounded-xl p-4 text-center shadow-md">
-                <div className="text-2xl font-bold text-purple-600">10K+</div>
+                <div className="text-2xl font-bold text-[#812D3A]">10K+</div>
                 <div className="text-xs text-gray-600">Active Sellers</div>
               </div>
               <div className="bg-white rounded-xl p-4 text-center shadow-md">
-                <div className="text-2xl font-bold text-purple-600">500+</div>
+                <div className="text-2xl font-bold text-[#812D3A]">500+</div>
                 <div className="text-xs text-gray-600">Categories</div>
               </div>
             </div>
@@ -118,13 +118,13 @@ const SellerPartnerPortal = () => {
           {/* Right Section - Login Form */}
           <div className="bg-white rounded-3xl shadow-2xl p-8 lg:p-10">
             <div className="text-center mb-8">
-              <div className="inline-flex items-center justify-center w-16 h-16 bg-linear-to-br from-pink-500 to-purple-600 rounded-2xl mb-4">
+              <div className="inline-flex items-center justify-center w-16 h-16 bg-linear-to-br from-[#812D3A] to-[#812D3A] rounded-2xl mb-4">
                 <FaStore className="text-white text-2xl" />
               </div>
               <h3 className="text-2xl font-bold text-gray-900">SELLER LOGIN</h3>
               <p className="text-gray-600 mt-1">
                 Welcome back,{" "}
-                <span className="font-semibold text-pink-600">Darling</span>
+                <span className="font-semibold text-[#812D3A]">Darling</span>
               </p>
               <p className="text-sm text-gray-500">
                 Apne store mein sign in karein
@@ -144,7 +144,7 @@ const SellerPartnerPortal = () => {
                   <input
                     type="email"
                     placeholder="Seller@darlingdesire.in"
-                    className="w-full pl-10 pr-4 py-3 border-2 border-gray-200 rounded-xl focus:border-purple-500 focus:outline-none transition-all"
+                    className="w-full pl-10 pr-4 py-3 border-2 border-gray-200 rounded-xl focus:border-[#812D3A] focus:outline-none transition-all"
                     value={email}
                     onChange={(e) => setEmail(e.target.value)}
                     required
@@ -164,7 +164,7 @@ const SellerPartnerPortal = () => {
                   <input
                     type={showPassword ? "text" : "password"}
                     placeholder="••••••••"
-                    className="w-full pl-10 pr-12 py-3 border-2 border-gray-200 rounded-xl focus:border-purple-500 focus:outline-none transition-all"
+                    className="w-full pl-10 pr-12 py-3 border-2 border-gray-200 rounded-xl focus:border-[#812D3A] focus:outline-none transition-all"
                     value={password}
                     onChange={(e) => setPassword(e.target.value)}
                     required
@@ -190,7 +190,7 @@ const SellerPartnerPortal = () => {
                     type="checkbox"
                     checked={rememberMe}
                     onChange={(e) => setRememberMe(e.target.checked)}
-                    className="w-4 h-4 text-purple-600 rounded border-gray-300 focus:ring-purple-500"
+                    className="w-4 h-4 text-[#812D3A] rounded border-gray-300 focus:ring-[#812D3A]"
                   />
                 </label>
                 <button
@@ -198,7 +198,7 @@ const SellerPartnerPortal = () => {
                   onClick={() =>
                     alert("Password reset link sent to your email")
                   }
-                  className="text-sm text-purple-600 hover:text-purple-700 font-medium"
+                  className="text-sm text-[#812D3A] hover:text-[#4A101C] font-medium"
                 >
                   Forget Password ?
                 </button>
@@ -213,7 +213,7 @@ const SellerPartnerPortal = () => {
                   );
                   navigate("/seller/dashboard");
                 }}
-                className="w-full bg-linear-to-r from-pink-600 to-purple-600 text-white py-3 rounded-xl font-semibold hover:shadow-lg transition-all duration-300 transform hover:scale-105 flex items-center justify-center gap-2"
+                className="w-full bg-linear-to-r from-[#812D3A] to-[#812D3A] text-white py-3 rounded-xl font-semibold hover:shadow-lg transition-all duration-300 transform hover:scale-105 flex items-center justify-center gap-2"
               >
                 Log In
                 <FaArrowRight />
@@ -226,7 +226,7 @@ const SellerPartnerPortal = () => {
                 New seller ?{" "}
                 <button
                   onClick={() => alert("Redirecting to registration page...")}
-                  className="text-purple-600 font-semibold hover:text-purple-700 transition"
+                  className="text-[#812D3A] font-semibold hover:text-[#4A101C] transition"
                 >
                   register
                 </button>
@@ -242,16 +242,16 @@ const SellerPartnerPortal = () => {
               © 2025 Darling Desire. All rights reserved.
             </p>
             <div className="flex flex-wrap justify-center gap-6 mt-3 text-xs text-gray-400">
-              <a href="#" className="hover:text-purple-600 transition">
+              <a href="#" className="hover:text-[#812D3A] transition">
                 Privacy Policy
               </a>
-              <a href="#" className="hover:text-purple-600 transition">
+              <a href="#" className="hover:text-[#812D3A] transition">
                 Terms of Service
               </a>
-              <a href="#" className="hover:text-purple-600 transition">
+              <a href="#" className="hover:text-[#812D3A] transition">
                 Shipping Policy
               </a>
-              <a href="#" className="hover:text-purple-600 transition">
+              <a href="#" className="hover:text-[#812D3A] transition">
                 Return Policy
               </a>
             </div>

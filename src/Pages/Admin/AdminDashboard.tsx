@@ -1,10 +1,9 @@
-import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { useSelector } from "react-redux";
 import { 
   FiClock, FiCheckCircle, FiPackage, FiShoppingBag, 
-  FiBell, FiCalendar, FiSearch, FiLogOut, FiGrid,
-  FiDollarSign, FiSettings, FiTrendingUp, FiTrendingDown,
+  FiGrid,
+  FiSettings, FiTrendingUp, FiTrendingDown,
   FiBarChart2, FiArrowRight
 } from "react-icons/fi";
 
@@ -15,7 +14,7 @@ const styles = `
 
   .adm-root {
     font-family: 'Instrument Sans', sans-serif;
-    background: linear-gradient(135deg, #fef9fc 0%, #fdf2f8 50%, #faf5ff 100%);
+    background: linear-gradient(135deg, #faf3f4 0%, #faf3f4 50%, #fbf7ef 100%);
     min-height: 100vh;
     display: flex;
   }
@@ -26,7 +25,7 @@ const styles = `
   width:200px;
   background: rgba(255, 255, 255, 0.92);
   backdrop-filter: blur(12px);
-  border-right: 1px solid #fce7f3;
+  border-right: 1px solid #f4e6e8;
   display: flex;
   flex-direction: column;
   padding: 20px 12px;
@@ -40,7 +39,7 @@ const styles = `
 .adm-logo {
   width: 42px;
   height: 42px;
-  background: linear-gradient(135deg, #db2777, #9333ea);
+  background: linear-gradient(135deg, #812d3a, #8f6f36);
   border-radius: 12px;
   display: flex;
   align-items: center;
@@ -53,7 +52,7 @@ const styles = `
   margin-left: 8px;
   letter-spacing: -0.5px;
   cursor: pointer;
-  box-shadow: 0 4px 10px rgba(219,39,119,0.2);
+  box-shadow: 0 4px 10px rgba(129, 45, 58,0.2);
 }
 
 .adm-nav-icon {
@@ -75,13 +74,13 @@ const styles = `
 }
 
 .adm-nav-icon:hover { 
-  background: #fdf2f8; 
-  color: #db2777; 
+  background: #faf3f4; 
+  color: #812d3a; 
 }
 
 .adm-nav-icon.active { 
-  background: #fdf2f8; 
-  color: #db2777; 
+  background: #faf3f4; 
+  color: #812d3a; 
 }
 
 .adm-nav-icon.danger { 
@@ -116,7 +115,7 @@ const styles = `
   .adm-page-title {
     // font-family: 'Playfair Display', serif;
     font-size: 22px; font-weight: 600;
-    background: linear-gradient(135deg, #1a0a12, #4a1a3a);
+    background: linear-gradient(135deg, #2a0910, #2a0910);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
@@ -124,7 +123,7 @@ const styles = `
   }
 
   .adm-page-sub {
-    font-size: 12px; color: #b07a9a;
+    font-size: 12px; color: #b0525f;
     margin-top: 2px; font-weight: 400;
     letter-spacing: 0.1px;
   }
@@ -134,8 +133,8 @@ const styles = `
   }
 
   .adm-search {
-    background: #fdf9fc;
-    border: 1px solid #fce7f3;
+    background: #faf3f4;
+    border: 1px solid #f4e6e8;
     border-radius: 8px;
     padding: 8px 14px;
     font-size: 12px; color: #4a4035;
@@ -143,53 +142,53 @@ const styles = `
     width: 170px; outline: none;
     transition: all 0.18s;
   }
-  .adm-search:focus { border-color: #db2777; background: #fff; box-shadow: 0 0 0 2px rgba(219,39,119,0.1); }
+  .adm-search:focus { border-color: #812d3a; background: #fff; box-shadow: 0 0 0 2px rgba(129, 45, 58,0.1); }
   .adm-search::placeholder { color: #bbb5ad; }
 
   .adm-icon-btn {
     width: 36px; height: 36px;
-    background: #fdf9fc;
-    border: 1px solid #fce7f3;
+    background: #faf3f4;
+    border: 1px solid #f4e6e8;
     border-radius: 8px;
     display: flex; align-items: center; justify-content: center;
     cursor: pointer; font-size: 14px;
     position: relative;
     transition: all 0.18s;
   }
-  .adm-icon-btn:hover { background: #fdf2f8; border-color: #f9a8d4; }
+  .adm-icon-btn:hover { background: #faf3f4; border-color: #d29aa3; }
 
   .adm-notif-dot {
     position: absolute; top: 7px; right: 8px;
     width: 6px; height: 6px;
-    background: #db2777;
+    background: #812d3a;
     border-radius: 50%;
     border: 1.5px solid #fff;
   }
 
   .adm-avatar {
     width: 36px; height: 36px;
-    background: linear-gradient(135deg, #db2777, #9333ea);
+    background: linear-gradient(135deg, #812d3a, #8f6f36);
     border-radius: 8px;
     display: flex; align-items: center; justify-content: center;
     font-size: 11px; font-weight: 600;
     color: #fff; cursor: pointer;
     letter-spacing: 0.5px;
-    box-shadow: 0 2px 8px rgba(219,39,119,0.2);
+    box-shadow: 0 2px 8px rgba(129, 45, 58,0.2);
   }
 
   .adm-logout-btn {
-    background: #fdf2f8;
-    border: 1px solid #f9a8d4;
+    background: #faf3f4;
+    border: 1px solid #d29aa3;
     border-radius: 8px;
     padding: 7px 14px;
-    color: #db2777;
+    color: #812d3a;
     font-size: 11px; font-weight: 600;
     cursor: pointer;
     font-family: 'Instrument Sans', sans-serif;
     letter-spacing: 0.2px;
     transition: all 0.18s;
   }
-  .adm-logout-btn:hover { background: #fce7f3; }
+  .adm-logout-btn:hover { background: #f4e6e8; }
 
   /* ── Content ── */
 .adm-content {
@@ -216,7 +215,7 @@ const styles = `
     overflow: hidden;
     box-shadow: 0 2px 8px rgba(0,0,0,0.02);
   }
-  .adm-stat-card:hover { border-color: #f9a8d4; transform: translateY(-2px); box-shadow: 0 8px 20px rgba(219,39,119,0.08); }
+  .adm-stat-card:hover { border-color: #d29aa3; transform: translateY(-2px); box-shadow: 0 8px 20px rgba(129, 45, 58,0.08); }
 
   .adm-card-stripe {
     position: absolute;
@@ -251,13 +250,13 @@ const styles = `
   .adm-stat-num {
     font-family: 'Playfair Display', serif;
     font-size: 28px; font-weight: 600;
-    color: #1a0a12;
+    color: #2a0910;
     letter-spacing: -1px;
     line-height: 1;
   }
 
   .adm-stat-label {
-    font-size: 11px; color: #b07a9a;
+    font-size: 11px; color: #b0525f;
     margin-top: 4px; font-weight: 400;
     letter-spacing: 0.2px;
   }
@@ -294,7 +293,7 @@ const styles = `
 
   .adm-panel-header {
     padding: 18px 22px 14px;
-    border-bottom: 1px solid #fdf2f8;
+    border-bottom: 1px solid #faf3f4;
     display: flex; align-items: center;
     justify-content: space-between;
   }
@@ -302,29 +301,29 @@ const styles = `
   .adm-panel-title {
    
     font-size: 15px; font-weight: 600;
-    color: #2d1a2b;
+    color: #2a0910;
   }
 
   .adm-view-all {
-    font-size: 11px; color: #db2777;
+    font-size: 11px; color: #812d3a;
     cursor: pointer; font-weight: 500;
     letter-spacing: 0.1px;
     background: none; border: none;
     font-family: 'Instrument Sans', sans-serif;
     transition: color 0.15s;
   }
-  .adm-view-all:hover { color: #be185d; }
+  .adm-view-all:hover { color: #2a0910; }
 
   /* ── Seller Rows ── */
   .adm-seller-row {
     display: flex; align-items: center;
     padding: 12px 22px;
-    border-bottom: 1px solid #fdf2f8;
+    border-bottom: 1px solid #faf3f4;
     gap: 12px;
     cursor: pointer;
     transition: background 0.15s;
   }
-  .adm-seller-row:hover { background: #fdf9fc; }
+  .adm-seller-row:hover { background: #faf3f4; }
   .adm-seller-row:last-child { border-bottom: none; }
 
   .adm-seller-avatar {
@@ -339,13 +338,13 @@ const styles = `
 
   .adm-seller-name {
     font-size: 12px; font-weight: 500;
-    color: #2d1a2b;
+    color: #2a0910;
     white-space: nowrap; overflow: hidden;
     text-overflow: ellipsis;
   }
 
   .adm-seller-meta {
-    font-size: 10px; color: #b07a9a;
+    font-size: 10px; color: #b0525f;
     margin-top: 1px; font-weight: 300;
   }
 
@@ -363,16 +362,16 @@ const styles = `
   .adm-review-btn {
     font-size: 10px; padding: 5px 12px;
     border-radius: 7px;
-    background: #fdf9fc;
-    border: 1px solid #fce7f3;
-    color: #db2777;
+    background: #faf3f4;
+    border: 1px solid #f4e6e8;
+    color: #812d3a;
     cursor: pointer;
     font-family: 'Instrument Sans', sans-serif;
     font-weight: 500;
     transition: all 0.15s;
     flex-shrink: 0;
   }
-  .adm-review-btn:hover { background: #fdf2f8; border-color: #f9a8d4; }
+  .adm-review-btn:hover { background: #faf3f4; border-color: #d29aa3; }
 
   /* ── Right Panel ── */
   .adm-right-panel { display: flex; flex-direction: column; gap: 14px; }
@@ -393,15 +392,15 @@ const styles = `
     position: relative;
     overflow: hidden;
   }
-  .adm-action-tile:hover { border-color: #; transform: translateY(-1px); box-shadow: 0 4px 12px rgba(219,39,119,0.06); }
+  .adm-action-tile:hover { border-color: #; transform: translateY(-1px); box-shadow: 0 4px 12px rgba(129, 45, 58,0.06); }
 
   .adm-tile-icon { font-size: 18px; margin-bottom: 8px; }
-  .adm-tile-name { font-size: 11px; font-weight: 600; color: #2d1a2b; margin-bottom: 2px; }
-  .adm-tile-desc { font-size: 10px; color: #b07a9a; line-height: 1.4; }
+  .adm-tile-name { font-size: 11px; font-weight: 600; color: #2a0910; margin-bottom: 2px; }
+  .adm-tile-desc { font-size: 10px; color: #b0525f; line-height: 1.4; }
 
   .adm-mini-count {
     position: absolute; top: 12px; right: 12px;
-    background: #fdf2f8; color: #db2777;
+    background: #faf3f4; color: #812d3a;
     font-size: 9px; font-weight: 700;
     width: 18px; height: 18px;
     border-radius: 50%;
@@ -414,11 +413,11 @@ const styles = `
   .adm-activity-item {
     display: flex; align-items: flex-start;
     gap: 10px; padding: 11px 18px;
-    border-bottom: 1px solid #fdf2f8;
+    border-bottom: 1px solid #faf3f4;
     transition: background 0.15s;
     cursor: pointer;
   }
-  .adm-activity-item:hover { background: #fdf9fc; }
+  .adm-activity-item:hover { background: #faf3f4; }
   .adm-activity-item:last-child { border-bottom: none; }
 
   .adm-activity-dot {
@@ -429,7 +428,7 @@ const styles = `
   }
 
   .adm-activity-text { font-size: 11px; color: #4a4035; line-height: 1.4; }
-  .adm-activity-text strong { color: #2d1a2b; font-weight: 500; }
+  .adm-activity-text strong { color: #2a0910; font-weight: 500; }
   .adm-activity-time { font-size: 9px; color: #c0bab2; margin-top: 1px; }
 
   .adm-live-dot {
@@ -471,9 +470,9 @@ const STATS = [
   {
     title: "Pending Sellers",
     iconType: "pending",
-    iconBg: "#fdf2f8",
-    stripe: "#fce7f3",
-    barColor: "#db2777",
+    iconBg: "#faf3f4",
+    stripe: "#f4e6e8",
+    barColor: "#812d3a",
     tag: "+3 today",
     tagClass: "adm-tag-dn",
     route: "/admin/pending-sellers",
@@ -493,8 +492,8 @@ const STATS = [
   {
     title: "Total Products",
     iconType: "products",
-    iconBg: "#eff6ff",
-    stripe: "#dbeafe",
+    iconBg: "#faf7f2",
+    stripe: "#e8d9c9",
     barColor: "#3b82f6",
     tag: "+5.2%",
     tagClass: "adm-tag-up",
@@ -517,8 +516,8 @@ const STATS = [
 const MOCK_SELLERS = [
   {
     initials: "ZS",
-    bg: "#fdf2f8",
-    color: "#db2777",
+    bg: "#faf3f4",
+    color: "#812d3a",
     name: "Zenith Store",
     owner: "Ali Hassan",
     date: "3 Jan 2025",
@@ -526,8 +525,8 @@ const MOCK_SELLERS = [
   },
   {
     initials: "MB",
-    bg: "#fdf2f8",
-    color: "#db2777",
+    bg: "#faf3f4",
+    color: "#812d3a",
     name: "Maple Bazaar",
     owner: "Sara Malik",
     date: "2 Jan 2025",
@@ -535,8 +534,8 @@ const MOCK_SELLERS = [
   },
   {
     initials: "TK",
-    bg: "#fdf2f8",
-    color: "#db2777",
+    bg: "#faf3f4",
+    color: "#812d3a",
     name: "TechKart",
     owner: "Raza Khan",
     date: "1 Jan 2025",
@@ -544,8 +543,8 @@ const MOCK_SELLERS = [
   },
   {
     initials: "NX",
-    bg: "#fdf2f8",
-    color: "#db2777",
+    bg: "#faf3f4",
+    color: "#812d3a",
     name: "NextGen Exports",
     owner: "Nadia Shah",
     date: "31 Dec 2024",
@@ -553,8 +552,8 @@ const MOCK_SELLERS = [
   },
   {
     initials: "PS",
-    bg: "#fdf2f8",
-    color: "#db2777",
+    bg: "#faf3f4",
+    color: "#812d3a",
     name: "Prime Shop",
     owner: "Usman Faiq",
     date: "30 Dec 2024",
@@ -564,7 +563,7 @@ const MOCK_SELLERS = [
 
 const ACTIVITIES = [
   {
-    dot: "#db2777",
+    dot: "#812d3a",
     text: "Zenith Store",
     action: "submitted registration",
     time: "2 min ago",
@@ -595,32 +594,11 @@ const ACTIVITIES = [
   },
 ];
 
-const NAV_ICONS = [
-  { icon: FiGrid, label: "Dashboard", active: true, route: "/admin/dashboard" },
-  { icon: FiClock, label: "Pending Sellers", route: "/admin/pending-sellers" },
-  { icon: FiDollarSign, label: "Payments", route: "/admin/payments" },
-  { icon: FiCheckCircle, label: "Verified Sellers", route: "/admin/verified-sellers" },
-  { icon: FiSettings, label: "Settings", route: "/admin/settings" },
-];
-
 const AdminDashboard = () => {
   const navigate = useNavigate();
   const { pendingSellers = [], verifiedSellers = [] } = useSelector(
     (state: any) => state.sellerManagement || {},
   );
-
-  const [searchQuery, setSearchQuery] = useState("");
-
-  useEffect(() => {
-    const isLoggedIn = localStorage.getItem("adminLoggedIn");
-    if (!isLoggedIn) navigate("/admin/login");
-  }, [navigate]);
-
-  const handleLogout = () => {
-    localStorage.removeItem("adminLoggedIn");
-    localStorage.removeItem("adminEmail");
-    navigate("/admin/login");
-  };
 
   const statCounts = [
     pendingSellers.length || 12,
@@ -638,7 +616,7 @@ const AdminDashboard = () => {
   const renderStatIcon = (type: string) => {
     switch(type) {
       case 'pending':
-        return <FiClock size={16} color="#db2777" />;
+        return <FiClock size={16} color="#812d3a" />;
       case 'verified':
         return <FiCheckCircle size={16} color="#10b981" />;
       case 'products':
@@ -658,7 +636,7 @@ const AdminDashboard = () => {
         {/* Sidebar */}
     
 {/* <nav className="adm-sidebar">
-  <div className="adm-logo border border-pink-400 text-pink-400">A</div>
+  <div className="adm-logo border border-[#C6A46A] text-[#C6A46A]">A</div>
   {NAV_ICONS.map((n, i) => (
     <button
       key={i}
@@ -767,8 +745,8 @@ const AdminDashboard = () => {
                     <div
                       className="adm-seller-avatar"
                       style={{
-                        background: seller.bg || "#fdf2f8",
-                        color: seller.color || "#db2777",
+                        background: seller.bg || "#faf3f4",
+                        color: seller.color || "#812d3a",
                       }}
                     >
                       {seller.initials ||
@@ -819,7 +797,7 @@ const AdminDashboard = () => {
                       </div>
                     )}
                     <div className="adm-tile-icon">
-                      <FiClock size={16} color="#db2777" />
+                      <FiClock size={16} color="#812d3a" />
                     </div>
                     <div className="adm-tile-name font-google ">Pending Sellers</div>
                     <div className="adm-tile-desc">Review registrations</div>

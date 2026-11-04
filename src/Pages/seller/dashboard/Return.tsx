@@ -163,19 +163,19 @@ const STATUS_META: Record<ReturnStatus, StatusMeta> = {
     label: "Pending Review",
     bg: "#fdf6ea",
     color: "#8a5e1a",
-    dot: "#c9a84c",
+    dot: "#C6A46A",
   },
   approved: {
     label: "Approved",
-    bg: "#eef3fb",
+    bg: "#f3ede4",
     color: "#1a4d8a",
     dot: "#4a7fd4",
   },
   picked_up: {
     label: "Picked Up",
-    bg: "#f3eefb",
-    color: "#4a1a8a",
-    dot: "#9a6dd4",
+    bg: "#f5ecd9",
+    color: "#574219",
+    dot: "#8f6f36",
   },
   completed: {
     label: "Completed",
@@ -253,8 +253,8 @@ function TypePill({ type }: { type: ReturnType }) {
         fontWeight: 600,
         letterSpacing: "0.5px",
         textTransform: "uppercase",
-        background: isRefund ? "#f3eefb" : "#eef3fb",
-        color: isRefund ? "#4a1a8a" : "#1a4d8a",
+        background: isRefund ? "#f5ecd9" : "#f3ede4",
+        color: isRefund ? "#574219" : "#1a4d8a",
       }}
     >
       {type}
@@ -277,7 +277,7 @@ function KpiCard({
     <div
       style={{
         background: "#fdfcf8",
-        border: "1px solid #edeae2",
+        border: "1px solid #E8D9C9",
         borderRadius: 14,
         padding: "20px 18px",
         flex: 1,
@@ -309,7 +309,7 @@ function KpiCard({
         style={{
           fontFamily: "'DM Serif Display', serif",
           fontSize: 28,
-          color: "#0d0d0f",
+          color: "#151522",
           margin: "6px 0 3px",
           letterSpacing: -0.5,
         }}
@@ -349,7 +349,7 @@ function InfoRow({
         style={{
           fontSize: highlight ? 22 : 13,
           fontWeight: highlight ? 400 : 500,
-          color: highlight ? "#8a5e1a" : "#0d0d0f",
+          color: highlight ? "#8a5e1a" : "#151522",
           fontFamily: highlight
             ? "'DM Serif Display', serif"
             : mono
@@ -403,7 +403,7 @@ function DetailModal({
         <div
           style={{
             padding: "20px 24px",
-            borderBottom: "1px solid #edeae2",
+            borderBottom: "1px solid #E8D9C9",
             display: "flex",
             justifyContent: "space-between",
             alignItems: "center",
@@ -415,7 +415,7 @@ function DetailModal({
               style={{
                 fontFamily: "'DM Serif Display', serif",
                 fontSize: 20,
-                color: "#0d0d0f",
+                color: "#151522",
               }}
             >
               Return Request Details
@@ -434,7 +434,7 @@ function DetailModal({
           <button
             onClick={onClose}
             style={{
-              background: "#f5f3ee",
+              background: "#FAF7F2",
               border: "none",
               width: 32,
               height: 32,
@@ -611,7 +611,7 @@ function DetailModal({
             </div>
             <div
               style={{
-                background: "#f5f3ee",
+                background: "#FAF7F2",
                 borderRadius: 12,
                 padding: 16,
                 display: "flex",
@@ -625,13 +625,13 @@ function DetailModal({
                   height: 40,
                   borderRadius: "50%",
                   background: "linear-gradient(135deg,#c9a84c22,#c9a84c44)",
-                  border: "1px solid #c9a84c",
+                  border: "1px solid #C6A46A",
                   display: "flex",
                   alignItems: "center",
                   justifyContent: "center",
                   fontSize: 15,
                   fontWeight: 600,
-                  color: "#c9a84c",
+                  color: "#C6A46A",
                   flexShrink: 0,
                 }}
               >
@@ -639,7 +639,7 @@ function DetailModal({
               </div>
               <div>
                 <div
-                  style={{ fontSize: 14, fontWeight: 500, color: "#0d0d0f" }}
+                  style={{ fontSize: 14, fontWeight: 500, color: "#151522" }}
                 >
                   {ret.customerName}
                 </div>
@@ -664,7 +664,7 @@ function DetailModal({
           {ret.pickupDate && (
             <div
               style={{
-                background: "#eef3fb",
+                background: "#f3ede4",
                 border: "1px solid #4a7fd422",
                 borderRadius: 12,
                 padding: 16,
@@ -683,7 +683,7 @@ function DetailModal({
               >
                 Pickup Scheduled
               </div>
-              <div style={{ fontSize: 14, color: "#0d0d0f" }}>
+              <div style={{ fontSize: 14, color: "#151522" }}>
                 📦 {fmtDate(ret.pickupDate)}
               </div>
             </div>
@@ -693,8 +693,8 @@ function DetailModal({
             style={{
               width: "100%",
               padding: 11,
-              background: "#f5f3ee",
-              border: "1px solid #edeae2",
+              background: "#FAF7F2",
+              border: "1px solid #E8D9C9",
               borderRadius: 10,
               fontSize: 13,
               color: "#52525e",
@@ -722,7 +722,7 @@ function ReturnCard({
     <div
       style={{
         background: "#fdfcf8",
-        border: "1px solid #edeae2",
+        border: "1px solid #E8D9C9",
         borderRadius: 14,
         padding: "18px 20px",
         cursor: "pointer",
@@ -753,7 +753,7 @@ function ReturnCard({
                 fontFamily: "'JetBrains Mono', monospace",
                 fontSize: 12,
                 fontWeight: 500,
-                color: "#0d0d0f",
+                color: "#151522",
               }}
             >
               {ret.id}
@@ -765,7 +765,7 @@ function ReturnCard({
             style={{
               fontSize: 14,
               fontWeight: 500,
-              color: "#0d0d0f",
+              color: "#151522",
               marginBottom: 4,
             }}
           >
@@ -776,7 +776,7 @@ function ReturnCard({
             <span style={{ fontFamily: "'JetBrains Mono', monospace" }}>
               {ret.orderId}
             </span>
-            <span style={{ margin: "0 6px", color: "#edeae2" }}>·</span>
+            <span style={{ margin: "0 6px", color: "#E8D9C9" }}>·</span>
             {ret.customerName} · {ret.customerPhone}
           </div>
           <div style={{ fontSize: 12, color: "#52525e", marginTop: 4 }}>
@@ -814,7 +814,7 @@ function ReturnCard({
             onClick={onClick}
             style={{
               fontSize: 12,
-              color: "#c9a84c",
+              color: "#C6A46A",
               marginTop: 6,
               fontWeight: 500,
             }}
@@ -889,9 +889,9 @@ export default function SellerReturns() {
       <div
         style={{
           minHeight: "100vh",
-          background: "#f5f3ee",
+          background: "#FAF7F2",
           fontFamily: "'DM Sans', sans-serif",
-          color: "#0d0d0f",
+          color: "#151522",
         }}
       >
         <div style={{ maxWidth: 900, margin: "0 auto", padding: "28px 20px" }}>
@@ -903,7 +903,7 @@ export default function SellerReturns() {
               alignItems: "flex-start",
               marginBottom: 32,
               paddingBottom: 24,
-              borderBottom: "1px solid #edeae2",
+              borderBottom: "1px solid #E8D9C9",
             }}
           >
             <div>
@@ -935,7 +935,7 @@ export default function SellerReturns() {
             <KpiCard
               label="Total Returns"
               value={counts.all}
-              accent="#c9a84c"
+              accent="#C6A46A"
             />
             <KpiCard
               label="Pending Requests"
@@ -959,7 +959,7 @@ export default function SellerReturns() {
           <div
             style={{
               background: "#fdfcf8",
-              border: "1px solid #edeae2",
+              border: "1px solid #E8D9C9",
               borderRadius: 14,
               padding: "16px 20px",
               marginBottom: 20,
@@ -988,11 +988,11 @@ export default function SellerReturns() {
                   style={{
                     width: "100%",
                     padding: "9px 12px 9px 34px",
-                    border: "1px solid #edeae2",
+                    border: "1px solid #E8D9C9",
                     borderRadius: 9,
                     fontSize: 13,
-                    color: "#0d0d0f",
-                    background: "#f5f3ee",
+                    color: "#151522",
+                    background: "#FAF7F2",
                     fontFamily: "'DM Sans', sans-serif",
                     outline: "none",
                     boxSizing: "border-box",
@@ -1007,11 +1007,11 @@ export default function SellerReturns() {
                 }
                 style={{
                   padding: "9px 14px",
-                  border: "1px solid #edeae2",
+                  border: "1px solid #E8D9C9",
                   borderRadius: 9,
                   fontSize: 13,
-                  color: "#0d0d0f",
-                  background: "#f5f3ee",
+                  color: "#151522",
+                  background: "#FAF7F2",
                   fontFamily: "'DM Sans', sans-serif",
                   outline: "none",
                   cursor: "pointer",
@@ -1054,9 +1054,9 @@ export default function SellerReturns() {
                       transition: "all 0.15s",
                       background: active
                         ? t === "all"
-                          ? "#0d0d0f"
+                          ? "#151522"
                           : m?.bg
-                        : "#f5f3ee",
+                        : "#FAF7F2",
                       color: active
                         ? t === "all"
                           ? "#fff"
@@ -1085,7 +1085,7 @@ export default function SellerReturns() {
                           ? t === "all"
                             ? "rgba(255,255,255,0.2)"
                             : `${m?.dot}33`
-                          : "#edeae2",
+                          : "#E8D9C9",
                         color: active
                           ? t === "all"
                             ? "#fff"
@@ -1110,7 +1110,7 @@ export default function SellerReturns() {
             <div
               style={{
                 background: "#fdfcf8",
-                border: "1px solid #edeae2",
+                border: "1px solid #E8D9C9",
                 borderRadius: 14,
                 padding: 48,
                 textAlign: "center",

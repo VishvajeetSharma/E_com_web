@@ -1,6 +1,6 @@
 import { useMemo } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { updateStock } from "../../../redux/productSlice";
+import { updateStock } from "@/store/slices/productSlice";
 
 const Inventory: React.FC = () => {
   const dispatch = useDispatch();
@@ -64,7 +64,7 @@ const Inventory: React.FC = () => {
   }
 
   return (
-    <div className="p-6 bg-[#f5f3ee] min-h-screen">
+    <div className="p-6 bg-[#FAF7F2] min-h-screen">
       <div className="max-w-6xl mx-auto">
         {/* HEADER */}
         <div className="mb-6 flex justify-between">

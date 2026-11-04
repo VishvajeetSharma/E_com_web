@@ -4,7 +4,7 @@ import {
   addProduct,
   deleteProduct,
   toggleStatus,
-} from "../../../redux/productSlice";
+} from "@/store/slices/productSlice";
 
 export interface Product {
   id: number;
@@ -248,7 +248,7 @@ const Catalog: React.FC = () => {
   // ─── Render ─────────────────────────────────────────────────────────────────
 
   return (
-    <div className="p-6 bg-[#f5f3ee] min-h-screen">
+    <div className="p-6 bg-[#FAF7F2] min-h-screen">
       <div className="max-w-6xl mx-auto">
         {/* ── Header ── */}
         <div className="mb-6 flex flex-col sm:flex-row sm:items-end sm:justify-between gap-4">
@@ -638,12 +638,12 @@ const Catalog: React.FC = () => {
                 {/* 🔥 NEW - Exchange & Return Badges */}
                 <div className="flex flex-wrap gap-2 mt-1">
                   {product.exchangeAvailable && (
-                    <span className="text-xs bg-blue-100 text-blue-700 px-2 py-0.5 rounded-full">
+                    <span className="text-xs bg-[#E8D9C9] text-[#4A101C] px-2 py-0.5 rounded-full">
                       🔄 Exchange Available
                     </span>
                   )}
                   {product.returnAvailable && (
-                    <span className="text-xs bg-purple-100 text-purple-700 px-2 py-0.5 rounded-full">
+                    <span className="text-xs bg-[#E8D9C9] text-[#4A101C] px-2 py-0.5 rounded-full">
                       ↩️ Return Available
                     </span>
                   )}
