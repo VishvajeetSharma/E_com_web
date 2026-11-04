@@ -91,7 +91,7 @@ const AngledCard = ({
   cardWidth,
   cardHeight,
 }: {
-  item: any;
+  item: AngledSliderProps["items"][number];
   angle: number;
   hoverScale: number;
   cardWidth: string;
@@ -101,7 +101,7 @@ const AngledCard = ({
 
   return (
     <motion.div
-      className="relative flex-shrink-0 group overflow-visible cursor-pointer"
+      className="relative shrink-0 group overflow-visible cursor-pointer"
       style={{
         width: cardWidth,
         height: cardHeight,
@@ -125,7 +125,7 @@ const AngledCard = ({
         />
         {/* Optional Overlay/Title */}
         {item.title && (
-          <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/80 to-transparent p-4 text-white opacity-0 transition-opacity duration-300 group-hover:opacity-100">
+          <div className="absolute bottom-0 left-0 right-0 bg-linear-to-t from-black/80 to-transparent p-4 text-white opacity-0 transition-opacity duration-300 group-hover:opacity-100">
             <h3 className="text-lg font-bold">{item.title}</h3>
           </div>
         )}
@@ -214,7 +214,7 @@ export const AngledSlider = ({
   return (
     <div
       className={cn(
-        "relative w-full overflow-hidden bg-gradient-to-r from-[#151522] via-[#4A101C] to-[#151522]  py-10 perspective-1000",
+        "relative w-full overflow-hidden bg-linear-to-r from-[#151522] via-[#4A101C] to-[#151522]  py-10 perspective-1000",
         className,
       )}
       style={{

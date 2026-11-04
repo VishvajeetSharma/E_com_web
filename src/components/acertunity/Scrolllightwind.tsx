@@ -29,14 +29,16 @@ export default function Scroll() {
 
     const additionalY = { val: 0 };
     let additionalYAnim: gsap.core.Tween | null = null;
-    let colProgress = [0, 0, 0];
-
-    const cols = gsap.utils.toArray(".scroll-col", galleryRef.current);
+    const cols = gsap.utils.toArray<HTMLElement>(
+      ".scroll-col",
+      galleryRef.current,
+    );
+    const colProgress = cols.map(() => 0);
 
     const updateOffset = (_time: number, deltaTime: number) => {
       const dtSec = deltaTime / 1000;
 
-      cols.forEach((col: any, i: number) => {
+      cols.forEach((col, i) => {
         const columnHeight = col.clientHeight || 1000;
         const halfHeight = columnHeight / 2;
         const speedPerSec = halfHeight / 20;
@@ -89,7 +91,7 @@ export default function Scroll() {
   }, []);
 
   return (
-    <div className="w-full bg-gradient-to-r from-[#151522] via-[#4A101C] to-[#151522]  selection:bg-none">
+    <div className="w-full bg-linear-to-r from-[#151522] via-[#4A101C] to-[#151522]  selection:bg-none">
       <style>{`
         .scroll-gallery-container {
           min-height: 500vh;

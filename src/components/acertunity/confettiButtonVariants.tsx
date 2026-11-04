@@ -23,6 +23,11 @@ type ConfettiOptions = {
   disableForReducedMotion?: boolean;
 };
 
+const DEFAULT_CONFETTI_OPTIONS: ConfettiOptions = {
+  particleCount: 100,
+  spread: 70,
+};
+
 // Global declaration
 declare global {
   interface Window {
@@ -76,7 +81,6 @@ export interface ConfettiButtonProps
   extends
     React.ButtonHTMLAttributes<HTMLButtonElement>,
     VariantProps<typeof confettiButtonVariants> {
-  asChild?: boolean;
   icon?: React.ReactNode;
   iconPosition?: "left" | "right";
   loading?: boolean;
@@ -92,42 +96,45 @@ const ConfettiButton = React.forwardRef<HTMLButtonElement, ConfettiButtonProps>(
       variant,
       size,
       animation,
-      asChild = false,
       children,
       icon,
       iconPosition = "left",
       loading = false,
-      confettiOptions = {
-        particleCount: 100,
-        spread: 70,
-      },
+      confettiOptions = DEFAULT_CONFETTI_OPTIONS,
       autoConfetti = false,
       triggerOnHover = false,
-      ...props
+      onClick,
+      onMouseEnter,
+      disabled,
+      type = "button",
+      ...buttonProps
     },
     ref,
   ) => {
-    const [scriptLoaded, setScriptLoaded] = useState(false);
+    const [scriptLoaded, setScriptLoaded] = useState(
+      () => typeof window !== "undefined" && Boolean(window.confetti),
+    );
     const buttonRef = useRef<HTMLButtonElement | null>(null);
+    const autoConfettiFired = useRef(false);
 
     // Load confetti script dynamically
     useEffect(() => {
-      if (!window.confetti) {
-        const script = document.createElement("script");
-        script.src =
-          "https://cdn.jsdelivr.net/npm/canvas-confetti@1.4.0/dist/confetti.browser.min.js";
-        script.async = true;
-        script.onload = () => setScriptLoaded(true);
-        document.body.appendChild(script);
+      if (window.confetti) return;
 
-        return () => {
-          if (script.parentNode) {
-            script.parentNode.removeChild(script);
-          }
-        };
-      } else {
-        setScriptLoaded(true);
-      }
+      const script = document.createElement("script");
+      script.src =
+        "https://cdn.jsdelivr.net/npm/canvas-confetti@1.4.0/dist/confetti.browser.min.js";
+      script.async = true;
+      script.onload = () => setScriptLoaded(true);
+      script.onerror = () =>
+        console.error("Failed to load the confetti animation script.");
+      document.body.appendChild(script);
+
+      return () => {
+        script.onload = null;
+        script.onerror = null;
+        script.remove();
+      };
     }, []);
 
     // Auto confetti on mount if needed
@@ -136,8 +143,10 @@ const ConfettiButton = React.forwardRef<HTMLButtonElement, ConfettiButtonProps>(
         scriptLoaded &&
         autoConfetti &&
         window.confetti &&
-        buttonRef.current
+        buttonRef.current &&
+        !autoConfettiFired.current
       ) {
+        autoConfettiFired.current = true;
         const rect = buttonRef.current.getBoundingClientRect();
         const x = (rect.left + rect.width / 2) / window.innerWidth;
         const y = (rect.top + rect.height / 2) / window.innerHeight;
@@ -173,15 +182,19 @@ const ConfettiButton = React.forwardRef<HTMLButtonElement, ConfettiButtonProps>(
           confettiButtonVariants({ variant, size, animation }),
           className,
         )}
+        {...buttonProps}
+        type={type}
         onClick={(e) => {
           if (scriptLoaded) {
             triggerConfetti();
           }
-          props.onClick?.(e);
+          onClick?.(e);
         }}
-        onMouseEnter={triggerOnHover ? () => triggerConfetti() : undefined}
-        disabled={loading || props.disabled}
-        {...props}
+        onMouseEnter={(e) => {
+          if (triggerOnHover) triggerConfetti();
+          onMouseEnter?.(e);
+        }}
+        disabled={loading || disabled}
       >
         {loading && <Loader2 className="h-4 w-4 mr-2 animate-spin" />}
         {!loading && icon && iconPosition === "left" && (
@@ -198,4 +211,4 @@ const ConfettiButton = React.forwardRef<HTMLButtonElement, ConfettiButtonProps>(
 
 ConfettiButton.displayName = "ConfettiButton";
 
-export { ConfettiButton, confettiButtonVariants };
+export { ConfettiButton };

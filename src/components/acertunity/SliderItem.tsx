@@ -6,7 +6,7 @@ export interface SliderItemData {
   title: string;
   num: string;
   imageUrl: string;
-  data?: any;
+  data?: unknown;
 }
 
 interface ThreeDSliderProps {
@@ -18,41 +18,42 @@ interface ThreeDSliderProps {
 }
 
 // --- Item ---
-const SliderItem = React.forwardRef(({ item, onClick }: any, ref: any) => {
-  return (
-    <div
-      ref={ref}
-      onClick={onClick}
-      className="absolute top-1/2 left-1/2 cursor-pointer select-none rounded-xl 
+const SliderItem = React.forwardRef<
+  HTMLDivElement,
+  { item: SliderItemData; onClick: React.MouseEventHandler<HTMLDivElement> }
+>(({ item, onClick }, ref) => (
+  <div
+    ref={ref}
+    onClick={onClick}
+    className="absolute top-1/2 left-1/2 cursor-pointer select-none rounded-xl
         shadow-2xl bg-black transform-origin-[0%_100%] pointer-events-auto
         w-[clamp(130px,25vw,240px)] 
 h-[clamp(180px,32vw,320px)]
         -translate-x-1/2 -translate-y-1/2 overflow-hidden will-change-transform"
-    >
-      <div className="slider-item-content absolute inset-0 z-10 transition-opacity duration-300">
-        {/* Overlay */}
-        <div className="absolute inset-0 z-10 bg-gradient-to-b from-black/30 via-transparent to-black/400" />
+  >
+    <div className="slider-item-content absolute inset-0 z-10 transition-opacity duration-300">
+      {/* Overlay */}
+      <div className="absolute inset-0 z-10 bg-linear-to-b from-black/30 via-transparent to-black/400" />
 
-        {/* Title */}
-        <div className="absolute z-10 text-white bottom-5 left-5 text-[clamp(20px,3vw,30px)]">
-          {item.title}
-        </div>
-
-        {/* Number */}
-        <div className="absolute z-10 text-white top-3 left-5 text-[clamp(20px,10vw,80px)]">
-          {item.num}
-        </div>
-
-        {/* Image */}
-        <img
-          src={item.imageUrl}
-          alt={item.title}
-          className="w-full h-full object-cover pointer-events-none"
-        />
+      {/* Title */}
+      <div className="absolute z-10 text-white bottom-5 left-5 text-[clamp(20px,3vw,30px)]">
+        {item.title}
       </div>
+
+      {/* Number */}
+      <div className="absolute z-10 text-white top-3 left-5 text-[clamp(20px,10vw,80px)]">
+        {item.num}
+      </div>
+
+      {/* Image */}
+      <img
+        src={item.imageUrl}
+        alt={item.title}
+        className="w-full h-full object-cover pointer-events-none"
+      />
     </div>
-  );
-});
+  </div>
+));
 
 SliderItem.displayName = "SliderItem";
 
@@ -127,26 +128,31 @@ const ThreeDSlider: React.FC<ThreeDSliderProps> = ({
     [speedWheel],
   );
 
-  const handleDown = (e: MouseEvent | TouchEvent) => {
+  const handleDown = useCallback((e: MouseEvent | TouchEvent) => {
     isDown.current = true;
-    startX.current = "touches" in e ? e.touches[0].clientX : e.clientX;
-  };
+    startX.current =
+      "touches" in e ? (e.touches[0]?.clientX ?? startX.current) : e.clientX;
+  }, []);
 
-  const handleMove = (e: MouseEvent | TouchEvent) => {
+  const handleMove = useCallback(
+    (e: MouseEvent | TouchEvent) => {
     if (!isDown.current) return;
 
-    const x = "touches" in e ? e.touches[0].clientX : e.clientX;
+      const x =
+        "touches" in e ? (e.touches[0]?.clientX ?? startX.current) : e.clientX;
 
-    const diff = (x - startX.current) * speedDrag;
+      const diff = (x - startX.current) * speedDrag;
 
-    target.current = Math.max(0, Math.min(100, target.current + diff));
+      target.current = Math.max(0, Math.min(100, target.current + diff));
 
-    startX.current = x;
-  };
+      startX.current = x;
+    },
+    [speedDrag],
+  );
 
-  const handleUp = () => {
+  const handleUp = useCallback(() => {
     isDown.current = false;
-  };
+  }, []);
 
   // --- Events ---
   useEffect(() => {
@@ -161,6 +167,7 @@ const ThreeDSlider: React.FC<ThreeDSliderProps> = ({
     window.addEventListener("mouseup", handleUp);
     window.addEventListener("touchmove", handleMove);
     window.addEventListener("touchend", handleUp);
+    window.addEventListener("touchcancel", handleUp);
 
     return () => {
       el.removeEventListener("wheel", handleWheel);
@@ -171,8 +178,9 @@ const ThreeDSlider: React.FC<ThreeDSliderProps> = ({
       window.removeEventListener("mouseup", handleUp);
       window.removeEventListener("touchmove", handleMove);
       window.removeEventListener("touchend", handleUp);
+      window.removeEventListener("touchcancel", handleUp);
     };
-  }, [handleWheel]);
+  }, [handleDown, handleMove, handleUp, handleWheel]);
 
   // --- Click ---
   const handleClick = (item: SliderItemData, index: number) => {
@@ -183,13 +191,15 @@ const ThreeDSlider: React.FC<ThreeDSliderProps> = ({
   return (
     <div
       ref={containerRef}
-      className="relative w-full h-[70vh] overflow-hidden bg-gradient-to-r from-[#151522] via-[#4A101C] to-[#151522]"
+      className="relative w-full h-[70vh] overflow-hidden bg-linear-to-r from-[#151522] via-[#4A101C] to-[#151522]"
       style={containerStyle}
     >
       {items.map((item, i) => (
         <SliderItem
           key={i}
-          ref={(el: any) => (itemRefs.current[i] = el)}
+          ref={(el) => {
+            itemRefs.current[i] = el;
+          }}
           item={item}
           onClick={() => handleClick(item, i)}
         />

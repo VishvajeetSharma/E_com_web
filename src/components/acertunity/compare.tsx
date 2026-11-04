@@ -39,7 +39,9 @@ export const Compare = ({
   autoplay = false,
   autoplayDuration = 5000,
 }: CompareProps) => {
-  const [sliderXPercent, setSliderXPercent] = useState(initialSliderPercentage);
+  const [sliderXPercent, setSliderXPercent] = useState(() =>
+    Math.max(0, Math.min(100, initialSliderPercentage)),
+  );
   const [isDragging, setIsDragging] = useState(false);
 
   const sliderRef = useRef<HTMLDivElement>(null);
@@ -48,8 +50,16 @@ export const Compare = ({
   const autoplayRef = useRef<ReturnType<typeof setTimeout> | null>(null);
   const secondImageClasses = secondImageClassName || secondImageClassname;
 
+  const stopAutoplay = useCallback(() => {
+    if (autoplayRef.current) {
+      clearTimeout(autoplayRef.current);
+      autoplayRef.current = null;
+    }
+  }, []);
+
   const startAutoplay = useCallback(() => {
-    if (!autoplay) return;
+    stopAutoplay();
+    if (!autoplay || autoplayDuration <= 0) return;
 
     const startTime = Date.now();
     const animate = () => {
@@ -63,56 +73,43 @@ export const Compare = ({
     };
 
     animate();
-  }, [autoplay, autoplayDuration]);
-
-  const stopAutoplay = useCallback(() => {
-    if (autoplayRef.current) {
-      clearTimeout(autoplayRef.current);
-      autoplayRef.current = null;
-    }
-  }, []);
+  }, [autoplay, autoplayDuration, stopAutoplay]);
 
   useEffect(() => {
     startAutoplay();
     return () => stopAutoplay();
   }, [startAutoplay, stopAutoplay]);
 
-  function mouseEnterHandler() {
+  function pointerEnterHandler() {
     setIsMouseOver(true);
     stopAutoplay();
   }
 
-  function mouseLeaveHandler() {
+  function pointerLeaveHandler() {
     setIsMouseOver(false);
     if (slideMode === "hover") {
       setSliderXPercent(initialSliderPercentage);
+      startAutoplay();
+    } else if (!isDragging) {
+      startAutoplay();
     }
-    if (slideMode === "drag") {
-      setIsDragging(false);
-    }
-    startAutoplay();
   }
 
-  const handleStart = useCallback(
-    (_clientX: number) => {
-      if (slideMode === "drag") {
-        setIsDragging(true);
-      }
-    },
-    [slideMode],
-  );
-
-  const handleEnd = useCallback(() => {
+  const handlePointerEnd = useCallback(() => {
     if (slideMode === "drag") {
       setIsDragging(false);
     }
-  }, [slideMode]);
+    if (!isMouseOver) {
+      startAutoplay();
+    }
+  }, [isMouseOver, slideMode, startAutoplay]);
 
   const handleMove = useCallback(
     (clientX: number) => {
       if (!sliderRef.current) return;
       if (slideMode === "hover" || (slideMode === "drag" && isDragging)) {
         const rect = sliderRef.current.getBoundingClientRect();
+        if (rect.width === 0) return;
         const x = clientX - rect.left;
         const percent = (x / rect.width) * 100;
         requestAnimationFrame(() => {
@@ -123,46 +120,13 @@ export const Compare = ({
     [slideMode, isDragging],
   );
 
-  const handleMouseDown = useCallback(
-    (e: React.MouseEvent) => handleStart(e.clientX),
-    [handleStart],
-  );
-  const handleMouseUp = useCallback(() => handleEnd(), [handleEnd]);
-  const handleMouseMove = useCallback(
-    (e: React.MouseEvent) => handleMove(e.clientX),
-    [handleMove],
-  );
-
-  const handleTouchStart = useCallback(
-    (e: React.TouchEvent) => {
-      if (!autoplay) {
-        handleStart(e.touches[0].clientX);
-      }
-    },
-    [handleStart, autoplay],
-  );
-
-  const handleTouchEnd = useCallback(() => {
-    if (!autoplay) {
-      handleEnd();
-    }
-  }, [handleEnd, autoplay]);
-
-  const handleTouchMove = useCallback(
-    (e: React.TouchEvent) => {
-      if (!autoplay) {
-        handleMove(e.touches[0].clientX);
-      }
-    },
-    [handleMove, autoplay],
-  );
-
   return (
     <div
       ref={sliderRef}
-      className={cn("w-[400px] h-[400px] overflow-hidden", className)}
+      className={cn("w-100 h-100 overflow-hidden", className)}
       style={{
         position: "relative",
+        touchAction: slideMode === "drag" ? "none" : "pan-y",
         cursor:
           isMouseOver && slideMode === "drag"
             ? "grabbing"
@@ -170,18 +134,21 @@ export const Compare = ({
               ? "grab"
               : "col-resize",
       }}
-      onMouseMove={handleMouseMove}
-      onMouseLeave={mouseLeaveHandler}
-      onMouseEnter={mouseEnterHandler}
-      onMouseDown={handleMouseDown}
-      onMouseUp={handleMouseUp}
-      onTouchStart={handleTouchStart}
-      onTouchEnd={handleTouchEnd}
-      onTouchMove={handleTouchMove}
+      onPointerMove={(event) => handleMove(event.clientX)}
+      onPointerLeave={pointerLeaveHandler}
+      onPointerEnter={pointerEnterHandler}
+      onPointerDown={(event) => {
+        if (slideMode === "drag") {
+          event.currentTarget.setPointerCapture(event.pointerId);
+          setIsDragging(true);
+        }
+      }}
+      onPointerUp={handlePointerEnd}
+      onPointerCancel={handlePointerEnd}
     >
       <AnimatePresence initial={false}>
         <motion.div
-          className="h-full w-px absolute top-0 m-auto z-30 bg-gradient-to-b from-transparent from-[5%] to-[95%] via-indigo-500 to-transparent"
+          className="h-full w-px absolute top-0 m-auto z-30 bg-linear-to-b from-transparent from-5% to-95% via-indigo-500 to-transparent"
           style={{
             left: `${sliderXPercent}%`,
             top: "0",
@@ -189,9 +156,9 @@ export const Compare = ({
           }}
           transition={{ duration: 0 }}
         >
-          <div className="w-36 h-full [mask-image:radial-gradient(100px_at_left,white,transparent)] absolute top-1/2 -translate-y-1/2 left-0 bg-gradient-to-r from-indigo-400 via-transparent to-transparent z-20 opacity-50" />
-          <div className="w-10 h-1/2 [mask-image:radial-gradient(50px_at_left,white,transparent)] absolute top-1/2 -translate-y-1/2 left-0 bg-gradient-to-r from-cyan-400 via-transparent to-transparent z-10 opacity-100" />
-          <div className="w-10 h-3/4 top-1/2 -translate-y-1/2 absolute -right-10 [mask-image:radial-gradient(100px_at_left,white,transparent)]">
+          <div className="w-36 h-full mask-[radial-gradient(100px_at_left,white,transparent)] absolute top-1/2 -translate-y-1/2 left-0 bg-linear-to-r from-indigo-400 via-transparent to-transparent z-20 opacity-50" />
+          <div className="w-10 h-1/2 mask-[radial-gradient(50px_at_left,white,transparent)] absolute top-1/2 -translate-y-1/2 left-0 bg-linear-to-r from-cyan-400 via-transparent to-transparent z-10 opacity-100" />
+          <div className="w-10 h-3/4 top-1/2 -translate-y-1/2 absolute -right-10 mask-[radial-gradient(100px_at_left,white,transparent)]">
             <MemoizedSparklesCore
               background="transparent"
               minSize={0.4}
@@ -244,7 +211,7 @@ export const Compare = ({
 
       <AnimatePresence initial={false}>
         {secondImage ? (
-          <motion.div className="absolute top-0 left-0 z-[19] w-full h-full">
+          <motion.div className="absolute top-0 left-0 z-19 w-full h-full">
             <img
               src={secondImage}
               className={cn("w-full h-full object-cover rounded-2xl", secondImageClasses)}

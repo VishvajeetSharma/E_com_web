@@ -114,7 +114,7 @@ const CenterImage = () => {
 // ---------------- PARALLAX ----------------
 const ParallaxImages = () => {
   return (
-    <div className="mx-auto max-w-5xl px-4 pt-[200px]">
+    <div className="mx-auto max-w-5xl px-4 pt-50">
       <ParallaxImg
         src="https://i.pinimg.com/1200x/cc/f0/87/ccf08760e9179666998a4bf4d5f1ba50.jpg"
         start={-200}

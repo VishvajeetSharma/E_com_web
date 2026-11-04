@@ -1,5 +1,6 @@
 import React, { useRef, useEffect, useState } from "react";
-const cn = (...classes: any) => classes.filter(Boolean).join(" ");
+const cn = (...classes: (string | undefined | null | false)[]) =>
+  classes.filter(Boolean).join(" ");
 // import {
 //   Maximize2,
 //   ExternalLink,
@@ -137,19 +138,23 @@ const ThreeDHoverGallery: React.FC<ThreeDHoverGalleryProps> = ({
         handleImageClick(index, images[index]); // Simulate click
         break;
       case "ArrowLeft":
+        {
         event.preventDefault(); // Prevent default scroll behavior
         // Calculate previous index, looping to the end if at the beginning
         const prevIndex = index > 0 ? index - 1 : images.length - 1;
         // Focus the previous element if it exists
         (containerRef.current?.children[prevIndex] as HTMLElement)?.focus();
         break;
+        }
       case "ArrowRight":
+        {
         event.preventDefault(); // Prevent default scroll behavior
         // Calculate next index, looping to the start if at the end
         const nextIndex = index < images.length - 1 ? index + 1 : 0;
         // Focus the next element if it exists
         (containerRef.current?.children[nextIndex] as HTMLElement)?.focus();
         break;
+        }
     }
   };
 

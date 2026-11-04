@@ -55,8 +55,11 @@ const MouseImageTrail = ({
   const lastRenderPosition = useRef({ x: 0, y: 0 });
   const imageRenderCount = useRef(0);
 
-  const handleMouseMove = (e: any) => {
-    const { clientX, clientY } = e;
+  const handleMouseMove = (event: React.MouseEvent<HTMLDivElement>) => {
+    if (images.length === 0) return;
+    const rect = event.currentTarget.getBoundingClientRect();
+    const clientX = event.clientX - rect.left;
+    const clientY = event.clientY - rect.top;
 
     const distance = calculateDistance(
       clientX,
@@ -73,7 +76,12 @@ const MouseImageTrail = ({
     }
   };
 
-  const calculateDistance = (x1: any, y1: any, x2: any, y2: any) => {
+  const calculateDistance = (
+    x1: number,
+    y1: number,
+    x2: number,
+    y2: number,
+  ) => {
     const deltaX = x2 - x1;
     const deltaY = y2 - y1;
 
@@ -87,7 +95,7 @@ const MouseImageTrail = ({
     const imageIndex = imageRenderCount.current % images.length;
     const selector = `[data-mouse-move-index="${imageIndex}"]`;
 
-    const el = document.querySelector(selector) as HTMLElement | null;
+    const el = scope.current?.querySelector(selector) as HTMLElement | null;
 
     if (!el) return;
 
@@ -136,7 +144,7 @@ const MouseImageTrail = ({
     >
       {children}
 
-      {images.map((img: any, index: any) => (
+      {images.map((img, index) => (
         <img
           className="pointer-events-none absolute left-0 top-0 h-48 w-auto rounded-xl border-2 border-black bg-neutral-900 object-cover opacity-0"
           src={img}

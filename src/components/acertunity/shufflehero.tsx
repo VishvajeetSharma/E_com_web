@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useState } from "react";
 
 const ShuffleHero = () => {
   return (
@@ -23,7 +23,10 @@ const ShuffleHero = () => {
   );
 };
 
-const shuffle = (array: any) => {
+type Square = (typeof squareData)[number];
+
+const shuffle = <T,>(items: readonly T[]): T[] => {
+  const array = [...items];
   let currentIndex = array.length,
     randomIndex;
 
@@ -79,46 +82,38 @@ const squareData = [
   },
 ];
 
-const generateSquares = () => {
-  return shuffle(squareData).map((sq: any) => (
-    <motion.div
-      key={sq.id}
-      layout
-      transition={{ duration: 1.5, type: "spring" }}
-      className="w-full h-full"
-      style={{
-        backgroundImage: `url(${sq.src})`,
-        backgroundSize: "cover",
-        borderRadius: "1rem",
-        backgroundPosition: "center",
-      }}
-    ></motion.div>
-  ));
-};
-
 const ShuffleGrid = () => {
-  const timeoutRef = useRef<ReturnType<typeof setTimeout> | null>(null);
-  const [squares, setSquares] = useState(generateSquares());
+  const [squares, setSquares] = useState<Square[]>(() => shuffle(squareData));
 
   useEffect(() => {
-    shuffleSquares();
+    let timeout: ReturnType<typeof setTimeout>;
+    const shuffleSquares = () => {
+      setSquares(shuffle(squareData));
+      timeout = setTimeout(shuffleSquares, 3000);
+    };
+    timeout = setTimeout(shuffleSquares, 3000);
 
     return () => {
-      if (timeoutRef.current) {
-        clearTimeout(timeoutRef.current);
-      }
+      clearTimeout(timeout);
     };
   }, []);
 
-  const shuffleSquares = () => {
-    setSquares(generateSquares());
-
-    timeoutRef.current = setTimeout(shuffleSquares, 3000);
-  };
-
   return (
     <div className="grid grid-cols-3 grid-rows-3 h-112.5 gap-1 rounded-2xl">
-      {squares.map((sq: any) => sq)}
+      {squares.map((square) => (
+        <motion.div
+          key={square.id}
+          layout
+          transition={{ duration: 1.5, type: "spring" }}
+          className="w-full h-full"
+          style={{
+            backgroundImage: `url(${square.src})`,
+            backgroundSize: "cover",
+            borderRadius: "1rem",
+            backgroundPosition: "center",
+          }}
+        />
+      ))}
     </div>
   );
 };

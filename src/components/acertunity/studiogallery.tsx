@@ -104,7 +104,7 @@ const Gallery = () => {
       : items.filter((i) => i.category === activeCategory);
 
   return (
-    <section className="w-full py-24 bg-gradient-to-r from-[#151522] via-[#4A101C] to-[#151522] ">
+    <section className="w-full py-24 bg-linear-to-r from-[#151522] via-[#4A101C] to-[#151522] ">
       <div className="max-w-7xl mx-auto px-6">
         {/* Header Section */}
         <div className="flex flex-col md:flex-row items-end justify-between gap-8 mb-16">
@@ -172,7 +172,7 @@ const Gallery = () => {
                 />
 
                 {/* Overlay Backdrop */}
-                <div className="absolute inset-0 bg-gradient-to-t from-black/95 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-all duration-500 pointer-events-none" />
+                <div className="absolute inset-0 bg-linear-to-t from-black/95 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-all duration-500 pointer-events-none" />
 
                 {/* Content Overlay */}
                 <div className="absolute inset-0 p-8 flex flex-col justify-end transform translate-y-10 group-hover:translate-y-0 opacity-0 group-hover:opacity-100 transition-all duration-500 delay-75">

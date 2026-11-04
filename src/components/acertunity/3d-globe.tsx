@@ -1,5 +1,12 @@
 "use client";
-import React, { useRef, useMemo, useState, useCallback, Suspense } from "react";
+import React, {
+  useRef,
+  useMemo,
+  useEffect,
+  useState,
+  useCallback,
+  Suspense,
+} from "react";
 import { Canvas, useFrame, useThree } from "@react-three/fiber";
 import { OrbitControls, Html, useTexture } from "@react-three/drei";
 import * as THREE from "three";
@@ -104,6 +111,15 @@ function latLngToVector3(
   const y = radius * Math.cos(phi);
 
   return new THREE.Vector3(x, y, z);
+}
+
+function configureGlobeTextures(
+  earthTexture: THREE.Texture,
+  bumpTexture: THREE.Texture,
+) {
+  earthTexture.colorSpace = THREE.SRGBColorSpace;
+  earthTexture.anisotropy = 16;
+  bumpTexture.anisotropy = 8;
 }
 
 // ============================================================================
@@ -273,15 +289,8 @@ function RotatingGlobe({
     config.bumpMapUrl,
   ]);
 
-  // Configure textures
-  useMemo(() => {
-    if (earthTexture) {
-      earthTexture.colorSpace = THREE.SRGBColorSpace;
-      earthTexture.anisotropy = 16;
-    }
-    if (bumpTexture) {
-      bumpTexture.anisotropy = 8;
-    }
+  useEffect(() => {
+    configureGlobeTextures(earthTexture, bumpTexture);
   }, [earthTexture, bumpTexture]);
 
   // Create geometries
@@ -517,7 +526,7 @@ export function Globe3D({
   );
 
   return (
-    <div className={cn("relative h-[500px] w-full", className)}>
+    <div className={cn("relative h-125 w-full", className)}>
       <Canvas
         gl={{
           antialias: true,

@@ -118,7 +118,7 @@ const Content = ({
         opacity: 0,
         y: 8,
       }}
-      className="absolute left-0 top-[calc(100%_+_24px)] w-96 rounded-lg border border-neutral-600 bg-linear-to-b from-neutral-900 via-neutral-900 to-neutral-800 p-4"
+      className="absolute left-0 top-[calc(100%+24px)] w-96 rounded-lg border border-neutral-600 bg-linear-to-b from-neutral-900 via-neutral-900 to-neutral-800 p-4"
     >
       <Bridge />
       <Nub selected={selected} />
@@ -146,7 +146,7 @@ const Content = ({
 };
 
 const Bridge = () => (
-  <div className="absolute -top-[24px] left-0 right-0 h-[24px]" />
+  <div className="absolute -top-6 left-0 right-0 h-6" />
 );
 
 // Nub component

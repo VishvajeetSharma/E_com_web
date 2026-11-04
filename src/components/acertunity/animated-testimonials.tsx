@@ -1,7 +1,7 @@
 import { IconArrowLeft, IconArrowRight } from "@tabler/icons-react";
 import { motion, AnimatePresence } from "motion/react";
 
-import { useEffect, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 
 type Testimonial = {
   quote: string;
@@ -18,28 +18,29 @@ export const AnimatedTestimonials = ({
 }) => {
   const [active, setActive] = useState(0);
 
-  const handleNext = () => {
+  const handleNext = useCallback(() => {
+    if (testimonials.length === 0) return;
     setActive((prev) => (prev + 1) % testimonials.length);
-  };
+  }, [testimonials.length]);
 
-  const handlePrev = () => {
+  const handlePrev = useCallback(() => {
+    if (testimonials.length === 0) return;
     setActive((prev) => (prev - 1 + testimonials.length) % testimonials.length);
-  };
+  }, [testimonials.length]);
 
-  const isActive = (index: number) => {
-    return index === active;
-  };
+  const activeIndex = testimonials.length ? active % testimonials.length : 0;
 
   useEffect(() => {
-    if (autoplay) {
+    if (autoplay && testimonials.length > 1) {
       const interval = setInterval(handleNext, 5000);
       return () => clearInterval(interval);
     }
-  }, [autoplay]);
+  }, [autoplay, handleNext, testimonials.length]);
 
-  const randomRotateY = () => {
-    return Math.floor(Math.random() * 21) - 10;
-  };
+  if (testimonials.length === 0) return null;
+
+  const rotationForIndex = (index: number) => ((index * 7) % 21) - 10;
+
   return (
     <div className="mx-auto max-w-sm px-4 py-20 font-sans antialiased md:max-w-4xl md:px-8 lg:px-12">
       <div className="relative grid grid-cols-1 gap-20 md:grid-cols-2">
@@ -53,23 +54,23 @@ export const AnimatedTestimonials = ({
                     opacity: 0,
                     scale: 0.9,
                     z: -100,
-                    rotate: randomRotateY(),
+                    rotate: rotationForIndex(index),
                   }}
                   animate={{
-                    opacity: isActive(index) ? 1 : 0.7,
-                    scale: isActive(index) ? 1 : 0.95,
-                    z: isActive(index) ? 0 : -100,
-                    rotate: isActive(index) ? 0 : randomRotateY(),
-                    zIndex: isActive(index)
+                    opacity: activeIndex === index ? 1 : 0.7,
+                    scale: activeIndex === index ? 1 : 0.95,
+                    z: activeIndex === index ? 0 : -100,
+                    rotate: activeIndex === index ? 0 : rotationForIndex(index),
+                    zIndex: activeIndex === index
                       ? 40
                       : testimonials.length + 2 - index,
-                    y: isActive(index) ? [0, -80, 0] : 0,
+                    y: activeIndex === index ? [0, -80, 0] : 0,
                   }}
                   exit={{
                     opacity: 0,
                     scale: 0.9,
                     z: 100,
-                    rotate: randomRotateY(),
+                    rotate: rotationForIndex(index),
                   }}
                   transition={{
                     duration: 0.4,
@@ -92,7 +93,7 @@ export const AnimatedTestimonials = ({
         </div>
         <div className="flex flex-col justify-between py-4">
           <motion.div
-            key={active}
+            key={activeIndex}
             initial={{
               y: 20,
               opacity: 0,
@@ -111,13 +112,13 @@ export const AnimatedTestimonials = ({
             }}
           >
             <h3 className="text-2xl font-bold text-black dark:text-white">
-              {testimonials[active].name}
+              {testimonials[activeIndex].name}
             </h3>
             <p className="text-sm text-gray-500 dark:text-neutral-500">
-              {testimonials[active].designation}
+              {testimonials[activeIndex].designation}
             </p>
             <motion.p className="mt-8 text-lg text-gray-500 dark:text-neutral-300">
-              {testimonials[active].quote.split(" ").map((word, index) => (
+              {testimonials[activeIndex].quote.split(" ").map((word, index) => (
                 <motion.span
                   key={index}
                   initial={{
