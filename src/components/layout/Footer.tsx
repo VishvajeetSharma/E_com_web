@@ -1,6 +1,6 @@
 import { FaFacebook, FaInstagram, FaTwitter, FaHeart, FaMapMarkerAlt, FaClock, FaEnvelope, FaArrowRight } from "react-icons/fa";
 import { useNavigate } from "react-router-dom";
-import logo from "@/assets/images/logo.png";
+import logo from "@/assets/Images/logo.png";
 
   export function Footer() {
   const navigate = useNavigate();

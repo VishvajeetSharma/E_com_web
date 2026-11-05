@@ -2,7 +2,7 @@ import { useState, useRef, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { FaShieldAlt, FaHeart } from "react-icons/fa";
 import Header from "@/components/layout/Header";
-import img from "@/assets/images/logo.png";
+import img from "@/assets/Images/logo.png";
 
 const OtpVerificationPage = () => {
   const navigate = useNavigate();

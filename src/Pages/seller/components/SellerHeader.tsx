@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import img from "@/assets/images/logo.png";
+import img from "@/assets/Images/logo.png";
 import { useNavigate } from "react-router-dom";
 
 import {

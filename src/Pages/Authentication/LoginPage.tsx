@@ -10,7 +10,7 @@ import {
 } from "react-icons/fa";
 import { motion } from "framer-motion";
 import Header from "@/components/layout/Header";
-import img from "@/assets/images/logo.png";
+import img from "@/assets/Images/logo.png";
 import type { GlobeMarker } from "@/Pages/Authentication/components/3d-globe";
 import ErrorBoundary from "@/components/common/ErrorBoundary";
 
